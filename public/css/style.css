@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: 'ABeeZee';
+}
+
+main {
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+div.landingpage {
+    width: 62%;
+    filter: drop-shadow(6px 3px 6px rgb(0, 0, 0, 0.36));
+}
+
+div.content-wrapper {
+    height: 100vh;
+    clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+    background: rgb(230, 230, 230, 0.96);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 35vh;
+}
+
+div.content-wrapper footer {
+    display: flex;
+}
+
+div.content-wrapper footer img {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 15%;
+}
+
+div.content-wrapper footer nav.navigation {
+    margin: auto;
+    display: flex;
+    gap: 24px;
+}
+
+div.content-wrapper footer nav.navigation a {
+    font-size: 1.875em;
+    text-decoration: none;
+    color: #3E3E3E;
+    transition: 0.2s;
+}
+
+div.content-wrapper footer nav.navigation a:hover {
+    color: #FFFFFF;
+}
+
+div.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10%;
+}
+
+div.titles {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.titles h1,h2 {
+    margin: 0;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: fit-content;
+}
+
+div.titles h1 {
+    font-size: 3.75em;
+}
+
+div.titles h2 {
+    font-size: 1.5625em;
+}
+
+div.content-wrapper img {
+    width: 14%;
+    margin-top: 6%;
+}
