@@ -1,4 +1,5 @@
 body {
+    overflow-x: hidden;
     margin: 0;
     font-family: 'ABeeZee';
 }
@@ -14,14 +15,13 @@ main {
 
 div.landingpage {
     width: 62%;
-    filter: drop-shadow(6px 3px 6px rgb(0, 0, 0, 0.36));
+    filter: drop-shadow(6px 0 0 rgb(0, 0, 0, 0.36));
 }
 
 div.content-wrapper {
     height: 100vh;
     clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
-    background: rgb(230, 230, 230, 0.96);
-    backdrop-filter: blur(20px);
+    background: rgb(240, 238, 238, 0.96);
     display: flex;
     flex-direction: column;
     gap: 35vh;
@@ -86,4 +86,42 @@ div.titles h2 {
 div.content-wrapper img {
     width: 14%;
     margin-top: 6%;
+}
+
+section.about {
+    width: 100vw;
+    height: 100vh;
+    background-color: #E6E6E6;
+}
+
+section.about {
+    width: 100vw;
+    height: 100vh;
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section.about h2 {
+    margin: 0;
+    margin-bottom: 1%;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: fit-content;
+    font-size: 3.75em;
+}
+
+section.about p {
+    text-align: center;
+    width: 50%;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section.about p em {
+    font-weight: 700;
+    font-style: normal;
+    color: #000000
 }
