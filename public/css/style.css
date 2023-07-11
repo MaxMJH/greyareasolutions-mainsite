@@ -92,12 +92,6 @@ section.about {
     width: 100vw;
     height: 100vh;
     background-color: #E6E6E6;
-}
-
-section.about {
-    width: 100vw;
-    height: 100vh;
-    background-color: #E6E6E6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,4 +118,55 @@ section.about p em {
     font-weight: 700;
     font-style: normal;
     color: #000000
+}
+
+section.portfolio {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section.portfolio h2 {
+    font-size: 3.75em;
+    color: #3E3E3E;
+}
+
+section.portfolio p {
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    width: 70%;
+    text-align: center;
+}
+
+section.portfolio div.projects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(25%, 1fr));
+    grid-row-gap: 50px;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-bottom: 1%;
+    justify-items: center;
+}
+
+section.portfolio div.projects div.card {
+    width: 85%;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.36);
+}
+
+section.portfolio div.projects div.card img {
+    width: 100%;
+}
+
+section.portfolio div.projects div.card p {
+    text-align: center;
+    font-size: 1.25em;
+    height: 100%;
+    width: auto;
 }
