@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staging - Grey Area Solutions</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/style.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   </head>
   <body>
@@ -14,10 +14,10 @@
           <footer>
             <img src="{{ asset('images/logo.png') }}" alt="Logo">
             <nav class="navigation">
-              <a href="#">About</a>
-              <a href="#">Portfolio</a>
-              <a href="#">Blog</a>
-              <a href="#">Contact Us</a>
+              <a href="#about">About</a>
+              <a href="#portfolio">Portfolio</a>
+              <a href="blogs">Blog</a>
+              <a href="mailto:contactus@greyareasolutions.net">Contact Us</a>
             </nav>
           </footer>
           <div class="title">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </main>
-    <section class="about">
+    <section id="about">
       <h2>Our Mission</h2>
       <p>
         At Grey Area Solutions, we <em>empower</em> business and individuals with <em>cutting-edge</em>
@@ -47,7 +47,7 @@
         and drive growth and <em>security</em> for our clients.
       </p>
     </section>
-    <section class="portfolio">
+    <section id="portfolio">
       <h2>Company Portfolio</h2>
       <p>
         Here are a small sample of projects created by our programmers. These projects range from, tools assisting with
@@ -90,5 +90,7 @@
         </div>
       </div>
     </section>
+    <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
+    <script src="{{ mix('/js/scripts.js') }}"></script>
   </body>
 </html>
