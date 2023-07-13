@@ -35,26 +35,31 @@ div.content-wrapper footer {
     display: flex;
 }
 
-div.content-wrapper footer img {
+div.content-wrapper footer img#logo {
     margin-top: 12px;
     margin-left: 12px;
     width: 15%;
 }
 
-div.content-wrapper footer nav.navigation {
+div.content-wrapper footer img#toggler {
+    display: none;
+}
+
+div.content-wrapper footer nav#navigation {
     margin: auto;
+    margin-top: 12px;
     display: flex;
     gap: 24px;
 }
 
-div.content-wrapper footer nav.navigation a {
+div.content-wrapper footer nav#navigation a {
     font-size: 1.875em;
     text-decoration: none;
     color: #3E3E3E;
     transition: 0.2s;
 }
 
-div.content-wrapper footer nav.navigation a:hover {
+div.content-wrapper footer nav#navigation a:hover {
     color: #FFFFFF;
 }
 
@@ -87,14 +92,14 @@ div.titles h2 {
     font-size: 1.5625em;
 }
 
-div.content-wrapper img {
+div.content-wrapper div.title img#git {
     width: 14%;
     margin-top: 6%;
 }
 
 section#about {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #E6E6E6;
     display: flex;
     flex-direction: column;
@@ -152,7 +157,7 @@ section#portfolio div.projects {
     grid-row-gap: 50px;
     margin-left: 12%;
     margin-right: 12%;
-    margin-bottom: 1%;
+    margin-bottom: 12%;
     justify-items: center;
 }
 
@@ -189,4 +194,245 @@ section#portfolio div.projects div.card p {
 
 #scroller.scrolled {
     display: block;
+}
+
+@media screen and (max-width: 1536px) {
+    div.content-wrapper footer nav#navigation a {
+        font-size: 1.475em;
+    }
+
+    div.titles h1 {
+        font-size: 2.8em;
+    }
+
+    div.titles h2 {
+        font-size: 1.3em;
+    }
+
+    section#about h2 {
+        font-size: 2.8em;
+    }
+
+    section#about p {
+        font-size: 1.3em;
+    }
+
+    section#portfolio h2 {
+        font-size: 2.8em;
+    }
+
+    section#portfolio p {
+        font-size: 1.3em;
+    }
+
+    #scroller {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 1354px) {
+    section#portfolio div.projects div.card p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    div.content-wrapper footer nav#navigation a {
+        font-size: 1.2em;
+    }
+
+    div.titles h1 {
+        font-size: 1.8em;
+    }
+
+    div.titles h2 {
+        font-size: 0.85em;
+    }
+
+    section#about h2 {
+        font-size: 1.8em;
+    }
+
+    section#about p {
+        font-size: 1.1em;
+    }
+
+    section#portfolio h2 {
+        font-size: 1.8em;
+    }
+
+    section#portfolio p {
+        font-size: 1.1em;
+    }
+
+    section#portfolio div.projects div.card p {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 813px) {
+    div.content-wrapper footer nav#navigation a {
+        font-size: 1em;
+    }
+
+    section#portfolio div.projects div.card p {
+        font-size: 0.8em;
+    }
+
+    #scroller {
+        width: 5%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    main {
+        background-image: initial;
+        background-size: initial;
+        background-position: initial;
+    }
+
+    div.landingpage {
+        width: 100vw;
+        filter: initial;
+    }
+
+    div.content-wrapper {
+        clip-path: initial;
+        background: #E6E6E6;
+    }
+
+    div.content-wrapper footer nav.navigation a {
+        font-size: 1.3em;
+    }
+
+    div.title {
+        margin-right: initial;
+    }
+
+    section#about p {
+        width: 85%;
+    }
+
+    section#portfolio p {
+        width: 85%;
+    }
+
+    section#portfolio div.projects {
+        grid-row-gap: 30px;
+        grid-template-columns: initial;
+    }
+
+    section#portfolio div.projects div.card {
+        width: initial;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    section#portfolio div.projects div.card img {
+        width: 65%;
+    }
+
+    section#portfolio div.projects div.card p {
+        width: fit-content;
+        height: initial;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    main .open {
+        background: #000000;
+    }
+
+
+    div.content-wrapper footer img#logo {
+        width: 20%;
+    }
+
+    div.content-wrapper footer img#toggler {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 7%;
+        display: block;
+        z-index: 3;
+    }
+
+    div.content-wrapper footer nav#navigation {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        background: #E6E6E6;
+        opacity: 0;
+        transform: translateX(100vw);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+        z-index: 2;
+    }
+
+    div.content-wrapper footer div.open {
+        background: #000000;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    div.content-wrapper footer nav#navigation.open {
+        transform: translateX(0);
+        margin-top: initial;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
+        opacity: 1;
+    }
+
+    div.content-wrapper footer nav#navigation.open a {
+        margin-left: 6%;
+        margin-top: 25%;
+        font-size: 1.5em;
+    }
+
+    section#about p {
+        font-size: 0.95em;
+    }
+
+    section#portfolio p {
+        font-size: 0.95em;
+    }
+
+    section#portfolio div.projects div.card img {
+        width: 45%;
+    }
+
+    #scroller {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 531px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.7em;
+    }
+
+    sectio#portfolio div.projects div.card img {
+        height: initial;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.6em;
+    }
+
+    div.content-wrapper footer nav#navigation.open a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 413px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.5em;
+    }
 }

@@ -12,8 +12,9 @@
       <div class="landingpage">
         <div class="content-wrapper">
           <footer>
-            <img src="{{ asset('images/logo.png') }}" alt="Logo">
-            <nav class="navigation">
+            <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
+            <img id="toggler" src="{{ asset('images/navigationToggler.png') }}" alt="Open Navigation">
+            <nav id="navigation">
               <a href="#about">About</a>
               <a href="#portfolio">Portfolio</a>
               <a href="blogs">Blog</a>
@@ -25,7 +26,7 @@
               <h1>Grey Area Solutions</h1>
               <h2>Empowering Code, Fortifying Security</h2>
             </div>
-            <img src="{{ asset('images/github.png') }}" alt="GitHub">
+            <img id="git" src="{{ asset('images/github.png') }}" alt="GitHub">
           </div>
         </div>
       </div>
