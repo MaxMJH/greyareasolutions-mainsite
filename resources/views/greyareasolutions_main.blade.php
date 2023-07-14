@@ -83,7 +83,7 @@
           </p>
         </div>
         <div class="card">
-          <img src="{{ asset('images/smartparkingsite.jpeg') }}" alt="Code">
+          <img src="{{ asset('images/generalmobileapp.jpeg') }}" alt="Code">
           <p>
             The Maths Education Mobile Application allows for children to practice their mathematical knowledge - aimed at
             those in KS2

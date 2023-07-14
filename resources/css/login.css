@@ -1,6 +1,4 @@
 body {
-    overflow-x: hidden;
-    overflow-y: hidden;
     margin: 0;
     font-family: 'ABeeZee';
 }
@@ -64,7 +62,7 @@ main div#loginPanel form input#email {
     all: unset;
     width: 77%;
     height: 61.3%;
-    font-size: 1.875em;
+    font-size: 1.5em;
     color: #3E3E3E;
     background: #E1DDDD;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
@@ -74,7 +72,7 @@ main div#loginPanel form input#password {
     all: unset;
     width: 77%;
     height: 61.3%;
-    font-size: 1.875em;
+    font-size: 1.5em;
     color: #3E3E3E;
     background: #E1DDDD;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
@@ -84,7 +82,7 @@ main div#loginPanel form input#submit {
     all: unset;
     width: 77%;
     height: 61.3%;
-    font-size: 1.875em;
+    font-size: 1.5em;
     color: #FFFFFF;
     background: #3E3E3E;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
@@ -94,4 +92,341 @@ main div#loginPanel form input#submit {
 main div#loginPanel a {
     margin-top: 26px;
     font-size: 1.25em;
+}
+
+@media screen and (max-width: 1542px) {
+    main div#loginPanel h1 {
+        font-size: 1.65em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 1.15em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 1.4em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1.4em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1.4em;
+    }
+
+    main div#loginPanel a {
+        font-size: 1.15em;
+    }
+}
+
+@media screen and (max-width: 1314px) {
+    main div#loginPanel form input#email {
+        font-size: 1.2em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1.2em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    main div#loginPanel form input#email {
+        font-size: 1.1em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1.1em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1.1em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1184px) {
+    main div#loginPanel h2 {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 1082px) {
+    main div#loginPanel h1 {
+        font-size: 1.5em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 0.9em;
+    }
+
+    main div#loginPanel a {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 969px) {
+    main div#loginPanel h1 {
+        font-size: 1.3em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 0.85em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 1em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1em;
+    }
+
+    main div#loginPanel a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-height: 921px) {
+    main div#loginPanel h1 {
+        font-size: 1.5em;
+    }
+
+    main div#loginPanel h2 {
+        margin-bottom: 10px;
+    }
+
+    main div#loginPanel form {
+        gap: 19px;
+    }
+
+    main div#loginPanel form input#email {
+        height: 90%;
+    }
+
+    main div#loginPanel form input#password {
+        height: 90%;
+    }
+
+    main div#loginPanel form input#submit {
+        height: 90%;
+    }
+
+    main div#loginPanel a {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-height: 804px) {
+    main div#loginPanel h1 {
+        font-size: 1.5em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 0.95em;
+    }
+
+    main div#loginPanel form {
+        height: 64%;
+        gap: 26px;
+        margin-top: 0;
+    }
+
+    main div#loginPanel form input#email {
+        height: 100%;
+        font-size: 1.16em;
+    }
+
+    main div#loginPanel form input#password {
+        height: 100%;
+        font-size: 1.16em;
+    }
+
+    main div#loginPanel form input#submit {
+        height: 100%;
+        font-size: 1.16em;
+    }
+
+    main div#loginPanel a {
+        margin-top: 13px;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    main div#loginPanel h2 {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 916px) {
+    main div#loginPanel h1 {
+        font-size: 1.3em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 0.75em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 0.95em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 0.95em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 0.95em;
+    }
+
+    main div#loginPanel a {
+        font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 808px) {
+    main div#loginPanel h2 {
+        font-size: 0.7em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 0.85em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 0.85em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 0.85em;
+    }
+
+    main div#loginPanel a {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    main div#loginPanel h1 {
+        font-size: 1.1em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 0.62em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 0.8em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 0.8em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 0.8em;
+    }
+
+    main div#loginPanel a {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    main div#loginPanel h2 {
+        font-size: 0.599em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 0.7em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 0.7em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    main img#logo {
+        width: 25%;
+    }
+
+    main div#loginPanel {
+        width: 100vw;
+        height: 100vh;
+        background: initial;
+        box-shadow: initial;
+        justify-content: center;
+    }
+
+    main div#loginPanel h1 {
+        font-size: 2em;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 1.2em;
+        margin-bottom: 36px;
+    }
+
+    main div#loginPanel form {
+        height: 50%;
+        justify-content: center;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 1.4em;
+        height: 20%;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1.4em;
+        height: 20%;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1.4em;
+        height: 20%;
+    }
+
+    main div#loginPanel a {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    main img#logo {
+        width: 30%;
+    }
+
+    main div#loginPanel h2 {
+        font-size: 1em;
+    }
+
+    main div#loginPanel form input#email {
+        font-size: 1.2em;
+    }
+
+    main div#loginPanel form input#password {
+        font-size: 1.2em;
+    }
+
+    main div#loginPanel form input#submit {
+        font-size: 1.2em;
+    }
 }
