@@ -1,6 +1,6 @@
 {
     "/js/scripts.js": "/js/scripts.js?id=13eb6aadc04007ee55cd9d280246c778",
-    "/css/login.css": "/css/login.css?id=08b54764e16476266c50975a1b34da13",
+    "/css/login.css": "/css/login.css?id=96a7d41c5cf960f91a706495127ac1d8",
     "/css/style.css": "/css/style.css?id=f200b3a1f3ff258d07bd5529568d20e9",
     "/images/background.jpeg": "/images/background.jpeg?id=b61cefcc68d4671721cd47b7b7abcae9",
     "/images/generalapp.jpeg": "/images/generalapp.jpeg?id=8f26f3f6ffa773da063aa912d0ce0368",
@@ -9,5 +9,7 @@
     "/images/logo.png": "/images/logo.png?id=183225040923e0f981c10fd15a3c52ee",
     "/images/navigationToggler.png": "/images/navigationToggler.png?id=fa326065330ea0841d2a92a8305af07e",
     "/images/scroller.png": "/images/scroller.png?id=6c5bc965514dd30f3de27d02c73f28e7",
-    "/images/smartparkingsite.jpeg": "/images/smartparkingsite.jpeg?id=fdd650f6afb11dc694ab139c8803b3bd"
+    "/images/smartparkingsite.jpeg": "/images/smartparkingsite.jpeg?id=fdd650f6afb11dc694ab139c8803b3bd",
+    "/images/erroricon.png": "/images/erroricon.png?id=c5867b171e340757cb4c2ed6b47bfdf9",
+    "/images/crossicon.png": "/images/crossicon.png?id=768ea46ff08a683d847b1e967e1d3c7c"
 }

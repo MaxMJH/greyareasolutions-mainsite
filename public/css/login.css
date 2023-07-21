@@ -30,6 +30,7 @@ main div#loginPanel {
     align-items: center;
     background: #EEEEEE;
     box-shadow: 0 11px 19px rgb(0, 0, 0, 0.16);
+    position: relative;
 }
 
 main div#loginPanel h1 {
@@ -87,11 +88,52 @@ main div#loginPanel form input#submit {
     background: #3E3E3E;
     box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
     text-align: center;
+    cursor: pointer;
 }
 
 main div#loginPanel a {
     margin-top: 26px;
     font-size: 1.25em;
+}
+
+main div#loginPanel div.errornotif {
+    background: rgb(255, 64, 62);
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div#loginPanel div.errornotif p {
+    font-size: 1.25em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+main div#loginPanel div.errornotif img#error {
+    position: absolute;
+    left: 0;
+    background: rgb(238, 62, 60);
+    height: 70%;
+    padding: 0.61vh;
+}
+
+main div#loginPanel div.errornotif img#close {
+    position: absolute;
+    right: 0;
+    height: 45%;
+    padding: 2%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1808px) {
+    main div#loginPanel div.errornotif p {
+        font-size: 1.1em;
+    }
 }
 
 @media screen and (max-width: 1542px) {
@@ -118,6 +160,20 @@ main div#loginPanel a {
     main div#loginPanel a {
         font-size: 1.15em;
     }
+
+    main div#loginPanel div.errornotif {
+        bottom: 37px;
+    }
+
+    main div#loginPanel div.errornotif img#error {
+        height: 60%;
+        padding: 0.81vh;
+    }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 1em;
+        margin-left: 1.5vw;
+    }
 }
 
 @media screen and (max-width: 1314px) {
@@ -131,6 +187,17 @@ main div#loginPanel a {
 
     main div#loginPanel form input#submit {
         font-size: 1.2em;
+    }
+
+    main div#loginPanel div.errornotif img#error {
+        height: 45%;
+        padding: 1.12vh;
+        padding-left: 0.75vw;
+        padding-right: 0.75vw;
+    }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 0.92em;
     }
 }
 
@@ -149,6 +216,15 @@ main div#loginPanel a {
 
     main div#loginPanel h2 {
         font-size: 1.1em;
+    }
+
+    main div#loginPanel div.errornotif {
+        bottom: 38px;
+        width: 59%;
+    }
+
+    main div#loginPanel div.errornotif img#close {
+        height: 37%;
     }
 }
 
@@ -169,6 +245,12 @@ main div#loginPanel a {
 
     main div#loginPanel a {
         font-size: 1.1em;
+    }
+}
+
+@media screen and (max-height: 1003px) {
+    main div#loginPanel div.errornotif {
+        bottom: 20px;
     }
 }
 
@@ -195,6 +277,17 @@ main div#loginPanel a {
 
     main div#loginPanel a {
         font-size: 1em;
+    }
+
+    main div#loginPanel div.errornotif {
+        bottom: 55px;
+        width: 65%;
+    }
+}
+
+@media screen and (max-height: 974px) {
+    main div#loginPanel div.errornotif {
+        bottom: 15px;
     }
 }
 
@@ -225,6 +318,12 @@ main div#loginPanel a {
 
     main div#loginPanel a {
         font-size: 1.1em;
+    }
+}
+
+@media screen and (max-height: 842px) {
+    main div#loginPanel div.errornotif {
+        bottom: 10px;
     }
 }
 
@@ -262,6 +361,10 @@ main div#loginPanel a {
         margin-top: 13px;
         font-size: 1em;
     }
+
+    main div#loginPanel div.errornotif {
+        bottom: 5px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -294,6 +397,10 @@ main div#loginPanel a {
     main div#loginPanel a {
         font-size: 0.95em;
     }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 0.8em;
+    }
 }
 
 @media screen and (max-width: 808px) {
@@ -315,6 +422,13 @@ main div#loginPanel a {
 
     main div#loginPanel a {
         font-size: 0.9em;
+    }
+
+    main div#loginPanel div.errornotif img#error {
+        height: 35%;
+        padding: 1.33vh;
+        padding-left: 0.75vw;
+        padding-right: 0.75vw;
     }
 }
 
@@ -342,6 +456,10 @@ main div#loginPanel a {
     main div#loginPanel a {
         font-size: 0.8em;
     }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 0.7em;
+    }
 }
 
 @media screen and (max-width: 668px) {
@@ -359,6 +477,10 @@ main div#loginPanel a {
 
     main div#loginPanel form input#submit {
         font-size: 0.7em;
+    }
+
+    main div#loginPanel div.errornotif {
+        width: 69%;
     }
 }
 
@@ -385,27 +507,50 @@ main div#loginPanel a {
     }
 
     main div#loginPanel form {
-        height: 50%;
+        height: 35%;
         justify-content: center;
     }
 
     main div#loginPanel form input#email {
-        font-size: 1.4em;
         height: 20%;
+        font-size: 1.45em;
     }
 
     main div#loginPanel form input#password {
-        font-size: 1.4em;
         height: 20%;
+        font-size: 1.45em;
     }
 
     main div#loginPanel form input#submit {
-        font-size: 1.4em;
         height: 20%;
+        font-size: 1.45em;
     }
 
     main div#loginPanel a {
         font-size: 1.1em;
+    }
+
+    main div#loginPanel div.errornotif {
+        bottom: 250px;
+        width: 69%;
+        height: 5%
+    }
+
+    main div#loginPanel div.errornotif img#error {
+        height: 55%;
+        padding: 1.1vh;
+    }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 1.4em;
+        margin-left: 3vw;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    main div#loginPanel div.errornotif img#error {
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
     }
 }
 
@@ -428,6 +573,46 @@ main div#loginPanel a {
 
     main div#loginPanel form input#submit {
         font-size: 1.2em;
+    }
+
+    main div#loginPanel div.errornotif p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 1022px) {
+    main div#loginPanel div.errornotif {
+        bottom: 230px;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 958px) {
+    main div#loginPanel div.errornotif {
+        bottom: 205px;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 880px) {
+    main div#loginPanel div.errornotif {
+        bottom: 190px;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 833px) {
+    main div#loginPanel div.errornotif {
+        bottom: 175px;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 747px) {
+    main div#loginPanel div.errornotif {
+        bottom: 160px;
+    }
+}
+
+@media screen and (max-width: 645px) and (max-height: 700px) {
+    main div#loginPanel div.errornotif {
+        bottom: 150px;
     }
 }
 

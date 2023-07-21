@@ -20,6 +20,11 @@
           <input type="submit" id="submit" value="Login">
         </form>
         <a href="">Forgot your password?</a>
+        <div class="errornotif">
+          <img id="error" src="{{ asset('images/erroricon.png') }}" alt="Error">
+          <p>Unable to Sign-In</p>
+          <img id="close" src="{{ asset('images/crossicon.png') }}" alt="Close">
+        </div>
       </div>
     </main>
   </body>
