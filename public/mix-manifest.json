@@ -1,8 +1,12 @@
 {
-    "/js/scripts.js": "/js/scripts.js?id=13eb6aadc04007ee55cd9d280246c778",
-    "/css/login.css": "/css/login.css?id=96a7d41c5cf960f91a706495127ac1d8",
-    "/css/style.css": "/css/style.css?id=f200b3a1f3ff258d07bd5529568d20e9",
+    "/js/scripts.js": "/js/scripts.js?id=c0be62521b50da5f3e7bd281cbb6ac47",
+    "/js/blogs.js": "/js/blogs.js?id=048665da913918eddf9e3c2eb6e9e5b3",
+    "/css/blogs.css": "/css/blogs.css?id=be21a395efcdeef159b4fb06f23809bb",
+    "/css/login.css": "/css/login.css?id=b6ed21300545334abc674980ffffc917",
+    "/css/style.css": "/css/style.css?id=4f0a1a73399a6da2cd7d9e2429a2dbeb",
     "/images/background.jpeg": "/images/background.jpeg?id=b61cefcc68d4671721cd47b7b7abcae9",
+    "/images/crossicon.png": "/images/crossicon.png?id=768ea46ff08a683d847b1e967e1d3c7c",
+    "/images/erroricon.png": "/images/erroricon.png?id=c5867b171e340757cb4c2ed6b47bfdf9",
     "/images/generalapp.jpeg": "/images/generalapp.jpeg?id=8f26f3f6ffa773da063aa912d0ce0368",
     "/images/generalmobileapp.jpeg": "/images/generalmobileapp.jpeg?id=712067d14efd78db451e3c87c2d1b596",
     "/images/github.png": "/images/github.png?id=c38d433cb4450017272794103f6874bc",
@@ -10,6 +14,5 @@
     "/images/navigationToggler.png": "/images/navigationToggler.png?id=fa326065330ea0841d2a92a8305af07e",
     "/images/scroller.png": "/images/scroller.png?id=6c5bc965514dd30f3de27d02c73f28e7",
     "/images/smartparkingsite.jpeg": "/images/smartparkingsite.jpeg?id=fdd650f6afb11dc694ab139c8803b3bd",
-    "/images/erroricon.png": "/images/erroricon.png?id=c5867b171e340757cb4c2ed6b47bfdf9",
-    "/images/crossicon.png": "/images/crossicon.png?id=768ea46ff08a683d847b1e967e1d3c7c"
+    "/images/timeicon.png": "/images/timeicon.png?id=2c19e1a3f4bab25e6a297c78375423e3"
 }

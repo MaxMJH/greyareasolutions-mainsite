@@ -17,7 +17,7 @@
             <nav id="navigation">
               <a href="#about">About</a>
               <a href="#portfolio">Portfolio</a>
-              <a href="blogs">Blog</a>
+              <a href="/blogs">Blog</a>
               <a href="mailto:contactus@greyareasolutions.net">Contact Us</a>
             </nav>
           </footer>

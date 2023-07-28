@@ -13,13 +13,20 @@ main {
     background: #E6E6E6;
 }
 
-main img#logo {
+main a#logo {
     margin-top: 12px;
     margin-left: 12px;
     width: 9.3%;
     position: fixed;
     top: 0;
     left: 0;
+    height: 5%;
+    z-index: 1;
+}
+
+main a#logo img#logo {
+    all: inherit;
+    height: auto;
 }
 
 main div#loginPanel {
@@ -485,7 +492,7 @@ main div#loginPanel div.errornotif img#close {
 }
 
 @media screen and (max-width: 645px) {
-    main img#logo {
+    main a#logo {
         width: 25%;
     }
 

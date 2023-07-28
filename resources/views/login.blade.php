@@ -9,7 +9,9 @@
   </head>
   <body>
     <main>
-      <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
+      <a id="logo" href="/">
+        <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
+      </a>
       <div id="loginPanel">
         <h1>Login Page</h1>
         <h2>Login with your admin or blogger credentials</h2>
