@@ -11,38 +11,38 @@ body {
     background: #E6E6E6;
 }
 
-footer {
+header {
     display: flex;
 }
 
-footer img#logo {
+header img#logo {
     margin-top: 12px;
     margin-left: 12px;
     width: 9.3%;
 }
 
-footer img#toggler {
+header img#toggler {
     display: none;
 }
 
-footer nav#navigation {
+header nav#navigation {
     margin: auto;
     display: flex;
     gap: 24px;
 }
 
-footer nav#navigation a {
+header nav#navigation a {
     font-size: 1.875em;
     text-decoration: none;
     color: #3E3E3E;
     transition: 0.2s;
 }
 
-footer nav#navigation a:hover {
+header nav#navigation a:hover {
     color: #FFFFFF;
 }
 
-footer a#login {
+header a#login {
     width: 5.21vw;
     font-size: 1.875em;
     text-align: center;
@@ -150,11 +150,11 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 1536px) {
-    footer nav#navigation a {
+    header nav#navigation a {
         font-size: 1.475em;
     }
 
-    footer a#login {
+    header a#login {
         font-size: 1.475em;
         width: 8vw;
     }
@@ -181,7 +181,7 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 1324px) {
-    footer img#logo {
+    header img#logo {
         width: 11.5%;
     }
 
@@ -191,11 +191,11 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 1146px) {
-    footer img#logo {
+    header img#logo {
         width: 12.5%;
     }
 
-    footer a#login {
+    header a#login {
         line-height: 35px;
     }
 }
@@ -219,16 +219,16 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 975px) {
-    footer img#logo {
+    header img#logo {
         width: 12%;
         height: 1%;
     }
 
-    footer nav#navigation a {
+    header nav#navigation a {
         font-size: 1.2em;
     }
 
-    footer a#login {
+    header a#login {
         font-size: 1.2em;
         line-height: 35px;
     }
@@ -261,11 +261,11 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 813px) {
-    footer nav#navigation a {
+    header nav#navigation a {
         font-size: 1em;
     }
 
-    footer a#login {
+    header a#login {
         font-size: 1em;
     }
 
@@ -327,7 +327,7 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 645px) {
-    footer a#login {
+    header a#login {
         width: 10vw;
     }
 }
@@ -337,11 +337,11 @@ main div.blog-content a {
         background: #000000;
     }
 
-    footer img#logo {
+    header img#logo {
         width: 25%;
     }
 
-    footer img#toggler {
+    header img#toggler {
         position: fixed;
         top: 12px;
         right: 12px;
@@ -350,7 +350,7 @@ main div.blog-content a {
         z-index: 3;
     }
 
-    footer nav#navigation {
+    header nav#navigation {
         display: flex;
         flex-direction: column;
         width: 50vw;
@@ -364,7 +364,7 @@ main div.blog-content a {
         z-index: 2;
     }
 
-    footer div.open {
+    header div.open {
         background: #000000;
         width: 100vw;
         height: 100vh;
@@ -373,20 +373,20 @@ main div.blog-content a {
         opacity: 0.6;
     }
 
-    footer nav#navigation.open {
+    header nav#navigation.open {
         transform: translateX(0);
         margin-top: initial;
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
         opacity: 1;
     }
 
-    footer nav#navigation.open a {
+    header nav#navigation.open a {
         margin-left: 6%;
         margin-top: 25%;
         font-size: 1.5em;
     }
 
-    footer nav#navigation.open a#login {
+    header nav#navigation.open a#login {
         all: unset;
         font-size: 1.5em;
         color: #FFFFFF;
@@ -413,11 +413,11 @@ main div.blog-content a {
 }
 
 @media screen and (max-width: 462px) {
-    footer nav#navigation.open a {
+    header nav#navigation.open a {
         font-size: 1em;
     }
 
-    footer nav#navigation.open a#login {
+    header nav#navigation.open a#login {
         font-size: 1em;
     }
 }

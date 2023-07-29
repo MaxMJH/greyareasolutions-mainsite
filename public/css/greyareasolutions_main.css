@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    background-image: url("../images/background.jpeg");
+    background-image: url(/images/background.jpeg?f1894c70939766d78f388dd5c320dd05);
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -24,41 +24,42 @@ div.landingpage {
 
 div.content-wrapper {
     height: 100vh;
-    clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
     background: rgb(240, 238, 238, 0.96);
     display: flex;
     flex-direction: column;
     gap: 35vh;
 }
 
-div.content-wrapper footer {
+div.content-wrapper header {
     display: flex;
 }
 
-div.content-wrapper footer img#logo {
+div.content-wrapper header img#logo {
     margin-top: 12px;
     margin-left: 12px;
     width: 15%;
 }
 
-div.content-wrapper footer img#toggler {
+div.content-wrapper header img#toggler {
     display: none;
 }
 
-div.content-wrapper footer nav#navigation {
+div.content-wrapper header nav#navigation {
     margin: auto;
     display: flex;
     gap: 24px;
 }
 
-div.content-wrapper footer nav#navigation a {
+div.content-wrapper header nav#navigation a {
     font-size: 1.875em;
     text-decoration: none;
     color: #3E3E3E;
     transition: 0.2s;
 }
 
-div.content-wrapper footer nav#navigation a:hover {
+div.content-wrapper header nav#navigation a:hover {
     color: #FFFFFF;
 }
 
@@ -70,6 +71,7 @@ div.title {
 }
 
 div.titles {
+    width: -moz-fit-content;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -80,6 +82,7 @@ div.titles h1,h2 {
     margin: 0;
     font-weight: normal;
     color: #3E3E3E;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -111,6 +114,7 @@ section#about h2 {
     margin-bottom: 1%;
     font-weight: normal;
     color: #3E3E3E;
+    width: -moz-fit-content;
     width: fit-content;
     font-size: 3.75em;
 }
@@ -196,7 +200,7 @@ section#portfolio div.projects div.card p {
 }
 
 @media screen and (max-width: 1536px) {
-    div.content-wrapper footer nav#navigation a {
+    div.content-wrapper header nav#navigation a {
         font-size: 1.475em;
     }
 
@@ -236,7 +240,7 @@ section#portfolio div.projects div.card p {
 }
 
 @media screen and (max-width: 975px) {
-    div.content-wrapper footer nav#navigation a {
+    div.content-wrapper header nav#navigation a {
         font-size: 1.2em;
     }
 
@@ -270,7 +274,7 @@ section#portfolio div.projects div.card p {
 }
 
 @media screen and (max-width: 813px) {
-    div.content-wrapper footer nav#navigation a {
+    div.content-wrapper header nav#navigation a {
         font-size: 1em;
     }
 
@@ -296,11 +300,12 @@ section#portfolio div.projects div.card p {
     }
 
     div.content-wrapper {
-        clip-path: initial;
+        -webkit-clip-path: initial;
+                clip-path: initial;
         background: #E6E6E6;
     }
 
-    div.content-wrapper footer nav.navigation a {
+    div.content-wrapper header nav.navigation a {
         font-size: 1.3em;
     }
 
@@ -332,6 +337,7 @@ section#portfolio div.projects div.card p {
     }
 
     section#portfolio div.projects div.card p {
+        width: -moz-fit-content;
         width: fit-content;
         height: initial;
         margin-left: 1%;
@@ -344,11 +350,11 @@ section#portfolio div.projects div.card p {
     }
 
 
-    div.content-wrapper footer img#logo {
+    div.content-wrapper header img#logo {
         width: 25%;
     }
 
-    div.content-wrapper footer img#toggler {
+    div.content-wrapper header img#toggler {
         position: fixed;
         top: 12px;
         right: 12px;
@@ -357,7 +363,7 @@ section#portfolio div.projects div.card p {
         z-index: 3;
     }
 
-    div.content-wrapper footer nav#navigation {
+    div.content-wrapper header nav#navigation {
         display: flex;
         flex-direction: column;
         width: 50vw;
@@ -371,7 +377,7 @@ section#portfolio div.projects div.card p {
         z-index: 2;
     }
 
-    div.content-wrapper footer div.open {
+    div.content-wrapper header div.open {
         background: #000000;
         width: 100vw;
         height: 100vh;
@@ -380,14 +386,14 @@ section#portfolio div.projects div.card p {
         opacity: 0.6;
     }
 
-    div.content-wrapper footer nav#navigation.open {
+    div.content-wrapper header nav#navigation.open {
         transform: translateX(0);
         margin-top: initial;
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
         opacity: 1;
     }
 
-    div.content-wrapper footer nav#navigation.open a {
+    div.content-wrapper header nav#navigation.open a {
         margin-left: 6%;
         margin-top: 25%;
         font-size: 1.5em;
@@ -425,7 +431,7 @@ section#portfolio div.projects div.card p {
         font-size: 0.6em;
     }
 
-    div.content-wrapper footer nav#navigation.open a {
+    div.content-wrapper header nav#navigation.open a {
         font-size: 1em;
     }
 }
@@ -435,3 +441,4 @@ section#portfolio div.projects div.card p {
         font-size: 0.5em;
     }
 }
+

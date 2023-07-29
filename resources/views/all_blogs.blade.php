@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   </head>
   <body>
-    <footer>
+    <header>
       <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
       <img id="toggler" src="{{ asset('images/navigationToggler.png') }}" alt="Open Navigation">
       <nav id="navigation">
@@ -18,7 +18,7 @@
         <a href="mailto:contactus@greyareasolutions.net">Contact Us</a>
       </nav>
       <a id="login" href="/login">Login</a>
-    </footer>
+    </header>
     <main>
       <div class="blog">
         <img src="{{ asset('images/generalapp.jpeg') }}" alt="Blog Image">

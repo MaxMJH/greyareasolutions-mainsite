@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    background-image: url(/images/background.jpeg?f1894c70939766d78f388dd5c320dd05);
+    background-image: url("../images/background.jpeg");
     background-size: cover;
     background-position: center;
     width: 100vw;
@@ -24,8 +24,7 @@ div.landingpage {
 
 div.content-wrapper {
     height: 100vh;
-    -webkit-clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
-            clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
     background: rgb(240, 238, 238, 0.96);
     display: flex;
     flex-direction: column;
@@ -71,7 +70,6 @@ div.title {
 }
 
 div.titles {
-    width: -moz-fit-content;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -82,7 +80,6 @@ div.titles h1,h2 {
     margin: 0;
     font-weight: normal;
     color: #3E3E3E;
-    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -114,7 +111,6 @@ section#about h2 {
     margin-bottom: 1%;
     font-weight: normal;
     color: #3E3E3E;
-    width: -moz-fit-content;
     width: fit-content;
     font-size: 3.75em;
 }
@@ -300,8 +296,7 @@ section#portfolio div.projects div.card p {
     }
 
     div.content-wrapper {
-        -webkit-clip-path: initial;
-                clip-path: initial;
+        clip-path: initial;
         background: #E6E6E6;
     }
 
@@ -337,7 +332,6 @@ section#portfolio div.projects div.card p {
     }
 
     section#portfolio div.projects div.card p {
-        width: -moz-fit-content;
         width: fit-content;
         height: initial;
         margin-left: 1%;
@@ -441,4 +435,3 @@ section#portfolio div.projects div.card p {
         font-size: 0.5em;
     }
 }
-

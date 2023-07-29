@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staging - Grey Area Solutions</title>
-    <link rel="stylesheet" href="{{ mix('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/greyareasolutions_main.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   </head>
   <body>
     <main>
       <div class="landingpage">
         <div class="content-wrapper">
-          <footer>
+          <header>
             <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
             <img id="toggler" src="{{ asset('images/navigationToggler.png') }}" alt="Open Navigation">
             <nav id="navigation">
@@ -20,7 +20,7 @@
               <a href="/blogs">Blog</a>
               <a href="mailto:contactus@greyareasolutions.net">Contact Us</a>
             </nav>
-          </footer>
+          </header>
           <div class="title">
             <div class="titles">
               <h1>Grey Area Solutions</h1>
