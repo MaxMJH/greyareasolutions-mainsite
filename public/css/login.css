@@ -112,6 +112,7 @@ main div#loginPanel div.errornotif {
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
 }
 
 main div#loginPanel div.errornotif p {

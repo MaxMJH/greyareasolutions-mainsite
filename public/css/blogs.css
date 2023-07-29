@@ -66,13 +66,15 @@ main {
     grid-row-gap: 120px;
     justify-content: center;
     padding-top: 50px;
+    margin-bottom: 50px;
 }
 
 main div.blog {
     width: 23.5vw;
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main div.blog-content {
@@ -160,11 +162,31 @@ main div.blog-content a {
     #scroller {
         width: 4%;
     }
+
+    main div.blog-content h2 {
+        font-size: 1.875em;
+    }
+
+    main div.blog-content p {
+        font-size: 1.3em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 1.1em;
+    }
+
+    main div.blog-content a {
+        font-size: 1.1em;
+    }
 }
 
 @media screen and (max-width: 1324px) {
     footer img#logo {
         width: 11.5%;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
     }
 }
 
@@ -175,6 +197,24 @@ main div.blog-content a {
 
     footer a#login {
         line-height: 45px;
+    }
+}
+
+@media screen and (max-width: 1111px) {
+    main div.blog-content h3 {
+        font-size: 0.95em;
+    }
+
+    main div.blog-content p {
+        font-size: 1.15em;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
+    }
+
+    main div.blog-content a {
+        font-size: 1em;
     }
 }
 
@@ -194,6 +234,32 @@ main div.blog-content a {
     }
 }
 
+@media screen and (max-width: 965px) {
+    main div.blog-content h2 {
+        font-size: 1.275em;
+    }
+
+    main div.blog-info h3 {
+        font-size: 0.75em;
+    }
+
+    main div.blog-datetime img {
+        width: 10%;
+    }
+
+    main div.blog-content p {
+        font-size: 0.9em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.9em;
+    }
+
+    main {
+        grid-row-gap: 80px;
+    }
+}
+
 @media screen and (max-width: 813px) {
     footer nav#navigation a {
         font-size: 1em;
@@ -205,6 +271,58 @@ main div.blog-content a {
 
     #scroller {
         width: 5%;
+    }
+
+    main div.blog-info h3 {
+        font-size: 0.7em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.725em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    main div.blog-content h3 {
+        font-size: 0.65em;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    main div.blog-content h3 {
+        font-size: 0.55em;
+    }
+
+    main {
+        grid-template-columns: unset;
+    }
+
+    main div.blog {
+        width: 50vw;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.95em;
+    }
+
+    main div.blog-datetime img {
+        width: 7%;
+    }
+
+    main div.blog-content p {
+        font-size: 1.2em;
+    }
+
+    main div.blog-content a {
+        font-size: 1.1em;
     }
 }
 
@@ -284,6 +402,14 @@ main div.blog-content a {
     #scroller {
         width: 8%;
     }
+
+    main div.blog-content p {
+        font-size: 1em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.9em;
+    }
 }
 
 @media screen and (max-width: 462px) {
@@ -293,6 +419,46 @@ main div.blog-content a {
 
     footer nav#navigation.open a#login {
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 458px) {
+    main div.blog-content h2 {
+        font-size: 1.475em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.75em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 366px) {
+    main div.blog-content h2 {
+        font-size: 1.3em;
+    }
+
+    main div.blog-datetime img {
+        width: 10%;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.65em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.85em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.75em;
+    }
+
+    main {
+        grid-row-gap: 60px;
     }
 }
 
