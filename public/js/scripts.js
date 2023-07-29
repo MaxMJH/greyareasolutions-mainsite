@@ -38,6 +38,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/blog.css":
+/*!********************************!*\
+  !*** ./resources/css/blog.css ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/js/scripts.js":
 /*!*********************************!*\
   !*** ./resources/js/scripts.js ***!
@@ -178,6 +190,7 @@ window.addEventListener('resize', function (event) {
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/scripts": 0,
+/******/ 			"css/blog": 0,
 /******/ 			"css/blogs": 0,
 /******/ 			"css/login": 0,
 /******/ 			"css/style": 0
@@ -230,10 +243,11 @@ window.addEventListener('resize', function (event) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/js/scripts.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/style.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/login.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/blogs.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/js/scripts.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/style.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/blogs.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/login","css/style"], () => (__webpack_require__("./resources/css/blog.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
