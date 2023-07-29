@@ -155,7 +155,7 @@ main div.blog-content a {
 
     footer a#login {
         font-size: 1.475em;
-        width: 6.54vw;
+        width: 8vw;
     }
 
     #scroller {
@@ -195,7 +195,7 @@ main div.blog-content a {
     }
 
     footer a#login {
-        line-height: 45px;
+        line-height: 35px;
     }
 }
 
@@ -327,7 +327,7 @@ main div.blog-content a {
 
 @media screen and (max-width: 645px) {
     footer a#login {
-        width: 8vw;
+        width: 10vw;
     }
 }
 
