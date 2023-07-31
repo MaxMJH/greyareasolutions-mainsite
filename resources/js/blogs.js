@@ -4,7 +4,7 @@
 const togglerElement = document.getElementById('toggler');
 const navigationElement = document.getElementById('navigation');
 const scrollerElement = document.getElementById('scroller');
-const footerElement = document.querySelector('footer');
+const headerElement = document.querySelector('header');
 const blackoutElement = document.createElement('div');
 const loginElement = document.querySelector('a#login');
 
@@ -13,7 +13,7 @@ const widthBreakPoint = 541;
 
 /*---- Script Launch Functions ----*/
 if(window.innerWidth <= widthBreakPoint) {
-  footerElement.removeChild(loginElement);
+  headerElement.removeChild(loginElement);
   navigationElement.appendChild(loginElement);
 }
 
@@ -21,11 +21,11 @@ if(window.innerWidth <= widthBreakPoint) {
 togglerElement.addEventListener('click', (event) => {
   if(navigationElement.classList.contains('open')) {
     navigationElement.classList.remove('open');
-    footerElement.removeChild(blackoutElement);
+    headerElement.removeChild(blackoutElement);
   } else {
     navigationElement.classList.add('open');
     blackoutElement.classList.add('open');
-    footerElement.appendChild(blackoutElement);
+    headerElement.appendChild(blackoutElement);
   }
 });
 
@@ -48,18 +48,18 @@ window.addEventListener('resize', (event) => {
     // Ensure that if screen width is increased, remove burger.
     navigationElement.classList.remove('open');
 
-    if(footerElement.querySelector('div') !== null) {
-      footerElement.removeChild(blackoutElement);
+    if(headerElement.querySelector('div') !== null) {
+      headerElement.removeChild(blackoutElement);
     }
 
-    // Ensure that if the screen width is more than widthBreakPoint, the login button is placed in footer.
+    // Ensure that if the screen width is more than widthBreakPoint, the login button is placed in header.
     if(navigationElement.querySelector('a#login') !== null) {
-      footerElement.appendChild(loginElement);
+      headerElement.appendChild(loginElement);
     }
   } else {
     // Ensure that if the screen width is less than widthBreakPoint, the login button is placed in nav.
     if(navigationElement.querySelector('a#login') === null) {
-      footerElement.removeChild(loginElement);
+      headerElement.removeChild(loginElement);
       navigationElement.appendChild(loginElement);
     }
   }

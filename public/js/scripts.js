@@ -63,7 +63,7 @@ __webpack_require__.r(__webpack_exports__);
 var togglerElement = document.getElementById('toggler');
 var navigationElement = document.getElementById('navigation');
 var scrollerElement = document.getElementById('scroller');
-var footerElement = document.querySelector('footer');
+var headerElement = document.querySelector('header');
 var blackoutElement = document.createElement('div');
 
 /*---- Other Constants ----*/
@@ -73,11 +73,11 @@ var widthBreakPoint = 541;
 togglerElement.addEventListener('click', function (event) {
   if (navigationElement.classList.contains('open')) {
     navigationElement.classList.remove('open');
-    footerElement.removeChild(blackoutElement);
+    headerElement.removeChild(blackoutElement);
   } else {
     navigationElement.classList.add('open');
     blackoutElement.classList.add('open');
-    footerElement.appendChild(blackoutElement);
+    headerElement.appendChild(blackoutElement);
   }
 });
 document.addEventListener('scroll', function (event) {
@@ -95,8 +95,8 @@ scrollerElement.addEventListener('click', function (event) {
 window.addEventListener('resize', function (event) {
   if (window.innerWidth > widthBreakPoint) {
     navigationElement.classList.remove('open');
-    if (footerElement.querySelector('div') !== null) {
-      footerElement.removeChild(blackoutElement);
+    if (headerElement.querySelector('div') !== null) {
+      headerElement.removeChild(blackoutElement);
     }
   }
 });

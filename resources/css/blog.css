@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
 }
 
 body {
@@ -7,12 +8,21 @@ body {
     margin: 0;
     font-family: 'ABeeZee';
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: #E6E6E6;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto 1fr;
+    grid-gap: 0;
+    grid-template-areas: "Header Header" "Left Right";
 }
 
 header {
     display: flex;
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    background: #E6E6E6;
 }
 
 header img#logo {
@@ -55,6 +65,194 @@ header a#login {
     padding-top: 0.4%;
     padding-bottom: 0.4%;
     height: fit-content;
+}
+
+main {
+    grid-area: Left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8.5%;
+    margin-bottom: 5%;
+    height: auto;
+}
+
+main div#blog-content {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+main div#blog-content img {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main div#blog-content div#blog-info {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+main div#blog-content div#blog-info div#blog-title {
+    display: flex;
+    align-items: center;
+    height: 8.18%;
+    width: 100%;
+}
+
+main div#blog-content div#blog-info div#blog-title h2 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 2.8125em;
+    margin: 0;
+    width: 75%;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 5%;
+    width: 12.5%;
+    position: relative;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete img {
+    width: 12.5%;
+    margin: 0;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a#edit {
+    width: 12.5%;
+    position: absolute;
+    height: 100%;
+    left: 0;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a#remove {
+    width: 12.5%;
+    position: absolute;
+    height: 100%;
+    left: 17.5%;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+    width: 12.5%;
+    align-items: center;
+    justify-content: end;
+    gap: 5px;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime img {
+    width: 10%;
+    margin: 0;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+main div#blog-content div#blog-info h3 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+main div#blog-content div#blog-info p {
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section#recent-posts {
+    display: flex;
+    flex-direction: column;
+    top: 8.1%;
+    overflow: hidden;
+    position: fixed;
+    width: 25%;
+    right: 0;
+    min-height: 100vh;
+    gap: 2vh;
+}
+
+section#recent-posts::before {
+    border-right: 3px solid #707070;
+    content: "";
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    height: 78%;
+    opacity: 25%;
+    margin-top: 7.5%;
+}
+
+section#recent-posts h3 {
+    font-size: 2.1875em;
+    text-align: center;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+section#recent-posts div.recent-post {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    position: relative;
+}
+
+section#recent-posts div.recent-post img {
+    width: 50%;
+}
+
+section#recent-posts div.recent-post div.blog-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2.5%;
+}
+
+section#recent-posts div.recent-post div.blog-info h4 {
+    font-weight: normal;
+    width: fit-content;
+    margin: 0;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+    width: 5.5%;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+    margin: 0;
+    font-weight: normal;
+    width: fit-content;
+    font-size: 1em;
+    color: #3E3E3E;
+    margin-left: 1%;
+}
+
+section#recent-posts div.recent-post a.recent-post-ref {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 #scroller {
