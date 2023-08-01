@@ -271,6 +271,18 @@ section#recent-posts div.recent-post a.recent-post-ref {
     display: block;
 }
 
+@media screen and (min-width: 1920px) {
+    section#recent-posts div.recent-post img {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1655px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 15%;
+    }
+}
+
 @media screen and (max-width: 1536px) {
     header nav#navigation a {
         font-size: 1.475em;
@@ -281,14 +293,72 @@ section#recent-posts div.recent-post a.recent-post-ref {
         width: 8vw;
     }
 
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 2.2em;
+    }
+
+    main div#blog-content div#blog-info h3 {
+        font-size: 0.85em;
+        margin-bottom: 0;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.5em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 2.1em;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 70%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info h4 {
+        font-size: 1.45em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 6%;
+        height: 5%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+        font-size: 0.9em;
+    }
+
     #scroller {
         width: 4%;
+    }
+}
+
+@media screen and (max-width: 1414px) {
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete {
+        width: 17.5%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 20%;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.35em;
     }
 }
 
 @media screen and (max-width: 1324px) {
     header img#logo {
         width: 11.5%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 2.1em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.9em;
     }
 }
 
@@ -299,6 +369,51 @@ section#recent-posts div.recent-post a.recent-post-ref {
 
     header a#login {
         line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 1166px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        position: unset;
+        background: unset;
+    }
+
+    main {
+        margin-top: 4.25%;
+    }
+
+    section#recent-posts {
+        position: unset;
+        width: 100vw;
+        min-height: auto;
+        margin-bottom: 10%;
+    }
+
+    section#recent-posts::before {
+        position: unset;
+        height: unset;
+        width: 80%;
+        border-top: 3px solid #707070;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+    }
+
+    section#recent-posts h3 {
+        margin-top: 0;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 15%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 2.5%;
     }
 }
 
@@ -315,6 +430,32 @@ section#recent-posts div.recent-post a.recent-post-ref {
     header a#login {
         font-size: 1.2em;
         line-height: 35px;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.15em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 872px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 1.5em;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 25%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.85em;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.05em;
     }
 }
 
@@ -335,6 +476,46 @@ section#recent-posts div.recent-post a.recent-post-ref {
 @media screen and (max-width: 645px) {
     header a#login {
         width: 10vw;
+    }
+}
+
+@media screen and (max-width: 626px) {
+    main div#blog-content img {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 5%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete img {
+        width: 25%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a#edit {
+        width: 25%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a#remove {
+        width: 25%;
+        left: 51%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 30%;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 25%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 3.5%;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 35%;
     }
 }
 
@@ -410,6 +591,40 @@ section#recent-posts div.recent-post a.recent-post-ref {
     }
 }
 
+@media screen and (max-width: 498px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 1.2em;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete {
+        gap: 25%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content div#blog-info h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 0.9em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.2em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info h4 {
+        font-size: 1em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+        font-size: 0.75em;
+    }
+}
+
 @media screen and (max-width: 462px) {
     header nav#navigation.open a {
         font-size: 1em;
@@ -417,5 +632,17 @@ section#recent-posts div.recent-post a.recent-post-ref {
 
     header nav#navigation.open a#login {
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    main div#blog-content div#blog-info div#blog-title {
+        position: relative;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        position: absolute;
+        top: 100%;
+        right: 12%;
     }
 }
