@@ -76,6 +76,11 @@ main div.blog {
     margin-right: auto;
 }
 
+main div.blog img {
+    border-radius: 26px 26px 0 0;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
+}
+
 main div.blog-content {
     align-items: center;
     display: flex;
