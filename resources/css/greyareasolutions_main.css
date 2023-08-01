@@ -67,6 +67,7 @@ div.title {
     align-items: center;
     flex-direction: column;
     margin-right: 10%;
+    position: relative;
 }
 
 div.titles {
@@ -94,6 +95,13 @@ div.titles h2 {
 div.content-wrapper div.title img#git {
     width: 14%;
     margin-top: 6%;
+}
+
+div.content-wrapper div.title a {
+    width: 14%;
+    height: 49%;
+    position: absolute;
+    bottom: 0;
 }
 
 section#about {

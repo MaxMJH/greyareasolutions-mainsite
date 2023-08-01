@@ -26,7 +26,8 @@
               <h1>Grey Area Solutions</h1>
               <h2>Empowering Code, Fortifying Security</h2>
             </div>
-            <img id="git" src="{{ asset('images/github.png') }}" alt="GitHub">
+              <img id="git" src="{{ asset('images/github.png') }}" alt="GitHub">
+              <a href="https://www.github.com/MaxMJH"></a>
           </div>
         </div>
       </div>
