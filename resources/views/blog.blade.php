@@ -71,6 +71,9 @@
         <a class="recent-post-ref" href=""></a>
       </div>
     </section>
+    @if (1 === 2)
+      @include('confirmation_modal')
+    @endif
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
     <script src="{{ mix('/js/blogs.js') }}"></script>
   </body>

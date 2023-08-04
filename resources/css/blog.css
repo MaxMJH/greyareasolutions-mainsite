@@ -255,6 +255,85 @@ section#recent-posts div.recent-post a.recent-post-ref {
     height: 100%;
 }
 
+div#confirmation-modal {
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div#confirmation-modal div#modal-box {
+    display: flex;
+    flex-direction: column;
+    background: #E6E6E6;
+    width: 35%;
+    height: 25%;
+    justify-content: space-between;
+}
+
+div#confirmation-modal div#modal-box h2 {
+    margin: auto;
+    font-size: 1.875em;
+    font-weight: normal;
+    background: rgb(202, 196, 196);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    color: #3E3E3E;
+    margin-bottom: 0;
+}
+
+div#confirmation-modal div#modal-box p {
+    text-align: center;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+div#confirmation-modal div#modal-box form#confirmation-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2.5%;
+    border-top: 3px solid #7070701a;
+    padding-top: 2.5%;
+}
+
+div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(47, 200, 64);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box form#confirmation-form button#confirm:hover {
+    background: rgb(53, 130, 61);
+}
+
+div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(202, 46, 46);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover {
+    background: rgb(132, 30, 30);
+}
+
 #scroller {
     display: none;
     width: 3%;
@@ -280,6 +359,10 @@ section#recent-posts div.recent-post a.recent-post-ref {
 @media screen and (max-width: 1655px) {
     main div#blog-content div#blog-info div#blog-title div.blog-datetime {
         width: 15%;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.4em;
     }
 }
 
@@ -327,6 +410,22 @@ section#recent-posts div.recent-post a.recent-post-ref {
         font-size: 0.9em;
     }
 
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.6em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.3em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        font-size: 1.2em;
+    }
+
     #scroller {
         width: 4%;
     }
@@ -350,6 +449,14 @@ section#recent-posts div.recent-post a.recent-post-ref {
     header img#logo {
         width: 11.5%;
     }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        font-size: 1.1em;
+    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -359,6 +466,16 @@ section#recent-posts div.recent-post a.recent-post-ref {
 
     section#recent-posts h3 {
         font-size: 1.9em;
+    }
+}
+
+@media screen and (max-width: 1258px) {
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        width: 17%;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        width: 17%;
     }
 }
 
@@ -417,6 +534,22 @@ section#recent-posts div.recent-post a.recent-post-ref {
     }
 }
 
+@media screen and (max-width: 1082px) {
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        width: 20%;
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        width: 20%;
+        font-size: 1em;
+    }
+}
+
 @media screen and (max-width: 975px) {
     header img#logo {
         width: 12%;
@@ -459,6 +592,16 @@ section#recent-posts div.recent-post a.recent-post-ref {
     }
 }
 
+@media screen and (max-width: 844px) {
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        width: 25%;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        width: 25%;
+    }
+}
+
 @media screen and (max-width: 813px) {
     header nav#navigation a {
         font-size: 1em;
@@ -470,6 +613,24 @@ section#recent-posts div.recent-post a.recent-post-ref {
 
     #scroller {
         width: 5%;
+    }
+}
+
+@media screen and (max-width: 692px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+        width: 30%;
+    }
+
+    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+        width: 30%;
     }
 }
 
@@ -586,6 +747,15 @@ section#recent-posts div.recent-post a.recent-post-ref {
         position: fixed;
     }
 
+    div#confirmation-modal div#modal-box {
+        width: 60%;
+        height: 25%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.5em;
+    }
+
     #scroller {
         width: 8%;
     }
@@ -644,5 +814,13 @@ section#recent-posts div.recent-post a.recent-post-ref {
         position: absolute;
         top: 100%;
         right: 12%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 0.9em;
     }
 }
