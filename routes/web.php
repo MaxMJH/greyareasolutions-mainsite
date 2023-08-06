@@ -28,3 +28,7 @@ Route::get('/blogs', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
+
+Route::get('/blog-edit', function() {
+    return view('blog_editorial');
+});

@@ -98,6 +98,10 @@ main div#loginPanel form input#submit {
     cursor: pointer;
 }
 
+main div#loginPanel form input#submit:hover {
+    background: #1A1A1A;
+}
+
 main div#loginPanel a {
     margin-top: 26px;
     font-size: 1.25em;

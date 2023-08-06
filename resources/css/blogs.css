@@ -57,6 +57,10 @@ header a#login {
     height: fit-content;
 }
 
+header a#login:hover {
+    background: rgb(43, 104, 166);
+}
+
 main {
     width: 100vw;
     min-height: auto;

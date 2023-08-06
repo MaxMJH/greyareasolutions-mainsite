@@ -68,6 +68,10 @@ header a#login {
     height: fit-content;
 }
 
+header a#login:hover {
+    background: rgb(43, 104,166);
+}
+
 main {
     grid-area: Left;
     display: flex;
@@ -308,7 +312,7 @@ div#confirmation-modal div#modal-box form#confirmation-form {
     padding-top: 2.5%;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
     all: unset;
     width: 15%;
     text-align: center;
@@ -319,11 +323,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
     height: 40px;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form button#confirm:hover {
+div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm:hover {
     background: rgb(53, 130, 61);
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
     all: unset;
     width: 15%;
     text-align: center;
@@ -334,7 +338,7 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
     height: 40px;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover {
+div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:hover {
     background: rgb(132, 30, 30);
 }
 
@@ -422,11 +426,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
         font-size: 1.3em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         font-size: 1.2em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         font-size: 1.2em;
     }
 
@@ -454,11 +458,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
         width: 11.5%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         font-size: 1.1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         font-size: 1.1em;
     }
 }
@@ -474,11 +478,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
 }
 
 @media screen and (max-width: 1258px) {
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         width: 17%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         width: 17%;
     }
 }
@@ -543,12 +547,12 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
         font-size: 1.1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         width: 20%;
         font-size: 1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         width: 20%;
         font-size: 1em;
     }
@@ -597,11 +601,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
 }
 
 @media screen and (max-width: 844px) {
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         width: 25%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         width: 25%;
     }
 }
@@ -629,11 +633,11 @@ div#confirmation-modal div#modal-box form#confirmation-form button#cancel:hover 
         font-size: 1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#confirm {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
         width: 30%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form button#cancel {
+    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
         width: 30%;
     }
 }
