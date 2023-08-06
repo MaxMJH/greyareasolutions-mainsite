@@ -38,6 +38,11 @@
           <a href="/blog">Read More</a>
         </div>
       </div>
+      <div class="add-blog">
+        <form action="">
+          <input type="submit" value="Add Blog">
+        </form>
+      </div>
     </main>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
     <script src="{{ mix('/js/blogs.js') }}"></script>
