@@ -116,7 +116,8 @@ main div#loginPanel div.errornotif {
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 main div#loginPanel div.errornotif p {

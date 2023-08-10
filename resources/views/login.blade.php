@@ -15,19 +15,22 @@
       <div id="loginPanel">
         <h1>Login Page</h1>
         <h2>Login with your admin or blogger credentials</h2>
-        <form action="" method="POST">
+        <form action="/login" method="POST">
           @csrf
-          <input type="email" id="email" name="email">
-          <input type="password" id="password" name="password">
+          <input type="email" id="email" name="email" placeholder="Enter your e-mail" @if (old()) value="{{ old('email') }}"@endif>
+          <input type="password" id="password" name="password" placeholder="Enter your password">
           <input type="submit" id="submit" value="Login">
         </form>
         <a href="">Forgot your password?</a>
-        <div class="errornotif">
-          <img id="error" src="{{ asset('images/erroricon.png') }}" alt="Error">
-          <p>Unable to Sign-In</p>
-          <img id="close" src="{{ asset('images/crossicon.png') }}" alt="Close">
-        </div>
+        @if (session()->has('error'))
+          <div class="errornotif">
+            <img id="error" src="{{ asset('images/erroricon.png') }}" alt="Error">
+            <p>{{ session('error') }}</p>
+            <img id="close" src="{{ asset('images/crossicon.png') }}" alt="Close">
+          </div>
+        @endif
       </div>
     </main>
+    <script src="{{ mix('/js/login.js') }}"></script>
   </body>
 </html>

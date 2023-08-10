@@ -2,44 +2,73 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use App\Enums\RoleEnum;
 
+/**
+ * This class acts as a representative of the users table in the database.
+ *
+ * Due to the class extending Illuminate\Foundation\Auth\User, rather than
+ * eloquent's Model, HasFactory has to be included further into the class.
+ * However, as stated prior, this model is eloquent, allowing for injection
+ * with requests, as well as a wealth of database accessibility.
+ *
+ * @package App\Models
+ *
+ * @author Max Harris <MaxHarrisMJH@gmail.com>
+ *
+ * @since v0.0.1
+ *
+ * @since v0.0.1
+ */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    // As a class can only extend once, use further classes here.
+    use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * @var string $table Define the name of the table.
+     */
+    protected $table = 'users';
+
+    /**
+     * @var string $primaryKey Defines the primary key of the table.
+     */
+    protected $primaryKey = 'user_id';
+
+    /**
+     * @var array<int, string> $fillable The attributes that are mass assignable.
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'firstname',
+        'lastname',
+        'role',
+        'last_login',
+        'failed_attempts',
+        'is_locked',
+        'created_at',
+        'updated_at',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * @var array<int, string> $hidden The attributes that should be hidden for serialisation.
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * @var array<string, string> $casts The attributes that should be cast.
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'role' => RoleEnum::class,
+        'last_login' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 }

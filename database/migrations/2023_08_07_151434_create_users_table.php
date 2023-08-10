@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('last_login', $precision = 0)->nullable($value = true);
             $table->unsignedTinyInteger('failed_attempts')->default($value = 0)->nullable($value = false);
             $table->unsignedTinyInteger('is_locked')->default($value = 0)->nullable($value = false);
-            $table->timestamp('account_creation_date', $precision = 0)->useCurrent()->nullable($value = false);
+            $table->timestamps();
         });
     }
 

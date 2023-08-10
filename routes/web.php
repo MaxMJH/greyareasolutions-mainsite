@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ Route::get('/', function () {
     return view('greyareasolutions_main');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
+// Utilise the UserController's 'getLoginView' method.
+Route::get('/login', [UserController::class, 'getLoginView']);
+
+// Utilise the UserController's 'postLoginAuthenticate' method.
+Route::post('/login', [UserController::class, 'postLoginAuthenticate']);
 
 Route::get('/blogs', function () {
     return view('all_blogs');
