@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   </head>
   <body>
-    <header>
-      <img id="logo" src="{{ asset('images/logo.png') }}" alt="Logo">
-      <img id="toggler" src="{{ asset('images/navigationToggler.png') }}" alt="Open Navigation">
-      <nav id="navigation">
-        <a href="/#about">About</a>
-        <a href="/#portfolio">Portfolio</a>
-        <a href="/blogs">Blog</a>
-        <a href="mailto:contactus@greyareasolutions.net">Contact Us</a>
-      </nav>
-      <a id="login" href="/login">Login</a>
-    </header>
+    @include('header')
     <main>
       <div id="blog-content">
         <form action="" method="POST">

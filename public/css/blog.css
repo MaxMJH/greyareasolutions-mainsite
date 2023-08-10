@@ -52,9 +52,14 @@ header nav#navigation a:hover {
     color: #FFFFFF;
 }
 
-header a#login {
+header form#logout {
+    display: contents;
+}
+
+header a#login, header form#logout input#logout {
+    all: unset;
     width: 5.21vw;
-    font-size: 1.875em;
+    font-size: 1.5em;
     text-align: center;
     text-decoration: none;
     background: #3C91E6;
@@ -66,9 +71,10 @@ header a#login {
     padding-bottom: 0.4%;
     height: -moz-fit-content;
     height: fit-content;
+    cursor: pointer;
 }
 
-header a#login:hover {
+header a#login:hover, header form#logout input#logout:hover {
     background: rgb(43, 104,166);
 }
 
@@ -379,7 +385,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1.475em;
     }
 
-    header a#login {
+    header a#login, header form#logout input#logout {
         font-size: 1.475em;
         width: 8vw;
     }
@@ -492,7 +498,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         width: 12.5%;
     }
 
-    header a#login {
+    header a#login, header form#logout input#logout {
         line-height: 35px;
     }
 }
@@ -568,7 +574,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1.2em;
     }
 
-    header a#login {
+    header a#login, header form#logout input#logout {
         font-size: 1.2em;
         line-height: 35px;
     }
@@ -615,7 +621,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1em;
     }
 
-    header a#login {
+    header a#login, header form#logout input#logout {
         font-size: 1em;
     }
 
@@ -643,7 +649,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 }
 
 @media screen and (max-width: 645px) {
-    header a#login {
+    header a#login, header form#logout input#logout {
         width: 10vw;
     }
 }
@@ -742,7 +748,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1.5em;
     }
 
-    header nav#navigation.open a#login {
+    header nav#navigation.open a#login, header form#logout input#logout {
         all: unset;
         font-size: 1.5em;
         color: #FFFFFF;
@@ -753,6 +759,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         padding-top: 10px;
         padding-bottom: 10px;
         position: fixed;
+        cursor: pointer;
     }
 
     div#confirmation-modal div#modal-box {
@@ -808,7 +815,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1em;
     }
 
-    header nav#navigation.open a#login {
+    header nav#navigation.open a#login, header form#logout input#logout {
         font-size: 1em;
     }
 }

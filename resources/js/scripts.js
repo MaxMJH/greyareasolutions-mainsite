@@ -12,7 +12,7 @@ const widthBreakPoint = 541;
 
 /*---- Event Handlers ----*/
 togglerElement.addEventListener('click', (event) => {
-  if(navigationElement.classList.contains('open')) {
+  if (navigationElement.classList.contains('open')) {
     navigationElement.classList.remove('open');
     headerElement.removeChild(blackoutElement);
   } else {
@@ -23,10 +23,10 @@ togglerElement.addEventListener('click', (event) => {
 });
 
 document.addEventListener('scroll', (event) => {
-  if(window.scrollY >= 100 && !scrollerElement.classList.contains('scrolled')) {
+  if (window.scrollY >= 100 && !scrollerElement.classList.contains('scrolled')) {
     scrollerElement.classList.add('scrolled');
   } else {
-    if(window.scrollY < 100 && scrollerElement.classList.contains('scrolled')) {
+    if (window.scrollY < 100 && scrollerElement.classList.contains('scrolled')) {
       scrollerElement.classList.remove('scrolled');
     }
   }
@@ -37,10 +37,10 @@ scrollerElement.addEventListener('click', (event) => {
 });
 
 window.addEventListener('resize', (event) => {
-  if(window.innerWidth > widthBreakPoint) {
+  if (window.innerWidth > widthBreakPoint) {
     navigationElement.classList.remove('open');
 
-    if(headerElement.querySelector('div') !== null) {
+    if (headerElement.querySelector('div') !== null) {
       headerElement.removeChild(blackoutElement);
     }
   }

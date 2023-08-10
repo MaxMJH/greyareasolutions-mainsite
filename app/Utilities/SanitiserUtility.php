@@ -43,8 +43,7 @@ class SanitiserUtility
     /**
      * Strips HTML tags from inputs.
      *
-     * @return SanitiserUtility Returns the same instance of SanitiserUtility
-     *                          for chaining.
+     * @return $this Returns the same instance of SanitiserUtility for chaining.
      */
     public function strip(): SanitiserUtility
     {
@@ -59,8 +58,7 @@ class SanitiserUtility
     /**
      * Trims proceeding and preceeding characters from inputs.
      *
-     * @return SanitiserUtility Returns the same instance of SanitiserUtility
-     *                          for chaining.
+     * @return $thid Returns the same instance of SanitiserUtility for chaining.
      */
     public function trim(): SanitiserUtility
     {
@@ -75,8 +73,7 @@ class SanitiserUtility
     /**
      * Converts all inputs to lowercase.
      *
-     * @return SanitiserUtility Returns the same instance of SanitiserUtility
-     *                          for chaining.
+     * @return $this Returns the same instance of SanitiserUtility for chaining.
      */
     public function forceToLower(): SanitiserUtility
     {
@@ -91,8 +88,7 @@ class SanitiserUtility
     /**
      * Converts all inputs to uppercase.
      *
-     * @return SanitiserUtility Returns the same instance of SanitiserUtility
-     *                          for chaining.
+     * @return $this Returns the same instance of SanitiserUtility for chaining.
      */
     public function forceToUpper(): SanitiserUtility
     {

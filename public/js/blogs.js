@@ -30,14 +30,21 @@ var scrollerElement = document.getElementById('scroller');
 var headerElement = document.querySelector('header');
 var blackoutElement = document.createElement('div');
 var loginElement = document.querySelector('a#login');
+var logoutElement = document.querySelector('form#logout');
 
 /*---- Other Constants ----*/
 var widthBreakPoint = 541;
 
 /*---- Script Launch Functions ----*/
 if (window.innerWidth <= widthBreakPoint) {
-  headerElement.removeChild(loginElement);
-  navigationElement.appendChild(loginElement);
+  if (loginElement !== null) {
+    headerElement.removeChild(loginElement);
+    navigationElement.appendChild(loginElement);
+  }
+  if (logoutElement !== null) {
+    headerElement.removeChild(logoutElement);
+    navigationElement.appendChild(logoutElement);
+  }
 }
 
 /*---- Event Handlers ----*/
@@ -75,11 +82,22 @@ window.addEventListener('resize', function (event) {
     if (navigationElement.querySelector('a#login') !== null) {
       headerElement.appendChild(loginElement);
     }
+
+    // Ensure that if the screen width is more than widthBreakPoint, the logout button is placed in header.
+    if (navigationElement.querySelector('form#logout') !== null) {
+      headerElement.appendChild(logoutElement);
+    }
   } else {
     // Ensure that if the screen width is less than widthBreakPoint, the login button is placed in nav.
-    if (navigationElement.querySelector('a#login') === null) {
+    if (loginElement !== null && navigationElement.querySelector('a#login') === null) {
       headerElement.removeChild(loginElement);
       navigationElement.appendChild(loginElement);
+    }
+
+    // Ensure that if the screen width is less than widthBreakPoint, the logout button is placed in nav.
+    if (logoutElement !== null && navigationElement.querySelector('form#logout') === null) {
+      headerElement.removeChild(logoutElement);
+      navigationElement.appendChild(logoutElement);
     }
   }
 });
