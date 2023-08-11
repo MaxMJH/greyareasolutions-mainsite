@@ -24,6 +24,9 @@ Route::get('/login', [UserController::class, 'getLoginView']);
 // Utilise the UserController's 'postLoginAuthenticate' method.
 Route::post('/login', [UserController::class, 'postLoginAuthenticate']);
 
+// Utilise the UserController's 'postLogout' method.
+Route::post('/logout', [UserController::class, 'postLogout']);
+
 Route::get('/blogs', function () {
     return view('all_blogs');
 });
