@@ -50,7 +50,7 @@ class UserController extends Controller
     }
 
     /**
-     * Attemots to login a user depending on the entered
+     * Attempts to login a user depending on the entered
      * credentials. This method will currently first
      * attempt to validate the entered credentials, and if
      * correct, will then create a session pertaining to that
@@ -71,13 +71,18 @@ class UserController extends Controller
 
         // Now check if it fails, if so, send errors back to the GET page.
         if ($validator->fails()) {
+            // If the user exists, add 1 failed attempt.
+            User::addFailedAttempt($request->input('email'));
+
             // Rather than exposing the exact validation error, send back a generic error.
             return redirect()->back()->with('error', 'Unable to login')->withInput($request->only('email'));
         }
 
         // Create an instance of SanitiserUtility and perform stripping, trimming, and lowercasing.
         $sanitiser = new SanitiserUtility($request->only(['email', 'password']));
-        $sanitiser->strip()->trim()->forceToLower();
+        $sanitiser->strip()
+                  ->trim()
+                  ->forceToLower();
 
         // Get the now sanitised inputs back from the sanitiser.
         $sanitisedInputs = $sanitiser->getSanitisedInputs();
@@ -90,15 +95,14 @@ class UserController extends Controller
                 $request->session()->regenerate();
                 $request->session()->regenerateToken();
 
-                return redirect()->back()->with('error', 'Account locked');
+                return redirect()->back()->with('error', 'Account locked')->withInput($request->only('email'));
             }
 
             // User does exist within the database, and the password is correct, now start session.
             $request->session()->regenerate();
 
             // Update the last login time of the user.
-            Auth::user()->last_login = Carbon::now();
-            Auth::user()->save();
+            Auth::user()::updateLastLogin($sanitisedInputs['email']);
 
             // Check to see if a referring page session exists.
             if (Session::has('previous_url')) {
@@ -115,6 +119,9 @@ class UserController extends Controller
             // Redirect to the blogs page.
             return redirect()->to('/blogs');
         } else {
+            // Add 1 failed attempt.
+            User::addFailedAttempt($sanitisedInputs['email']);
+
             // Send a redirect back indicating that login failed.
             return redirect()->back()->with('error', 'Unable to login')->withInput($request->only('email'));
         }
