@@ -10,6 +10,7 @@ use App\Utilities\SanitiserUtility;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 /**
  * This class acts as the User model's controller, therefore
@@ -83,8 +84,21 @@ class UserController extends Controller
 
         // Perform the 'attempt' method to check if the credentials are valid.
         if (Auth::attempt($sanitisedInputs)) {
+            // Check to see if the user is locked, if so, return an error.
+            if (Auth::user()->is_locked) {
+                Auth::logout();
+                $request->session()->regenerate();
+                $request->session()->regenerateToken();
+
+                return redirect()->back()->with('error', 'Account locked');
+            }
+
             // User does exist within the database, and the password is correct, now start session.
             $request->session()->regenerate();
+
+            // Update the last login time of the user.
+            Auth::user()->last_login = Carbon::now();
+            Auth::user()->save();
 
             // Check to see if a referring page session exists.
             if (Session::has('previous_url')) {
