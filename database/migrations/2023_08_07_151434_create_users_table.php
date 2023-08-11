@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('password', 255)->nullable($value = false);
             $table->string('firstname', 50)->nullable($value = false);
             $table->string('lastname', 50)->nullable($value = false);
-            $table->enum('role', ['user', 'blogger', 'admin'])->default($default = 'user')->nullable($value = false);
+            $table->enum('role', ['Blogger', 'Admin'])->default($default = 'Blogger')->nullable($value = false);
             $table->timestamp('last_login', $precision = 0)->nullable($value = true);
             $table->unsignedTinyInteger('failed_attempts')->default($value = 0)->nullable($value = false);
             $table->unsignedTinyInteger('is_locked')->default($value = 0)->nullable($value = false);
+            $table->timestamp('lock_till', $precision = 0)->nullable($value = true);
             $table->timestamps();
         });
     }

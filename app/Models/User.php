@@ -50,6 +50,7 @@ class User extends Authenticatable
         'last_login',
         'failed_attempts',
         'is_locked',
+        'lock_till',
         'created_at',
         'updated_at',
     ];
@@ -68,6 +69,7 @@ class User extends Authenticatable
         'password' => 'hashed',
         'role' => RoleEnum::class,
         'last_login' => 'datetime',
+        'lock_till' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
