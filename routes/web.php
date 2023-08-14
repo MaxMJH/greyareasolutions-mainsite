@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Essentially the landing page route, returns the main view.
 Route::get('/', function () {
     return view('greyareasolutions_main');
 });
@@ -26,6 +26,12 @@ Route::post('/login', [UserController::class, 'postLoginAuthenticate']);
 
 // Utilise the UserController's 'postLogout' method.
 Route::post('/logout', [UserController::class, 'postLogout']);
+
+// TEMP ROUTE.
+// Utilise the AccouuntController's 'getAccountsView' method.
+Route::get('/accounts', function() {
+    return view('accounts');
+});
 
 Route::get('/blogs', function () {
     return view('all_blogs');

@@ -1,12 +1,14 @@
 {
-    "/js/scripts.js": "/js/scripts.js?id=8712489086808dfce52a0b6a2a30e9f7",
+    "/js/scripts.js": "/js/scripts.js?id=343d06e41b2acb99d17bddb62faeefbc",
     "/js/blogs.js": "/js/blogs.js?id=4c220cf16426531290d8b9a43bbd5e84",
     "/js/login.js": "/js/login.js?id=edd039d4a99f6789c9754f9f015657e5",
+    "/js/accounts.js": "/js/accounts.js?id=00ffe97c281b11dd1ea4a3b84f414c2a",
     "/css/blog_editorial.css": "/css/blog_editorial.css?id=8592be1743e82cf29d6ec0b7c8249e62",
     "/css/blog.css": "/css/blog.css?id=0d0a667ce5e812afa30cf68cfc6af9ba",
     "/css/blogs.css": "/css/blogs.css?id=60d91abc9a92587accd787181f52c638",
     "/css/login.css": "/css/login.css?id=90a35b53212390cc6ba2b4bd3419a005",
     "/css/greyareasolutions_main.css": "/css/greyareasolutions_main.css?id=7d6502160732c2dc15a5f7e98127740a",
+    "/css/accounts.css": "/css/accounts.css?id=f9f1dff52174f30a838cd20580ad195d",
     "/images/background.jpeg": "/images/background.jpeg?id=b61cefcc68d4671721cd47b7b7abcae9",
     "/images/crossicon.png": "/images/crossicon.png?id=768ea46ff08a683d847b1e967e1d3c7c",
     "/images/edit.png": "/images/edit.png?id=f0d4f6585151da35e934c518bb338740",
@@ -18,6 +20,8 @@
     "/images/navigationToggler.png": "/images/navigationToggler.png?id=fa326065330ea0841d2a92a8305af07e",
     "/images/rubbish.png": "/images/rubbish.png?id=22d30f883b84fdd4b5e064d70c44badc",
     "/images/scroller.png": "/images/scroller.png?id=6c5bc965514dd30f3de27d02c73f28e7",
+    "/images/searchicon.png": "/images/searchicon.png?id=d21bbaecd2d1059ca1ffdc9609a69d04",
     "/images/smartparkingsite.jpeg": "/images/smartparkingsite.jpeg?id=fdd650f6afb11dc694ab139c8803b3bd",
-    "/images/timeicon.png": "/images/timeicon.png?id=2c19e1a3f4bab25e6a297c78375423e3"
+    "/images/timeicon.png": "/images/timeicon.png?id=2c19e1a3f4bab25e6a297c78375423e3",
+    "/images/viewmoreicon.png": "/images/viewmoreicon.png?id=ff03c49ce255ed63a816cb1108ee09ae"
 }
