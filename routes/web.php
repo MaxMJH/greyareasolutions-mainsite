@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CreateAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,12 @@ Route::post('/login', [UserController::class, 'postLoginAuthenticate']);
 
 // Utilise the UserController's 'postLogout' method.
 Route::post('/logout', [UserController::class, 'postLogout']);
+
+// Utilise the CreateAccountController's 'getCreateAccountView' method.
+Route::get('/create_account', [CreateAccountController::class, 'getCreateAccountView']);
+
+// Utilise the CreateAccountController's 'postCreateAccount' method.
+Route::post('/create_account', [CreateAccountController::class, 'postCreateAccount']);
 
 // TEMP ROUTE.
 // Utilise the AccouuntController's 'getAccountsView' method.

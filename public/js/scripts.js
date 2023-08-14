@@ -2,6 +2,18 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./resources/css/blog_editorial.css":
+/*!******************************************!*\
+  !*** ./resources/css/blog_editorial.css ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/accounts.css":
 /*!************************************!*\
   !*** ./resources/css/accounts.css ***!
@@ -38,6 +50,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/create_account.css":
+/*!******************************************!*\
+  !*** ./resources/css/create_account.css ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/blogs.css":
 /*!*********************************!*\
   !*** ./resources/css/blogs.css ***!
@@ -54,18 +78,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************!*\
   !*** ./resources/css/blog.css ***!
   \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/blog_editorial.css":
-/*!******************************************!*\
-  !*** ./resources/css/blog_editorial.css ***!
-  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -214,12 +226,13 @@ window.addEventListener('resize', function (event) {
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/scripts": 0,
-/******/ 			"css/blog_editorial": 0,
 /******/ 			"css/blog": 0,
 /******/ 			"css/blogs": 0,
+/******/ 			"css/create_account": 0,
 /******/ 			"css/login": 0,
 /******/ 			"css/greyareasolutions_main": 0,
-/******/ 			"css/accounts": 0
+/******/ 			"css/accounts": 0,
+/******/ 			"css/blog_editorial": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -269,13 +282,14 @@ window.addEventListener('resize', function (event) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/js/scripts.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/login.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/blogs.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/blog.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog_editorial","css/blog","css/blogs","css/login","css/greyareasolutions_main","css/accounts"], () => (__webpack_require__("./resources/css/accounts.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/js/scripts.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/create_account.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blogs.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/accounts.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

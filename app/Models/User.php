@@ -116,4 +116,17 @@ class User extends Authenticatable
     {
         self::where('email', $email)->update(['last_login' => Carbon::now()]);
     }
+
+    /**
+     * Checks to see if the user email exists.
+     *
+     * @param string $email Email address of a potential user.
+     *
+     * @return bool Returns true if the email exists, false otherwise.
+     */
+    public static function userExists(string $email): bool
+    {
+        // Check if the returned where query is empty.
+        return !self::where('email', $email)->get()->isEmpty();
+    }
 }

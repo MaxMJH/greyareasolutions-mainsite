@@ -72,7 +72,9 @@ class UserController extends Controller
         // Now check if it fails, if so, send errors back to the GET page.
         if ($validator->fails()) {
             // If the user exists, add 1 failed attempt.
-            User::addFailedAttempt($request->input('email'));
+            if ($request->input('email') !== null && User::userExists($request->input('email'))) {
+                User::addFailedAttempt($request->input('email'));
+            }
 
             // Rather than exposing the exact validation error, send back a generic error.
             return redirect()->back()->with('error', 'Unable to login')->withInput($request->only('email'));
@@ -119,8 +121,10 @@ class UserController extends Controller
             // Redirect to the blogs page.
             return redirect()->to('/blogs');
         } else {
-            // Add 1 failed attempt.
-            User::addFailedAttempt($sanitisedInputs['email']);
+            // If the email exists, add 1 failed attempt.
+            if (User::userExists($sanitisedInputs['email'])) {
+                User::addFailedAttempt($sanitisedInputs['email']);
+            }
 
             // Send a redirect back indicating that login failed.
             return redirect()->back()->with('error', 'Unable to login')->withInput($request->only('email'));
