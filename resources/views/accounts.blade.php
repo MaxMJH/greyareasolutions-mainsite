@@ -11,12 +11,6 @@
     @include('header')
     <main>
       <div id="tab-container">
-        <div id="tab-buttons">
-          <form id="add" action="" method="GET">
-            @csrf
-            <button type="submit" name="add">Add User</button>
-          </form>
-        </div>
         <div id="search-bar">
           <form id="search-bar" action="" method="POST">
             @csrf

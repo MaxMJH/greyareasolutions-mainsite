@@ -83,41 +83,16 @@ main div#tab-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 0.5%;
-    width: 99.5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
     align-items: center;
-}
-
-main div#tab-container div#tab-buttons {
-    display: inline-flex;
-    gap: 20px;
-    width: 86%;
-}
-
-main div#tab-container div#tab-buttons form#add {
-    min-width: -moz-fit-content;
-    min-width: fit-content;
-    width: 22%;
-    background: #B0B0B0;
-    cursor: pointer;
-}
-
-main div#tab-container div#tab-buttons form#add:hover {
-    background: #F4F4F4;
-}
-
-main div#tab-container div#tab-buttons form#add button {
-    all: unset;
-    font-size: 1.4em;
-    width: 100%;
-    text-align: center;
 }
 
 main div#tab-container div#search-bar {
     background: #F4F4F4;
-    width: 79%;
+    width: 100%;
     height: 100%;
-    position: relative;
 }
 
 main div#tab-container div#search-bar form#search-bar {
@@ -144,17 +119,15 @@ main div#tab-container div#search-bar form#search-bar select#search-select optio
 main div#tab-container div#search-bar form#search-bar input#search-value {
     all: unset;
     font-size: 1.4em;
-    width: 72%;
+    width: 100%;
 }
 
 main div#tab-container div#search-bar form#search-bar button#search-submit {
     all: unset;
-    width: 25px;
+    width: 35px;
     display: flex;
     justify-content: center;
     align-content: center;
-    position: absolute;
-    right: 0;
     height: 100%;
     cursor: pointer;
 }
@@ -277,25 +250,16 @@ main div#table-container div#table-next-back span {
 }
 
 @media screen and (max-width: 1328px) {
-    main div#tab-container div#tab-buttons form#add {
-        width: 27%;
-    }
-
-    main div#tab-container div#tab-buttons form#add button {
-        font-size: 1.2em;
-    }
-
     main div#tab-container div#search-bar form#search-bar select#search-select {
         font-size: 1.2em;
     }
 
     main div#tab-container div#search-bar form#search-bar input#search-value {
         font-size: 1.2em;
-        width: 63%;
     }
 
     main div#tab-container div#search-bar form#search-bar button#search-submit {
-        width: 24px;
+        width: 35px;
     }
 
     main div#table-container div#table table tbody tr {
@@ -336,30 +300,18 @@ main div#table-container div#table-next-back span {
         width: 100%;
     }
 
-    main div#tab-container div#tab-buttons form#add {
-        width: 35%;
-    }
-
     main div#tab-container div#search-bar input#search-value {
         width: 61%;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    main div#tab-container div#tab-buttons form#add button {
-        font-size: 1em;
-    }
-
     main div#tab-container div#search-bar form#search-bar select#search-select {
         font-size: 1em;
     }
 
     main div#tab-container div#search-bar form#search-bar input#search-value {
         font-size: 1em;
-    }
-
-    main div#tab-container div#search-bar form#search-bar button#search-submit {
-        width: 20px;
     }
 
     main div#table-container div#table table tbody tr {
@@ -404,21 +356,12 @@ main div#table-container div#table-next-back span {
         font-size: 1em;
     }
 
-    main div#tab-container div#tab-buttons form#add button {
-        font-size: 0.8em;
-    }
-
     main div#tab-container div#search-bar form#search-bar select#search-select {
         font-size: 0.8em;
     }
 
     main div#tab-container div#search-bar form#search-bar input#search-value {
         font-size: 0.8em;
-        width: 60%;
-    }
-
-    main div#tab-container div#search-bar form#search-bar button#search-submit {
-        width: 20px;
     }
 
     main div#table-container div#table table tbody {
@@ -548,21 +491,12 @@ main div#table-container div#table-next-back span {
         font-size: 1em;
     }
 
-    main div#tab-container div#tab-buttons {
-        width: 50%;
-    }
-
-    main div#tab-container div#tab-buttons form#add button {
-        font-size: 0.6em;
-    }
-
     main div#tab-container div#search-bar form#search-bar select#search-select {
         font-size: 0.6em;
     }
 
     main div#tab-container div#search-bar form#search-bar input#search-value {
         font-size: 0.6em;
-        width: 70%;
     }
 
     main div#table-container div#table table tbody tr {
