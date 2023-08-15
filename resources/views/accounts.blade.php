@@ -47,21 +47,24 @@
               <td>1</td>
               <td>
                 <div id="options">
-                  <form id="view-more" class="user-options" action="" method="GET">
+                  <form id="view-more" class="user-options" action="/accounts/view" method="POST">
                     @csrf
-                    <button type="submit" name="view-more">
+                    <input type="hidden" name="userid" value="1">
+                    <button type="submit">
                       <img id="view-more" src="{{ asset('images/viewmoreicon.png') }}" alt="View More">
                     </button>
                   </form>
-                  <form id="edit" class="user-options" action="" method="GET">
+                  <form id="edit" class="user-options" action="/accounts/edit" method="POST">
                     @csrf
-                    <button type="submit" name="edit">
+                    <input type="hidden" name="userid" value="1">
+                    <button type="submit">
                       <img id="edit" src="{{ asset('images/edit.png') }}" alt="Edit">
                     </button>
                   </form>
-                  <form id="remove" class="user-options" action="" method="GET">
+                  <form id="remove" class="user-options" action="/accounts/remove" method="POST">
                     @csrf
-                    <button type="submit" name="remove">
+                    <input type="hidden" name="userid" value="1">
+                    <button type="submit">
                       <img id="remove" src="{{ asset('images/rubbish.png') }}" alt="Remove">
                     </button>
                   </form>

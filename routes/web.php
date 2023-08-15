@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CreateAccountController;
+use App\Http\Controllers\AccountsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +35,20 @@ Route::get('/create_account', [CreateAccountController::class, 'getCreateAccount
 // Utilise the CreateAccountController's 'postCreateAccount' method.
 Route::post('/create_account', [CreateAccountController::class, 'postCreateAccount']);
 
-// TEMP ROUTE.
-// Utilise the AccouuntController's 'getAccountsView' method.
-Route::get('/accounts', function() {
-    return view('accounts');
-});
+// Utilise the AccountController's 'getAccountsView' method.
+Route::get('/accounts', [AccountsController::class, 'getAccountsView']);
+
+// Utilise the AccountController's 'postAddAccount' method.
+Route::post('/accounts/view', [AccountsController::class, 'postViewAccount']);
+
+// Utilise the AccountController's 'postEditAccount' method.
+Route::post('/accounts/edit', [AccountsController::class, 'postEditAccount']);
+
+// Utilise the AccountsController's 'postUpdateAccount' method.
+Route::post('/accounts/update', [AccountsController::class, 'postUpdateAccount']);
+
+// Utilise the AccountController's 'postRemoveAccount' method.
+Route::post('/accounts/remove', [AccountsController::class, 'postRemoveAccount']);
 
 Route::get('/blogs', function () {
     return view('all_blogs');

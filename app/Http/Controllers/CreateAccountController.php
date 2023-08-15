@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Utilities\SanitiserUtility;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use App\Enums\RoleEnum;
@@ -52,8 +51,6 @@ class CreateAccountController extends Controller
      * Done via a POST request.
      *
      * @param Request $request Obtain the incoming request.
-     * @param User $user       Pass an instance of the User model so as to easily
-     *                         implement the account into the database.
      *
      * @return RedirectResponse Returns a RedirectResponse based on the inputted data.
      */

@@ -26,6 +26,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/edit_account.css":
+/*!****************************************!*\
+  !*** ./resources/css/edit_account.css ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/view_account.css":
+/*!****************************************!*\
+  !*** ./resources/css/view_account.css ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/greyareasolutions_main.css":
 /*!**************************************************!*\
   !*** ./resources/css/greyareasolutions_main.css ***!
@@ -231,6 +255,8 @@ window.addEventListener('resize', function (event) {
 /******/ 			"css/create_account": 0,
 /******/ 			"css/login": 0,
 /******/ 			"css/greyareasolutions_main": 0,
+/******/ 			"css/view_account": 0,
+/******/ 			"css/edit_account": 0,
 /******/ 			"css/accounts": 0,
 /******/ 			"css/blog_editorial": 0
 /******/ 		};
@@ -282,14 +308,16 @@ window.addEventListener('resize', function (event) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/js/scripts.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/login.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/create_account.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blogs.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/accounts.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/js/scripts.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/create_account.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blogs.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/accounts.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/edit_account.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/view_account.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
