@@ -27,6 +27,9 @@ div#viewPanel-modal div#viewPanel h1 {
     margin: 0;
     margin-bottom: 11px;
     font-weight: normal;
+    width: 100%;
+    background: rgb(202, 196, 196);
+    text-align: center;
 }
 
 div#viewPanel-modal div#viewPanel img {
