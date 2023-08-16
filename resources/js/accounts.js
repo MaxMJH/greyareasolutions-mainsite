@@ -1,85 +1,67 @@
 "use strict";
 
-/*---- Constant Elements ----*/
-const togglerElement = document.getElementById('toggler');
-const navigationElement = document.getElementById('navigation');
-const scrollerElement = document.getElementById('scroller');
-const headerElement = document.querySelector('header');
-const blackoutElement = document.createElement('div');
-const loginElement = document.querySelector('a#login');
-const logoutElement = document.querySelector('form#logout');
+/*---- JQuery ----*/
+$(document).ready(function() {
+  /*---- Constant Element ----*/
+  const buttonElements = $('form.user-options > button');
 
-/*---- Other Constants ----*/
-const widthBreakPoint = 541;
+  /*---- Variables ----*/
+  var csrf;
+  var userId;
 
-/*---- Script Launch Functions ----*/
-if (window.innerWidth <= widthBreakPoint) {
-  if (loginElement !== null) {
-    headerElement.removeChild(loginElement);
-    navigationElement.appendChild(loginElement);
-  }
+  /*---- Event Handler ----*/
+  buttonElements.on('click', function(event) {
+    // Prevent the default 'submit' and replace with the following code.
+    event.preventDefault();
 
-  if (logoutElement !== null) {
-    headerElement.removeChild(logoutElement);
-    navigationElement.appendChild(logoutElement);
-  }
-}
+    // Get the currently pressed button.
+    const buttonElement = $(event.target.parentElement);
 
-/*---- Event Handlers ----*/
-togglerElement.addEventListener('click', (event) => {
-  if (navigationElement.classList.contains('open')) {
-    navigationElement.classList.remove('open');
-    headerElement.removeChild(blackoutElement);
-  } else {
-    navigationElement.classList.add('open');
-    blackoutElement.classList.add('open');
-    headerElement.appendChild(blackoutElement);
-  }
-});
+    // Get the inputs of the clicked button.
+    const inputElements = $(buttonElement.siblings());
 
-document.addEventListener('scroll', (event) => {
-  if (window.scrollY >= 100 && !scrollerElement.classList.contains('scrolled')) {
-    scrollerElement.classList.add('scrolled');
-  } else {
-    if(window.scrollY < 100 && scrollerElement.classList.contains('scrolled')) {
-      scrollerElement.classList.remove('scrolled');
-    }
-  }
-});
+    // From the inputs, get the CSRF token and the User ID.
+    csrf = $(inputElements[0]).val();
+    userId = $(inputElements[1]).val();
 
-scrollerElement.addEventListener('click', (event) => {
-  window.scroll(0, 0);
-});
+    // Get the form of the clicked button.
+    const formElement = $(buttonElement.parent());
 
-window.addEventListener('resize', (event) => {
-  if (window.innerWidth > widthBreakPoint) {
-    // Ensure that if screen width is increased, remove burger.
-    navigationElement.classList.remove('open');
+    // From the form, get the intended action.
+    const action = formElement.attr('action');
 
-    if (headerElement.querySelector('div') !== null) {
-      headerElement.removeChild(blackoutElement);
+    // Process each action based on their value.
+    switch (action) {
+      case '/accounts/view':
+        sendPost(action);
+        break;
+      case '/accounts/edit':
+        sendPost(action);
+        break;
+      case '/accounts/remove':
+        sendPost(action);
+        break;
     }
 
-    // Ensure that if the screen width is more than widthBreakPoint, the login button is placed in header.
-    if (navigationElement.querySelector('a#login') !== null) {
-      headerElement.appendChild(loginElement);
-    }
+  });
 
-    // Ensure that if the screen width is more than widthBreakPoint, the logout button is placed in header.
-    if (navigationElement.querySelector('form#logout') !== null) {
-      headerElement.appendChild(logoutElement);
-    }
-  } else {
-    // Ensure that if the screen width is less than widthBreakPoint, the login button is placed in nav.
-    if(loginElement !== null && navigationElement.querySelector('a#login') === null) {
-      headerElement.removeChild(loginElement);
-      navigationElement.appendChild(loginElement);
-    }
-
-    // Ensure that if the screen width is less than widthBreakPoint, the logout button is placed in nav.
-    if(logoutElement !== null && navigationElement.querySelector('form#logout') === null) {
-      headerElement.removeChild(logoutElement);
-      navigationElement.appendChild(logoutElement);
-    }
+  /*---- Functions ----*/
+  // Send a post request to the respected routes.
+  function sendPost(action) {
+    $.post({
+      url: action,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        user_id: userId
+      },
+      headers: {
+        'X-CSRF-TOKEN': csrf
+      },
+      success: function (response) {
+        // If POST succeeded, show the respective modal.
+        $('main').after(response.modal);
+      }
+    });
   }
 });

@@ -4,18 +4,19 @@
 const closeElement = document.getElementById('close');
 
 /*---- Event Handlers ----*/
+// Check to see if the error pop up exists.
 if (closeElement !== null) {
-  // Remove the error message if the cross is clicked.
+  // If so, remove the error message if the cross is clicked.
   closeElement.addEventListener('click', (event) => {
     event.preventDefault();
     closeElement.parentElement.remove();
   });
-}
 
-if (closeElement !== null) {
-  // When the page has loaded, remove the error within 10 seconds.
+  // If so, remove the error message after ten seconds.
   closeElement.addEventListener('load', () => {
+    // When removing, set opacity to so it fades out.
     setTimeout(() => {
+      // Close the error after a second.
       setTimeout(() => {
         closeElement.parentElement.remove();
       }, 1000);

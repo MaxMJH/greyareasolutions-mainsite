@@ -35,6 +35,6 @@
       </div>
     </main>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
-    <script src="{{ mix('/js/blogs.js') }}"></script>
+    <script src="{{ mix('/js/pagelayout.js') }}"></script>
   </body>
 </html>

@@ -93,6 +93,6 @@
       </div>
     </section>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
-    <script src="{{ mix('/js/scripts.js') }}"></script>
+    <script src="{{ mix('/js/landingscript.js') }}"></script>
   </body>
 </html>

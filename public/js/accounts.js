@@ -23,82 +23,68 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 
 
-/*---- Constant Elements ----*/
-var togglerElement = document.getElementById('toggler');
-var navigationElement = document.getElementById('navigation');
-var scrollerElement = document.getElementById('scroller');
-var headerElement = document.querySelector('header');
-var blackoutElement = document.createElement('div');
-var loginElement = document.querySelector('a#login');
-var logoutElement = document.querySelector('form#logout');
+/*---- JQuery ----*/
+$(document).ready(function () {
+  /*---- Constant Element ----*/
+  var buttonElements = $('form.user-options > button');
 
-/*---- Other Constants ----*/
-var widthBreakPoint = 541;
+  /*---- Variables ----*/
+  var csrf;
+  var userId;
 
-/*---- Script Launch Functions ----*/
-if (window.innerWidth <= widthBreakPoint) {
-  if (loginElement !== null) {
-    headerElement.removeChild(loginElement);
-    navigationElement.appendChild(loginElement);
-  }
-  if (logoutElement !== null) {
-    headerElement.removeChild(logoutElement);
-    navigationElement.appendChild(logoutElement);
-  }
-}
+  /*---- Event Handler ----*/
+  buttonElements.on('click', function (event) {
+    // Prevent the default 'submit' and replace with the following code.
+    event.preventDefault();
 
-/*---- Event Handlers ----*/
-togglerElement.addEventListener('click', function (event) {
-  if (navigationElement.classList.contains('open')) {
-    navigationElement.classList.remove('open');
-    headerElement.removeChild(blackoutElement);
-  } else {
-    navigationElement.classList.add('open');
-    blackoutElement.classList.add('open');
-    headerElement.appendChild(blackoutElement);
-  }
-});
-document.addEventListener('scroll', function (event) {
-  if (window.scrollY >= 100 && !scrollerElement.classList.contains('scrolled')) {
-    scrollerElement.classList.add('scrolled');
-  } else {
-    if (window.scrollY < 100 && scrollerElement.classList.contains('scrolled')) {
-      scrollerElement.classList.remove('scrolled');
-    }
-  }
-});
-scrollerElement.addEventListener('click', function (event) {
-  window.scroll(0, 0);
-});
-window.addEventListener('resize', function (event) {
-  if (window.innerWidth > widthBreakPoint) {
-    // Ensure that if screen width is increased, remove burger.
-    navigationElement.classList.remove('open');
-    if (headerElement.querySelector('div') !== null) {
-      headerElement.removeChild(blackoutElement);
-    }
+    // Get the currently pressed button.
+    var buttonElement = $(event.target.parentElement);
 
-    // Ensure that if the screen width is more than widthBreakPoint, the login button is placed in header.
-    if (navigationElement.querySelector('a#login') !== null) {
-      headerElement.appendChild(loginElement);
-    }
+    // Get the inputs of the clicked button.
+    var inputElements = $(buttonElement.siblings());
 
-    // Ensure that if the screen width is more than widthBreakPoint, the logout button is placed in header.
-    if (navigationElement.querySelector('form#logout') !== null) {
-      headerElement.appendChild(logoutElement);
-    }
-  } else {
-    // Ensure that if the screen width is less than widthBreakPoint, the login button is placed in nav.
-    if (loginElement !== null && navigationElement.querySelector('a#login') === null) {
-      headerElement.removeChild(loginElement);
-      navigationElement.appendChild(loginElement);
-    }
+    // From the inputs, get the CSRF token and the User ID.
+    csrf = $(inputElements[0]).val();
+    userId = $(inputElements[1]).val();
 
-    // Ensure that if the screen width is less than widthBreakPoint, the logout button is placed in nav.
-    if (logoutElement !== null && navigationElement.querySelector('form#logout') === null) {
-      headerElement.removeChild(logoutElement);
-      navigationElement.appendChild(logoutElement);
+    // Get the form of the clicked button.
+    var formElement = $(buttonElement.parent());
+
+    // From the form, get the intended action.
+    var action = formElement.attr('action');
+
+    // Process each action based on their value.
+    switch (action) {
+      case '/accounts/view':
+        sendPost(action);
+        break;
+      case '/accounts/edit':
+        sendPost(action);
+        break;
+      case '/accounts/remove':
+        sendPost(action);
+        break;
     }
+  });
+
+  /*---- Functions ----*/
+  // Send a post request to the respected routes.
+  function sendPost(action) {
+    $.post({
+      url: action,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        user_id: userId
+      },
+      headers: {
+        'X-CSRF-TOKEN': csrf
+      },
+      success: function success(response) {
+        // If POST succeeded, show the respective modal.
+        $('main').after(response.modal);
+      }
+    });
   }
 });
 /******/ })()

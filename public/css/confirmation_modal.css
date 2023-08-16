@@ -1,0 +1,193 @@
+div#confirmation-modal {
+    display: flex;
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div#confirmation-modal div#modal-box {
+    display: flex;
+    flex-direction: column;
+    background: #E6E6E6;
+    width: 35%;
+    height: 25%;
+    justify-content: space-between;
+}
+
+div#confirmation-modal div#modal-box h2 {
+    margin: auto;
+    font-size: 1.875em;
+    font-weight: normal;
+    background: rgb(202, 196, 196);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    color: #3E3E3E;
+    margin-bottom: 0;
+}
+
+div#confirmation-modal div#modal-box p {
+    text-align: center;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+div#confirmation-modal div#modal-box div#modal-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2.5%;
+    border-top: 3px solid #7070701a;
+    padding-top: 2.5%;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(47, 200, 64);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm:hover {
+    background: rgb(53, 130, 61);
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(202, 46, 46);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover {
+    background: rgb(132, 30, 30);
+}
+
+@media screen and (max-width: 1655px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 15%;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.6em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.3em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 1324px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1258px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 17%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 17%;
+    }
+}
+
+@media screen and (max-width: 1082px) {
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 20%;
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 20%;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 844px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 25%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 692px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 30%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    div#confirmation-modal div#modal-box {
+        width: 60%;
+        height: 25%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 0.9em;
+    }
+}
+

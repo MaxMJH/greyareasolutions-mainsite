@@ -72,11 +72,12 @@ class CreateAccountController extends Controller
             return redirect()->back()->with('error', 'Creation failed');
         }
 
-        // Create an instance of SanitiserUtility and perform stripping, trimming, and lowercasing.
+        // Create an instance of SanitiserUtility and perform stripping, trimming, lowercasing, and capitalising the first letter of 'firstname' and 'lastname'.
         $sanitiser = new SanitiserUtility($request->only(['email', 'firstname', 'lastname', 'password', 'confirmpassword']));
         $sanitiser->strip()
                   ->trim()
-                  ->forceToLower();
+                  ->forceToLower()
+                  ->capitaliseFirstLetter(['firstname', 'lastname']);
 
         // Get the new sanitised inputs back from the sanitiser.
         $sanitisedInputs = $sanitiser->getSanitisedInputs();

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staging - Grey Area Solutions</title>
     <link rel="stylesheet" href=" {{ mix('/css/accounts.css') }}">
+    <link rel="stylesheet" href=" {{ mix('/css/confirmation_modal.css') }}">
+    <link rel="stylesheet" href=" {{ mix('/css/view_account_modal.css') }}">
+    <link rel="stylesheet" href=" {{ mix('/css/edit_account_modal.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   </head>
   <body>
@@ -50,21 +53,21 @@
                   <form id="view-more" class="user-options" action="/accounts/view" method="POST">
                     @csrf
                     <input type="hidden" name="userid" value="1">
-                    <button type="submit">
+                    <button type="submit" name="view-more">
                       <img id="view-more" src="{{ asset('images/viewmoreicon.png') }}" alt="View More">
                     </button>
                   </form>
                   <form id="edit" class="user-options" action="/accounts/edit" method="POST">
                     @csrf
                     <input type="hidden" name="userid" value="1">
-                    <button type="submit">
+                    <button type="submit" name="edit">
                       <img id="edit" src="{{ asset('images/edit.png') }}" alt="Edit">
                     </button>
                   </form>
                   <form id="remove" class="user-options" action="/accounts/remove" method="POST">
                     @csrf
                     <input type="hidden" name="userid" value="1">
-                    <button type="submit">
+                    <button type="submit" name="remove">
                       <img id="remove" src="{{ asset('images/rubbish.png') }}" alt="Remove">
                     </button>
                   </form>
@@ -87,6 +90,10 @@
       </div>
     </main>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="{{ mix('/js/pagelayout.js') }}"></script>
     <script src="{{ mix('/js/accounts.js') }}"></script>
+    <script src="{{ mix('/js/errorpopup.js') }}"></script>
+    <script src="{{ mix('/js/modal.js') }}"></script>
   </body>
 </html>

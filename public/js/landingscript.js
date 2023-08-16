@@ -26,10 +26,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/edit_account.css":
-/*!****************************************!*\
-  !*** ./resources/css/edit_account.css ***!
-  \****************************************/
+/***/ "./resources/css/edit_account_modal.css":
+/*!**********************************************!*\
+  !*** ./resources/css/edit_account_modal.css ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -38,10 +38,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/view_account.css":
-/*!****************************************!*\
-  !*** ./resources/css/view_account.css ***!
-  \****************************************/
+/***/ "./resources/css/view_account_modal.css":
+/*!**********************************************!*\
+  !*** ./resources/css/view_account_modal.css ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/confirmation_modal.css":
+/*!**********************************************!*\
+  !*** ./resources/css/confirmation_modal.css ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -107,6 +119,80 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./resources/js/landingscript.js":
+/*!***************************************!*\
+  !*** ./resources/js/landingscript.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+
+
+/*---- Constant Elements ----*/
+var togglerElement = document.getElementById('toggler');
+var navigationElement = document.getElementById('navigation');
+var scrollerElement = document.getElementById('scroller');
+var headerElement = document.querySelector('header');
+var blackoutElement = document.createElement('div');
+
+/*---- Other Constants ----*/
+// Mobile breakpoint.
+var widthBreakPoint = 541;
+
+/*---- Event Handlers ----*/
+// Add an event listener to the burger icon.
+togglerElement.addEventListener('click', function (event) {
+  // Check to see if the resized menu is already open.
+  if (navigationElement.classList.contains('open')) {
+    // If so, hide the menu.
+    navigationElement.classList.remove('open');
+    headerElement.removeChild(blackoutElement);
+  } else {
+    // If not, show the menu.
+    navigationElement.classList.add('open');
+    blackoutElement.classList.add('open');
+    headerElement.appendChild(blackoutElement);
+  }
+});
+
+// Add an event listener on scroll.
+document.addEventListener('scroll', function (event) {
+  // Check to see if the page has been scrolled past a certain point.
+  if (window.scrollY >= 100 && !scrollerElement.classList.contains('scrolled')) {
+    // If so, show the scroll icon.
+    scrollerElement.classList.add('scrolled');
+  } else {
+    // Check to see if the page has been scrolled within a certain point.
+    if (window.scrollY < 100 && scrollerElement.classList.contains('scrolled')) {
+      // If so, remove the scroll icon.
+      scrollerElement.classList.remove('scrolled');
+    }
+  }
+});
+
+// Add an event listener to the scroll icon.
+scrollerElement.addEventListener('click', function (event) {
+  // Return the user back to the top of the page.
+  window.scroll(0, 0);
+});
+
+// Add event listener on browser resize.
+window.addEventListener('resize', function (event) {
+  // Check to see if the width of the browser exceeds a certain point.
+  if (window.innerWidth > widthBreakPoint) {
+    // If so, ensure that the resize menu is closed.
+    navigationElement.classList.remove('open');
+
+    // Check to see if the the blackout exists.
+    if (headerElement.querySelector('div') !== null) {
+      // If so, remove it.
+      headerElement.removeChild(blackoutElement);
+    }
+  }
+});
 
 /***/ })
 
@@ -196,14 +282,15 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/scripts": 0,
+/******/ 			"/js/landingscript": 0,
 /******/ 			"css/blog": 0,
 /******/ 			"css/blogs": 0,
 /******/ 			"css/create_account": 0,
 /******/ 			"css/login": 0,
 /******/ 			"css/greyareasolutions_main": 0,
-/******/ 			"css/view_account": 0,
-/******/ 			"css/edit_account": 0,
+/******/ 			"css/confirmation_modal": 0,
+/******/ 			"css/view_account_modal": 0,
+/******/ 			"css/edit_account_modal": 0,
 /******/ 			"css/accounts": 0,
 /******/ 			"css/blog_editorial": 0
 /******/ 		};
@@ -255,15 +342,17 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/login.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/create_account.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blogs.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/accounts.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/edit_account.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/view_account","css/edit_account","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/view_account.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/js/landingscript.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/greyareasolutions_main.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/create_account.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blogs.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/blog_editorial.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/accounts.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/edit_account_modal.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/view_account_modal.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/blog","css/blogs","css/create_account","css/login","css/greyareasolutions_main","css/confirmation_modal","css/view_account_modal","css/edit_account_modal","css/accounts","css/blog_editorial"], () => (__webpack_require__("./resources/css/confirmation_modal.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

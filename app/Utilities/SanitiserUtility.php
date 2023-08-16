@@ -101,6 +101,23 @@ class SanitiserUtility
     }
 
     /**
+     * Capitalises the first letter of each in the specified array.
+     *
+     * @param array $keys An array of strings that need their first letter to be capitalised.
+     *
+     * @return $this Returns the same instance of SanitiserUtility for chaining.
+     */
+    public function capitaliseFirstLetter(array $keys): SanitiserUtility
+    {
+        // Iterate through all of specified strings, and capitalise the first letter.
+        foreach ($keys as $key) {
+            $this->inputs[$key] = mb_convert_case($this->inputs[$key], MB_CASE_TITLE);
+        }
+
+        return $this;
+    }
+
+    /**
      * Returns the sanitised inputs.
      *
      * @return array Returns the same sanitised inputs.

@@ -1,9 +1,4 @@
-body {
-    margin: 0;
-    font-family: 'ABeeZee';
-}
-
-main {
+div#viewPanel-modal {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -11,9 +6,11 @@ main {
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
 }
 
-main div#viewPanel {
+div#viewPanel-modal div#viewPanel {
     width: 50%;
     height: 32%;
     display: flex;
@@ -24,7 +21,7 @@ main div#viewPanel {
     position: relative;
 }
 
-main div#viewPanel h1 {
+div#viewPanel-modal div#viewPanel h1 {
     color: #3E3E3E;
     font-size: 1.875em;
     margin: 0;
@@ -32,23 +29,23 @@ main div#viewPanel h1 {
     font-weight: normal;
 }
 
-main div#viewPanel img {
+div#viewPanel-modal div#viewPanel img {
     position: absolute;
-    width: 5%;
+    width: 25px;
     right: 0;
     margin-top: 1%;
     margin-right: 1%;
     filter: brightness(0%);
 }
 
-main div#viewPanel div#info-container {
+div#viewPanel-modal div#viewPanel div#info-container {
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-main div#viewPanel div#info-container span {
+div#viewPanel-modal div#viewPanel div#info-container span {
     font-size: 1.5em;
     text-align: center;
     margin: auto;
@@ -56,87 +53,103 @@ main div#viewPanel div#info-container span {
 }
 
 @media screen and (max-width: 1082px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.5em;
+    }
+
+    div#viewPanel-modal div#viewPanel img {
+        width: 18px;
     }
 }
 
 @media screen and (max-width: 1007px) {
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 1.3em;
     }
 }
 
 @media screen and (max-width: 969px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.3em;
     }
 }
 
 @media screen and (max-width: 916px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.3em;
     }
 }
 
 @media screen and (max-width: 874px) {
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 1.1em;
     }
 }
 
 @media screen and (max-width: 755px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.1em;
+    }
+
+    div#viewPanel-modal div#viewPanel img {
+        width: 15px;
     }
 }
 
 @media screen and (max-width: 739px) {
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 0.9em;
     }
 }
 
 @media screen and (max-width: 645px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.8em;
     }
 
-    main div#viewPanel {
+    div#viewPanel-modal div#viewPanel {
         width: 75%;
     }
 
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 1.2em;
+    }
+
+    div#viewPanel-modal div#viewPanel img {
+        width: 20px;
     }
 }
 
 @media screen and (max-width: 537px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.6em;
     }
 
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 1em;
     }
 }
 
 @media screen and (max-width: 448px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.4em;
     }
 
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 0.8em;
     }
 }
 
 @media screen and (max-width: 410px) {
-    main div#viewPanel h1 {
+    div#viewPanel-modal div#viewPanel h1 {
         font-size: 1.2em;
     }
 
-    main div#viewPanel div#info-container span {
+    div#viewPanel-modal div#viewPanel div#info-container span {
         font-size: 0.7em;
+    }
+
+    div#viewPanel-modal div#viewPanel img {
+        width: 15px;
     }
 }
