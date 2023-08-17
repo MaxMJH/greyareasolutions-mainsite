@@ -110,8 +110,8 @@ class SanitiserUtility
     public function capitaliseFirstLetter(array $keys): SanitiserUtility
     {
         // Iterate through all of specified strings, and capitalise the first letter.
-        foreach ($keys as $key) {
-            $this->inputs[$key] = mb_convert_case($this->inputs[$key], MB_CASE_TITLE);
+        foreach ($keys as $key => $value) {
+            $this->inputs[$key] = mb_convert_case($keys[$key], MB_CASE_TITLE);
         }
 
         return $this;

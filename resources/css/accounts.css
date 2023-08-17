@@ -76,6 +76,7 @@ main {
     display: flex;
     flex-direction: column;
     height: 84vh;
+    position: relative;
 }
 
 main div#tab-container {
@@ -217,20 +218,59 @@ main div#table-container div#table-next-back span {
     font-size: 1.4em;
 }
 
-#scroller {
-    display: none;
-    width: 3%;
-    position: fixed;
-    z-index: 1;
-    bottom: 1%;
+main div.errornotif, main div.successnotif {
+    position: absolute;
+    width: 40%;
+    height: 7%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s;
+    align-self: center;
+}
+
+main div.errornotif {
+    background: rgb(255, 64, 62);
+}
+
+main div.successnotif {
+    background: rgb(15, 198, 60);
+}
+
+main div.errornotif p, main div.successnotif p {
+    font-size: 1.25em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+main div.errornotif img#error, main div.successnotif img#success {
+    position: absolute;
     left: 0;
+    height: 70%;
+    padding: 0.8vh;
+}
+
+main div.errornotif img#error {
+    background: rgb(238, 62, 60);
+}
+
+main div.successnotif img#success {
+    background: rgb(1, 168, 51);
+}
+
+main div.errornotif img#close, main div.successnotif img#close {
+    position: absolute;
     right: 0;
-    margin: auto;
+    height: 45%;
+    padding: 2%;
     cursor: pointer;
 }
 
-#scroller.scrolled {
-    display: block;
+img#scroller {
+    display: none;
 }
 
 @media screen and (max-width: 1536px) {
@@ -242,9 +282,16 @@ main div#table-container div#table-next-back span {
         font-size: 1.475em;
         width: 8vw;
     }
+}
 
-    #scroller {
-        width: 4%;
+@media screen and (max-width: 1458px) {
+    main div.errornotif p, main div.successnotif p {
+        font-size: 1.1em;
+    }
+
+    main div.errornotif img#error, main div.successnotif img#success {
+        height: 60%;
+        padding: 1.18vh;
     }
 }
 
@@ -281,6 +328,35 @@ main div#table-container div#table-next-back span {
 @media screen and (max-width: 1324px) {
     header img#logo {
         width: 11.5%;
+    }
+}
+
+@media screen and (max-width: 1314px) {
+    main div.errornotif img#error, main div.successnotif img#success {
+        height: 40%;
+        padding: 1.75vh;
+    }
+
+    main div.errornotif p, main div.successnotif p {
+        font-size: 0.92em;
+    }
+
+    main div.errornotif img#close, main div.successnotif img#close {
+        height: 40%;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    main div.errornotif, main div.successnotif {
+        width: 50%;
+    }
+
+    main div.errornotif p, main div.successnotif p {
+        font-size: 1em;
+    }
+
+    main div.errornotif img#close, main div.successnotif img#close {
+        height: 37%;
     }
 }
 
@@ -346,6 +422,18 @@ main div#table-container div#table-next-back span {
     }
 }
 
+@media screen and (max-width: 969px) {
+    main div.errornotif, main div.successnotif {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 916px) {
+    main div.errornotif p, main div.successnotif p {
+        font-size: 0.95em;
+    }
+}
+
 @media screen and (max-width: 813px) {
     header nav#navigation a {
         font-size: 1em;
@@ -372,7 +460,7 @@ main div#table-container div#table-next-back span {
     }
 
     main div#table-container div#table table tbody tr td div#options form.user-options button img {
-        width: 10px;
+        width: 14px;
     }
 
     main div#table-container div#table-next-back form input {
@@ -382,10 +470,16 @@ main div#table-container div#table-next-back span {
     main div#table-container div#table-next-back span {
         font-size: 0.8em;
     }
+}
 
-    #scroller {
-        width: 5%;
+@media screen and (max-width: 808px) {
+    main div.errornotif img#error, main div.successnotif img#success {
+        height: 35%;
+        padding: 1.9vh;
+        padding-left: 0.75vw;
+        padding-right: 0.75vw;
     }
+
 }
 
 @media screen and (max-width: 655px) {
@@ -476,8 +570,10 @@ main div#table-container div#table-next-back span {
         cursor: pointer;
     }
 
-    #scroller {
-        width: 8%;
+    main div.errornotif img#error, main div.successnotif img#success {
+        padding: 2.1vh;
+        padding-left: 0.75vw;
+        padding-right: 0.75vw;
     }
 }
 
@@ -499,6 +595,23 @@ main div#table-container div#table-next-back span {
     }
 
     main div#table-container div#table table tbody tr {
-        font-size: 0.55em;
+        font-size: 0.65em;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    main div.errornotif img#error, main div.successnotif img#success {
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+    }
+
+    main div.errornotif p, main div.successnotif p {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    main div.errornotif p, main div.successnotif p {
+        font-size: 0.85em;
     }
 }

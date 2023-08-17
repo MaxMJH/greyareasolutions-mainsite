@@ -52,21 +52,21 @@
                 <div id="options">
                   <form id="view-more" class="user-options" action="/accounts/view" method="POST">
                     @csrf
-                    <input type="hidden" name="userid" value="1">
+                    <input type="hidden" name="userid" value="11">
                     <button type="submit" name="view-more">
                       <img id="view-more" src="{{ asset('images/viewmoreicon.png') }}" alt="View More">
                     </button>
                   </form>
                   <form id="edit" class="user-options" action="/accounts/edit" method="POST">
                     @csrf
-                    <input type="hidden" name="userid" value="1">
+                    <input type="hidden" name="userid" value="11">
                     <button type="submit" name="edit">
                       <img id="edit" src="{{ asset('images/edit.png') }}" alt="Edit">
                     </button>
                   </form>
                   <form id="remove" class="user-options" action="/accounts/remove" method="POST">
                     @csrf
-                    <input type="hidden" name="userid" value="1">
+                    <input type="hidden" name="userid" value="11">
                     <button type="submit" name="remove">
                       <img id="remove" src="{{ asset('images/rubbish.png') }}" alt="Remove">
                     </button>
@@ -88,12 +88,26 @@
           </form>
         </div>
       </div>
+      @if (isset($error))
+        <div class="errornotif">
+          <img id="error" src="{{ asset('images/erroricon.png') }}" alt="Error">
+          <p>{{ $error }}</p>
+          <img id="close" src="{{ asset('images/crossicon.png') }}" alt="Close">
+        </div>
+      @endif
+      @if (isset($success))
+        <div class="successnotif">
+          <img id="success" src="{{ asset('images/erroricon.png') }}" alt="Success">
+          <p>{{ $success }}</p>
+          <img id="close" src="{{ asset('images/crossicon.png' )}}" alt="Close">
+        </div>
+      @endif
     </main>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="{{ mix('/js/modal.js') }}"></script>
     <script src="{{ mix('/js/pagelayout.js') }}"></script>
     <script src="{{ mix('/js/accounts.js') }}"></script>
     <script src="{{ mix('/js/errorpopup.js') }}"></script>
-    <script src="{{ mix('/js/modal.js') }}"></script>
   </body>
 </html>

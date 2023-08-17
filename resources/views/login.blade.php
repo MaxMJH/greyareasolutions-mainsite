@@ -28,6 +28,9 @@
             <p>{{ session('error') }}</p>
             <img id="close" src="{{ asset('images/crossicon.png') }}" alt="Close">
           </div>
+          @php
+            session()->forget('error');
+          @endphp
         @endif
       </div>
     </main>

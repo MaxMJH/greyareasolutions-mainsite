@@ -9,6 +9,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
 use App\Utilities\SanitiserUtility;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
+use App\Enums\RoleEnum;
+use Illuminate\Validation\Rules\Enum;
 
 /**
  * This class acts as a way of managing registered accounts on the site.
@@ -38,6 +41,42 @@ class AccountsController extends Controller
      */
     public function getAccountsView(): View
     {
+        if (Session::has('error')) {
+            $error = session('error');
+            Session::forget('error');
+            return view('accounts', ['error' => $error]);
+        } else if (Session::has('success')) {
+            $success = session('success');
+            Session::forget('success');
+            return view('accounts', ['success' => $success]);
+        } else {
+            return view('accounts');
+        }
+    }
+
+    /**
+     * Displays a notification underlining whether or not the specified
+     * user option failed or succeeded. Once that has been found, add a
+     * session variable so that it can be displayed in the 'accounts'
+     * view.
+     * Done via a POST request.
+     *
+     * @param Request $request Obtain the incoming request.
+     *
+     * @return View Returns the 'accounts.blade.php' view.
+     */
+    public function postAccounts(Request $request): View
+    {
+        // Check to see if success or error has been passed.
+        if ($request->has('success')) {
+            // If successful, return the success's value.
+            Session::put('success', $request->input(['success']));
+        } else {
+            // If an error occurred, return the error's value.
+            Session::put('error', $request->input(['error']));
+        }
+
+        // Return the 'accounts' view.
         return view('accounts');
     }
 
@@ -53,7 +92,12 @@ class AccountsController extends Controller
      */
     public function postViewAccount(Request $request): JsonResponse
     {
-        return $this->obtainCorrectView($request->only(['user_id']), 'view_account_modal');
+        // Get the POST data.
+        $userId = $request->input('user_id');
+        $viewName = 'view_account_modal';
+
+        // Return the JSON based on the 'obtainCorrectView's response.
+        return $this->obtainCorrectView($userId, $viewName);
     }
 
     /**
@@ -68,7 +112,13 @@ class AccountsController extends Controller
      */
     public function postEditAccount(Request $request): JsonResponse
     {
-        return $this->obtainCorrectView($request->only(['user_id']), 'edit_account_modal');
+        // Get the POST data.
+        $userId = $request->input('user_id');
+        $viewName = 'edit_account_modal';
+        $action = $request->input('action');
+
+        // Return the JSON based on the 'obtainCorrectView's response.
+        return $this->obtainCorrectView($userId, $viewName, action: $action);
     }
 
     /**
@@ -79,11 +129,117 @@ class AccountsController extends Controller
      *
      * @param Request $request Obtain the incoming request.
      *
-     * @return RedirectResponse Returns a RedirectResponse based on the selected user.
+     * @return JsonResponse Returns a JsonResponse based on the selected user.
      */
-    public function postUpdateAccount(Request $request): RedirectResponse
+    public function postUpdateAccount(Request $request): JsonResponse
     {
+        // Obtain the intended action if one is specified.
+        $action = $request->input('action');
 
+        // Check to see if an action was specified.
+        if ($action) {
+            // Check to see if 'action/remove' was passed, 'action/edit', or send a failure.
+            if ($action === '/accounts/remove') {
+                // Get the passed user ID.
+                $userId = $request->input('user')['user_id'];
+
+                // Ensure that the user ID is validated.
+                $validator = Validator::make(['userId' => $userId], [
+                    'userId' => 'numeric',
+                ]);
+
+                // If the user ID failed to validate, send an error.
+                if ($validator->fails()) {
+                    return response()->json(['error' => 'Failed to validate']);
+                }
+
+                // Remove the user based on their ID, and store the number of deletions.
+                $deleteCount = User::where('user_id', $userId)->delete();
+
+                // Return a success if the user was deleted, error otherwise.
+                return $deleteCount === 1 ? response()->json(['success' => 'Account Removed']) : response()->json(['error' => 'Failed to delete account']);
+            } else if ($action === '/accounts/edit') {
+                // Get the relevant data needed to edit a user, as well as the passed user ID.
+                $userId = $request->input('user')['user_id'];
+                $email = $request->input('user')['email'];
+                $firstname = $request->input('user')['firstname'];
+                $lastname = $request->input('user')['lastname'];
+                $role = $request->input('user')['role'];
+
+                // Ensure that the user ID is validated.
+                $validator = Validator::make(['userId' => $userId, 'email' => $email, 'firstname' => $firstname, 'lastname' => $lastname, 'role' => $role], [
+                    'userId' => 'bail|numeric',
+                    'email' => 'min:6|max:255|email',
+                    'firstname' => 'min:2|max:50',
+                    'lastname' => 'min:2|max:50',
+                    'role' => [new Enum(RoleEnum::class)],
+                ]);
+
+                // If the user ID fauled to validate, send an error.
+                if ($validator->fails()) {
+                    return response()->json(['error' => 'Failed to validate']);
+                }
+
+                // Check if the passed email exists anywhere in users.
+                // If so, return error.
+                // If not, updated on passed id (could be that we have a change in email entirely)
+                $sanitiser = new SanitiserUtility(['email' => $email, 'firstname' => $firstname, 'lastname' => $lastname]);
+                $sanitiser->strip()
+                          ->trim()
+                          ->forceToLower()
+                          ->capitaliseFirstLetter(array_slice($sanitiser->getSanitisedInputs(), -2, null, true));
+
+                // Get the sanitised inputs from the sanitiser.
+                $sanitisedInputs = $sanitiser->getSanitisedInputs();
+
+                // Paste the sanitised inputs back into the POST data.
+                $email = $sanitisedInputs['email'];
+                $firstname = $sanitisedInputs['firstname'];
+                $lastname = $sanitisedInputs['lastname'];
+
+                // Get a User instance based on the past user ID.
+                $user = User::find($userId);
+
+                // Check to see if the passed email, and the email from $user are the same.
+                // If not, check to see if the passed email already exists in the table.
+                // If none of the prior conditions are met, then an entirely new email has been passed.
+                if ($user->email === $email) {
+                    // If they are the same, note that role, firstname, or lastname is being changed.
+                    $user->firstname = $firstname;
+                    $user->lastname = $lastname;
+                    $user->role = $role;
+
+                    // Update the user based on the new data passed.
+                    $user->save();
+
+                    // Return a JSON signifying that the user was edited.
+                    return response()->json(['success' => 'User edited']);
+                } else if ($user->where('email', $email)->count() === 1) {
+                    // New email passed already exists, so return an error.
+                    return response()->json(['error' => 'User already exists']);
+                } else {
+                    // A non-database email has been passed, so create a new user based on the inputs.
+                    $user = User::create([
+                        'email' => $email,
+                        'password' => $user->password,
+                        'firstname' => $firstname,
+                        'lastname' => $lastname,
+                        'role' => $role,
+                        'last_login' => null,
+                        'failed_attempts' => 0,
+                        'is_locked' => 0,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
+                    ]);
+
+                    // If a the user was created, return a success JSON, else return a JSON signifying that the user could not be found.
+                    return $user ? response()->json(['success' => 'User created']) : response()->json(['error' => 'Failed to create user']);
+                }
+            } else {
+                // Return a JSON signifying that the passed action is incorrect.
+                return response()->json(['error' => 'Incorrect action']);
+            }
+        }
     }
 
     /**
@@ -97,10 +253,14 @@ class AccountsController extends Controller
      */
     public function postRemoveAccount(Request $request): JsonResponse
     {
-        // Will launch the confirmation modal.
-        // If the confirm is clicked, need to send a post request to update.
-        // Probably needs to be done via jquery.
-        return $this->obtainCorrectView($request->only(['user_id']), 'confirmation_modal', 'Are you sure you want to delete the following user?');
+        // Get the POST data as well as set 'viewName' and 'message'.
+        $userId = $request->input('user_id');
+        $viewName = 'confirmation_modal';
+        $message = 'Are you sure you want to delete the following user?';
+        $action = $request->input('action');
+
+        // Return the JSON based on the 'obtainCorrectView's response.
+        return $this->obtainCorrectView($userId, $viewName, $message, $action);
     }
 
     /**
@@ -108,18 +268,32 @@ class AccountsController extends Controller
      * If at any point the method fails, such failure is returned in JSON form.
      * If the method runs as intended, the entire user is returned in JSON form.
      *
-     * @param array $userId The intended user ID to fetch from the database.
+     * @param string $userId   The intended user ID to fetch from the database.
      * @param string $viewName Name of the inteded modal view.
+     * @param string $message  Message to show in modal. [Optional, Default = null]
+     * @param string $action   Intended action. [Optional, Default = null]
      *
      * @return JsonResponse Returns a JsonResponse based on the selected user.
      */
-    private function obtainCorrectView(array $userId, string $viewName, string $message = null): JsonResponse
+    private function obtainCorrectView(string $userId, string $viewName, string $message = null, string $action = null): JsonResponse
     {
         // Validate credentials.
-        // Check to see if the inputs are 'generally valid'.
-        $validator = Validator::make($userId, [
-            'user_id' => 'numeric',
-        ]);
+        // Check to see if an action is specified, if so, ensure that is is equal to '/acounts/remove' or '/accounts/edit'.
+        if ($action === '/accounts/remove') {
+            $validator = Validator::make(['userId' => $userId, 'action' => $action], [
+                'userId' => 'bail|numeric',
+                'action' => 'in:/accounts/remove',
+            ]);
+        } else if ($action === '/accounts/edit') {
+            $validator = Validator::make(['userId' => $userId, 'action' => $action], [
+                'user_id' => 'bail|numeric',
+                'action' => 'in:/accounts/edit',
+            ]);
+        } else {
+            $validator = Validator::make(['userId' => $userId], [
+                'user_id' => 'numeric',
+            ]);
+        }
 
         // Now check if it fails.
         if ($validator->fails()) {
@@ -128,21 +302,15 @@ class AccountsController extends Controller
         }
 
         // Attempt to get a user via a user ID.
-        $user = User::find($userId['user_id']);
+        $user = User::find($userId);
 
         // Check to see if a user was returned via the inputted ID.
         if ($user) {
-            // Check to see if a custom message has been passed (generally used for confirmation modal usage).
-            if ($message) {
-                // Add the results of the found user to the modal, and get the final HTML.
-                $view = view($viewName, ['user' => $user, 'message' => $message])->render();
-            } else {
-                // Add the results of the found user to the modal, and get the final HTML.
-                $view = view($viewName, ['user' => $user])->render();
-            }
-            // Return the view as JSON so it can be used via JQuery.
-            return response()->json(['modal' => $view]);
+            // Check to see if an message has been passed.
+            $view = $message ? view($viewName, ['user' => $user, 'message' => $message])->render() : view($viewName, ['user' => $user])->render();
 
+            // Return the view as JSON so it can be used via JQuery.
+            return $action ? response()->json(['modal' => $view, 'user' => $user, 'action' => $action]) : response()->json(['modal' => $view, 'user' => $user]);
         } else {
             // Return a JSON signifying that the user could not be found.
             return response()->json(['error' => 'User does not exist']);

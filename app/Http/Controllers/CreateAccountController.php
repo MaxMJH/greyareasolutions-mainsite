@@ -77,7 +77,7 @@ class CreateAccountController extends Controller
         $sanitiser->strip()
                   ->trim()
                   ->forceToLower()
-                  ->capitaliseFirstLetter(['firstname', 'lastname']);
+                  ->capitaliseFirstLetter($request->only(['firstname', 'lastname']));
 
         // Get the new sanitised inputs back from the sanitiser.
         $sanitisedInputs = $sanitiser->getSanitisedInputs();

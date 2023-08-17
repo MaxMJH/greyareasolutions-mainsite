@@ -31,8 +31,10 @@ $(document).ready(function () {
   /*---- Variables ----*/
   var csrf;
   var userId;
+  var jsonResponse;
 
   /*---- Event Handler ----*/
+  // Add event listeners to the three options.
   buttonElements.on('click', function (event) {
     // Prevent the default 'submit' and replace with the following code.
     event.preventDefault();
@@ -75,16 +77,26 @@ $(document).ready(function () {
       type: 'POST',
       dataType: 'json',
       data: {
-        user_id: userId
+        user_id: userId,
+        action: action
       },
       headers: {
         'X-CSRF-TOKEN': csrf
       },
       success: function success(response) {
-        // If POST succeeded, show the respective modal.
-        $('main').after(response.modal);
+        // Show the respective modal.
+        showModal(action, response);
+
+        // Send the data to 'modal.js'.
+        sendUserData(response.user, csrf, response.action);
       }
     });
+  }
+
+  // If POST succeeded, show the respective modal.
+  function showModal(action, response) {
+    // Add the modal to the view.
+    $('main').after(response.modal);
   }
 });
 /******/ })()

@@ -27,19 +27,19 @@ __webpack_require__.r(__webpack_exports__);
 var closeElement = document.getElementById('close');
 
 /*---- Event Handlers ----*/
-// Check to see if the error pop up exists.
+// Check to see if the error / success pop up exists.
 if (closeElement !== null) {
-  // If so, remove the error message if the cross is clicked.
+  // If so, remove the error / success message if the cross is clicked.
   closeElement.addEventListener('click', function (event) {
     event.preventDefault();
     closeElement.parentElement.remove();
   });
 
-  // If so, remove the error message after ten seconds.
+  // If so, remove the error / success message after ten seconds.
   closeElement.addEventListener('load', function () {
     // When removing, set opacity to so it fades out.
     setTimeout(function () {
-      // Close the error after a second.
+      // Close the error / success after a second.
       setTimeout(function () {
         closeElement.parentElement.remove();
       }, 1000);

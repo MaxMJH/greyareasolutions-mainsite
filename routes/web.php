@@ -38,6 +38,9 @@ Route::post('/create_account', [CreateAccountController::class, 'postCreateAccou
 // Utilise the AccountController's 'getAccountsView' method.
 Route::get('/accounts', [AccountsController::class, 'getAccountsView']);
 
+// Utilise the AccountController's 'postAccounts' method.
+Route::post('/accounts', [AccountsController::class, 'postAccounts']);
+
 // Utilise the AccountController's 'postAddAccount' method.
 Route::post('/accounts/view', [AccountsController::class, 'postViewAccount']);
 
