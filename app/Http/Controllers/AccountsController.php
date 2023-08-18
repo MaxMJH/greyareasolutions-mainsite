@@ -81,6 +81,22 @@ class AccountsController extends Controller
     }
 
     /**
+     * Returns all registered users to the site via JSON. Typically used
+     * for the accounts table displayed in '/accounts'. This way, JS can be
+     * used to display users within the table without any scrolling or
+     * overflow, making it user-friendly.
+     *
+     * @param Request $request Obtain the incoming request.
+     *
+     * @return JsonResponse Returns a JsonResponse containing all users.
+     */
+    public function getAllUsers(Request $request): JsonResponse
+    {
+        // Return all users from the database in Json form, excluding password.
+        return response()->json(['users' => User::all()]);
+    }
+
+    /**
      * Allows an administrator to view more information pertaining to the
      * selected user. This information contains account creation times,
      * how many times an account has failed to be logged into, etc...

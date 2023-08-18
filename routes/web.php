@@ -45,6 +45,9 @@ Route::post('/accounts', [AccountsController::class, 'postAccounts'])->middlewar
 // Utilise the AccountController's 'postAddAccount' method.
 Route::post('/accounts/view', [AccountsController::class, 'postViewAccount'])->middleware('checkRole:' . RoleEnum::Admin->value);
 
+// Utilise the AccountController's 'getAllUsers' method.
+Route::get('/accounts/allusers', [AccountsController::class, 'getAllUsers'])->middleware(['checkRole:' . RoleEnum::Admin->value, 'checkReferrer:/accounts']);
+
 // Utilise the AccountController's 'postEditAccount' method.
 Route::post('/accounts/edit', [AccountsController::class, 'postEditAccount'])->middleware('checkRole:' . RoleEnum::Admin->value);
 
