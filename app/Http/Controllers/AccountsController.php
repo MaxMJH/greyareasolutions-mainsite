@@ -41,15 +41,27 @@ class AccountsController extends Controller
      */
     public function getAccountsView(): View
     {
+        // Check to see if a success or error has occurred.
         if (Session::has('error')) {
+            // If an error has occurred, get its session value.
             $error = session('error');
+
+            // Forget the session error.
             Session::forget('error');
+
+            // Pass error to the view.
             return view('accounts', ['error' => $error]);
         } else if (Session::has('success')) {
+            // If a success has occurred, get its session value.
             $success = session('success');
+
+            // Forget the session success.
             Session::forget('success');
+
+            // Pass the success to the view.
             return view('accounts', ['success' => $success]);
         } else {
+            // If not, display the view normally.
             return view('accounts');
         }
     }

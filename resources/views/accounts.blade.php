@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Staging - Grey Area Solutions</title>
     <link rel="stylesheet" href=" {{ mix('/css/accounts.css') }}">
     <link rel="stylesheet" href=" {{ mix('/css/confirmation_modal.css') }}">
@@ -25,67 +26,28 @@
               <option value="is_locked">Locked</option>
             </select>
             <input id="search-value" type="text" placeholder="Search">
-            <button id="search-submit" type="submit" name="search-submit">
-              <img id="searchicon" src="{{ asset('images/searchicon.png') }}" alt="Search">
-            </button>
           </form>
         </div>
       </div>
       <div id="table-container">
         <div id="table">
           <table>
-            <tr>
-              <th>ID</th>
-              <th>Email</th>
-              <th>Full Name</th>
-              <th>Role</th>
-              <th>Is Locked</th>
-              <th>Options</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>maxharrismjh@gmail.com</td>
-              <td>Max Harris</td>
-              <td>Blogger</td>
-              <td>1</td>
-              <td>
-                <div id="options">
-                  <form id="view-more" class="user-options" action="/accounts/view" method="POST">
-                    @csrf
-                    <input type="hidden" name="userid" value="11">
-                    <button type="submit" name="view-more">
-                      <img id="view-more" src="{{ asset('images/viewmoreicon.png') }}" alt="View More">
-                    </button>
-                  </form>
-                  <form id="edit" class="user-options" action="/accounts/edit" method="POST">
-                    @csrf
-                    <input type="hidden" name="userid" value="11">
-                    <button type="submit" name="edit">
-                      <img id="edit" src="{{ asset('images/edit.png') }}" alt="Edit">
-                    </button>
-                  </form>
-                  <form id="remove" class="user-options" action="/accounts/remove" method="POST">
-                    @csrf
-                    <input type="hidden" name="userid" value="11">
-                    <button type="submit" name="remove">
-                      <img id="remove" src="{{ asset('images/rubbish.png') }}" alt="Remove">
-                    </button>
-                  </form>
-                </div>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Role</th>
+                <th>Is Locked</th>
+                <th>Options</th>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div id="table-next-back">
-          <form id="table-back" action="" method="POST">
-            @csrf
-            <input id="back" type="submit" name="Back" value="<">
-          </form>
+          <button id="back" name="Back"><</button>
           <span>1 of 1</span>
-          <form id="table-next" action="" method="POST">
-            @csrf
-            <input id="next" type="submit" name="Next" value=">">
-          </form>
+          <button id="next" name="Next">></button>
         </div>
       </div>
       @if (isset($error))

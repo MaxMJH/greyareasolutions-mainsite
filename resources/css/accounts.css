@@ -184,7 +184,7 @@ main div#table-container div#table table tbody tr td div#options form.user-optio
 }
 
 main div#table-container div#table-next-back {
-    height: 5%;
+    height: auto;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -194,20 +194,15 @@ main div#table-container div#table-next-back {
     gap: 10%;
 }
 
-main div#table-container div#table-next-back form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-main div#table-container div#table-next-back form input {
+main div#table-container div#table-next-back button {
     all: unset;
     font-size: 2.2em;
     cursor: pointer;
     color: #3E3E3E;
+    visibility: hidden;
 }
 
-main div#table-container div#table-next-back form input:hover {
+main div#table-container div#table-next-back button:hover {
     color: #B9B9B9;
 }
 
@@ -397,7 +392,7 @@ img#scroller {
         width: 15px;
     }
 
-    main div#table-container div#table-next-back form input {
+    main div#table-container div#table-next-back button {
         font-size: 2.5em;
     }
 
@@ -463,7 +458,7 @@ img#scroller {
         width: 14px;
     }
 
-    main div#table-container div#table-next-back form input {
+    main div#table-container div#table-next-back button {
         font-size: 2em;
     }
 
