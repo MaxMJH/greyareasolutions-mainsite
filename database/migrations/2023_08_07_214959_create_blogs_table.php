@@ -16,10 +16,10 @@ return new class extends Migration
             $table->tinyText('blog_title')->unique()->nullable($value = false);
             $table->text('blog_abstract')->nullable($value = false);
             $table->longText('blog_content')->nullable($value = false);
-            $table->timestamp('blog_creation_date', $precision = 0)->nullable($value = false);
             $table->foreignId('user_id')->constrained('users', 'user_id')->nullable($value = false);
             $table->string('blog_image')->nullable($value = false);
             $table->string('blog_slug', 255)->nullable($value = false);
+            $table->timestamps();
         });
     }
 

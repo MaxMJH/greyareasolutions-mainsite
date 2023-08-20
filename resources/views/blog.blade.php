@@ -11,10 +11,10 @@
     @include('header')
     <main>
       <div id="blog-content">
-        <img src="{{ asset('images/generalapp.jpeg') }}" alt="Blog Image">
+        <img src="{{ $blog->blog_image }}" alt="Blog Image">
         <div id="blog-info">
           <div id="blog-title">
-            <h2>The Beginning</h2>
+            <h2>{{ $blog->blog_title }}</h2>
             <div id="blog-edit-delete">
               <img src="{{ asset('images/edit.png') }}" alt="Edit">
               <a id="edit" href=""></a>
@@ -23,48 +23,23 @@
             </div>
             <div class="blog-datetime">
               <img src="{{ asset('images/timeicon.png') }}" alt="Date">
-              <h3>June 22, 2023</h3>
+              <h3>{{ $blog->created_at->format('M d, Y') }}</h3>
             </div>
           </div>
-          <h3>By: Max Harris</h3>
-          <p>
-            Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-            ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia.
-            Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident.
-            Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia
-            dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi
-            laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-            Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-            <br><br>
-            Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint
-            ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia.
-            Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident.
-            Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia
-            dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi
-            laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim.
-            Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-          </p>
+          <h3>By: {{ $blog->user->firstname }} {{ $blog->user->lastname }}</h3>
+          <p>{{ $blog->blog_content }}</p>
         </div>
       </div>
     </main>
     <section id="recent-posts">
       <h3>Recent Posts</h3>
-      <div class="recent-post">
-        <img src="{{ asset('images/generalapp.jpeg') }}" alt="Blog Image">
-        <div class="blog-info">
-          <h4>The Beginning</h4>
-          <div class="blog-datetime">
-            <img src="{{ asset('images/timeicon.png') }}" alt="Date">
-            <h5>June 22, 2023</h5>
-          </div>
-        </div>
-        <a class="recent-post-ref" href=""></a>
-      </div>
     </section>
     @if (1 === 2)
       @include('confirmation_modal')
     @endif
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="{{ mix('/js/pagelayout.js') }}"></script>
+    <script src="{{ mix('/js/recentblogs.js') }}"></script>
   </body>
 </html>

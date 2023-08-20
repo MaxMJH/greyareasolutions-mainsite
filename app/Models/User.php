@@ -40,7 +40,7 @@ class User extends Authenticatable
     protected $primaryKey = 'user_id';
 
     /**
-     * @var array<int, string> $fillable The attributes that are mass assignable.
+     * @var array $fillable The attributes that are mass assignable.
      */
     protected $fillable = [
         'email',
@@ -57,14 +57,14 @@ class User extends Authenticatable
     ];
 
     /**
-     * @var array<int, string> $hidden The attributes that should be hidden for serialisation.
+     * @var array $hidden The attributes that should be hidden for serialisation.
      */
     protected $hidden = [
         'password',
     ];
 
     /**
-     * @var array<string, string> $casts The attributes that should be cast.
+     * @var array $casts The attributes that should be cast.
      */
     protected $casts = [
         'password' => 'hashed',

@@ -10,24 +10,23 @@
   <body>
     @include('header')
     <main>
-      <div class="blog">
-        <img src="{{ asset('images/generalapp.jpeg') }}" alt="Blog Image">
-        <div class="blog-content">
-          <h2>The Beginning</h2>
-          <div class="blog-info">
-            <h3>By: Max Harris</h3>
-            <div class="blog-datetime">
-              <img src="{{ asset('images/timeicon.png') }}" alt="Date">
-              <h3>June 22, 2023</h3>
+      @for ($i = 0; $i < count($blogs); $i++)
+        <div class="blog">
+          <img src="{{ $blogs[$i]->blog_image }}" alt="Blog Image">
+          <div class="blog-content">
+            <h2>{{ $blogs[$i]->blog_title }}</h2>
+            <div class="blog-info">
+              <h3>By: {{ $users[$i] }}</h3>
+              <div class="blog-datetime">
+                <img src="{{ asset('images/timeicon.png') }}" alt="Date">
+                <h3>{{ $blogs[$i]->created_at->format('M d, Y') }}</h3>
+              </div>
             </div>
+            <p>{{ $blogs[$i]->blog_abstract }}</p>
+            <a href="blog/{{ $blogs[$i]->blog_slug }}">Read More</a>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida dapibus magna, a convallis est ornare
-            vitae. Duis sed mauris semper, suscipit elit nec, fringilla mi.
-          </p>
-          <a href="/blog">Read More</a>
         </div>
-      </div>
+      @endfor
       <div class="add-blog">
         <form action="">
           <input type="submit" value="Add Blog">

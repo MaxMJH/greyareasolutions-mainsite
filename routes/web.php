@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CreateAccountController;
 use App\Http\Controllers\AccountsController;
 use App\Enums\RoleEnum;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,13 +58,20 @@ Route::post('/accounts/update', [AccountsController::class, 'postUpdateAccount']
 // Utilise the AccountController's 'postRemoveAccount' method.
 Route::post('/accounts/remove', [AccountsController::class, 'postRemoveAccount'])->middleware('checkRole:' . RoleEnum::Admin->value);
 
-Route::get('/blogs', function () {
-    return view('all_blogs');
-});
+// Utilise the BlogController's 'getBlogsView' method.
+Route::get('/blogs', [BlogController::class, 'getBlogsView']);
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+// Utilise the BlogController's 'getRecentBlogs' method.
+Route::get('/blog/recentblogs', [BlogController::class, 'getRecentBlogs']);
+
+// Utilise the BlogController's 'getCreateBlog' method.
+Route::get('/blog/create' [BlogController::class, 'getCreateBlog']);
+
+// Utilise the BlogController's 'postCreateBlog' method.
+Route::get('/blog/create', [BlogController::class, 'postCreateBlog']);
+
+// Utilise the BlogController's 'getBlogView' method.
+Route::get('/blog/{blog:blog_slug}', [BlogController::class, 'getBlogView']);
 
 Route::get('/blog-edit', function() {
     return view('blog_editorial');

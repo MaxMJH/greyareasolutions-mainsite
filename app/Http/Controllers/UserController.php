@@ -17,7 +17,8 @@ use Carbon\Carbon;
  * processing various data sent by the user, and conducting
  * various tasks against the model itself.
  *
- * Each of this class's methods map to a specific route.
+ * Each of this class's methods map to a specific route, or if
+ * private, a decoupler.
  *
  * @package App\Http\Controllers
  *
