@@ -42,6 +42,16 @@ $(document).ready(function () {
     dataType: 'json',
     success: function success(response) {
       users = response.users;
+
+      // Go through each user.
+      for (var i = 0; i < users.length; i++) {
+        // Check to see if the user in users list is the current user.
+        if (users[i].user_id === response.current_user_id) {
+          // If so, add a key value stating such.
+          users[i].current_user = true;
+          break;
+        }
+      }
       setupTable(users);
     }
   });
@@ -258,8 +268,16 @@ $(document).ready(function () {
 
     // Iterate through each user, adding them to the table.
     for (var i = 0; i < users.length; i++) {
-      var rowHtml = "\n              <tr>\n                <td>".concat(users[i].user_id, "</td>\n                <td>").concat(users[i].email, "</td>\n                <td>").concat(users[i].firstname, " ").concat(users[i].lastname, "</td>\n                <td>").concat(users[i].role, "</td>\n                <td>").concat(users[i].is_locked, "</td>\n                <td>\n                  <div id=\"options\">\n                    <form id=\"view-more\" class=\"user-options\" action=\"/accounts/view\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"view-more\">\n                        <img id=\"view-more\" src=\"https://staging.greyareasolutions.net/images/viewmoreicon.png\" alt=\"View More\">\n                      </button>\n                    </form>\n                    <form id=\"edit\" class=\"user-options\" action=\"/accounts/edit\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"edit\">\n                        <img id=\"edit\" src=\"https://staging.greyareasolutions.net/images/edit.png\" alt=\"Edit\">\n                      </button>\n                    </form>\n                    <form id=\"remove\" class=\"user-options\" action=\"/accounts/remove\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"remove\">\n                        <img id=\"remove\" src=\"https://staging.greyareasolutions.net/images/rubbish.png\" alt=\"remove\">\n                      </button>\n                    </form>\n                  </div>\n                </td>\n              </tr>");
+      var rowHtml = void 0;
 
+      // Check to see if iterated user is current user.
+      if (users[i].current_user === true) {
+        // If so, only add the view-more button.
+        rowHtml = "\n              <tr>\n                <td>".concat(users[i].user_id, "</td>\n                <td>").concat(users[i].email, "</td>\n                <td>").concat(users[i].firstname, " ").concat(users[i].lastname, "</td>\n                <td>").concat(users[i].role, "</td>\n                <td>").concat(users[i].is_locked, "</td>\n                <td>\n                  <div id=\"options\">\n                    <form id=\"view-more\" class=\"user-options\" action=\"/accounts/view\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"view-more\">\n                        <img id=\"view-more\" src=\"https://staging.greyareasolutions.net/images/viewmoreicon.png\" alt=\"View More\">\n                      </button>\n                    </form>\n                  </div>\n                </td>\n              </tr>");
+      } else {
+        // If not, show all buttons.
+        rowHtml = "\n              <tr>\n                <td>".concat(users[i].user_id, "</td>\n                <td>").concat(users[i].email, "</td>\n                <td>").concat(users[i].firstname, " ").concat(users[i].lastname, "</td>\n                <td>").concat(users[i].role, "</td>\n                <td>").concat(users[i].is_locked, "</td>\n                <td>\n                  <div id=\"options\">\n                    <form id=\"view-more\" class=\"user-options\" action=\"/accounts/view\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"view-more\">\n                        <img id=\"view-more\" src=\"https://staging.greyareasolutions.net/images/viewmoreicon.png\" alt=\"View More\">\n                      </button>\n                    </form>\n                    <form id=\"edit\" class=\"user-options\" action=\"/accounts/edit\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"edit\">\n                        <img id=\"edit\" src=\"https://staging.greyareasolutions.net/images/edit.png\" alt=\"Edit\">\n                      </button>\n                    </form>\n                    <form id=\"remove\" class=\"user-options\" action=\"/accounts/remove\" method=\"POST\">\n                      <input name=\"_token\" value=\"").concat(csrfToken, "\" type=\"hidden\">\n                      <input type=\"hidden\" name=\"userid\" value=\"").concat(users[i].user_id, "\">\n                      <button type=\"submit\" class=\"button\" name=\"remove\">\n                        <img id=\"remove\" src=\"https://staging.greyareasolutions.net/images/rubbish.png\" alt=\"remove\">\n                      </button>\n                    </form>\n                  </div>\n                </td>\n              </tr>");
+      }
       // Append the row to the table.
       tableBody.append(rowHtml);
     }

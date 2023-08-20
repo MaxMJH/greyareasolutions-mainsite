@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use App\Enums\RoleEnum;
 use Illuminate\Validation\Rules\Enum;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * This class acts as a way of managing registered accounts on the site.
@@ -104,8 +105,8 @@ class AccountsController extends Controller
      */
     public function getAllUsers(Request $request): JsonResponse
     {
-        // Return all users from the database in Json form, excluding password.
-        return response()->json(['users' => User::all()]);
+        // Return all users from the database in Json form, excluding password, as well as the current user's userid.
+        return response()->json(['users' => User::all(), 'current_user_id' => Auth::user()->user_id]);
     }
 
     /**

@@ -19,6 +19,17 @@ $(document).ready(function() {
     dataType: 'json',
     success: function (response) {
       users = response.users;
+
+      // Go through each user.
+      for (let i = 0; i < users.length; i++) {
+        // Check to see if the user in users list is the current user.
+        if (users[i].user_id === response.current_user_id) {
+          // If so, add a key value stating such.
+          users[i].current_user = true;
+          break;
+        }
+      }
+
       setupTable(users);
     }
   });
@@ -238,7 +249,33 @@ $(document).ready(function() {
 
     // Iterate through each user, adding them to the table.
     for (let i = 0; i < users.length; i++) {
-      const rowHtml = `
+      let rowHtml;
+
+      // Check to see if iterated user is current user.
+      if (users[i].current_user === true) {
+        // If so, only add the view-more button.
+        rowHtml = `
+              <tr>
+                <td>${users[i].user_id}</td>
+                <td>${users[i].email}</td>
+                <td>${users[i].firstname} ${users[i].lastname}</td>
+                <td>${users[i].role}</td>
+                <td>${users[i].is_locked}</td>
+                <td>
+                  <div id="options">
+                    <form id="view-more" class="user-options" action="/accounts/view" method="POST">
+                      <input name="_token" value="${csrfToken}" type="hidden">
+                      <input type="hidden" name="userid" value="${users[i].user_id}">
+                      <button type="submit" class="button" name="view-more">
+                        <img id="view-more" src="https://staging.greyareasolutions.net/images/viewmoreicon.png" alt="View More">
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>`;
+      } else {
+        // If not, show all buttons.
+        rowHtml = `
               <tr>
                 <td>${users[i].user_id}</td>
                 <td>${users[i].email}</td>
@@ -271,7 +308,7 @@ $(document).ready(function() {
                   </div>
                 </td>
               </tr>`;
-
+      }
       // Append the row to the table.
       tableBody.append(rowHtml);
     }
