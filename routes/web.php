@@ -65,14 +65,22 @@ Route::get('/blogs', [BlogController::class, 'getBlogsView']);
 Route::get('/blog/recentblogs', [BlogController::class, 'getRecentBlogs']);
 
 // Utilise the BlogController's 'getCreateBlog' method.
-Route::get('/blog/create' [BlogController::class, 'getCreateBlog']);
+Route::get('/blog/create', [BlogController::class, 'getCreateBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
 
 // Utilise the BlogController's 'postCreateBlog' method.
-Route::get('/blog/create', [BlogController::class, 'postCreateBlog']);
+Route::post('/blog/create', [BlogController::class, 'postCreateBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
+
+// Utilise the BlogController's 'getBlogConfirm' method.
+Route::get('/blog/confirm', [BlogController::class, 'getBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
+
+// Utilise the BlogController's 'getEditBlog' method.
+Route::get('/blog/edit', [BlogController::class, 'getEditBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
+
+// Utilise the BlogController's 'postEditBlog' method.
+Route::post('/blog/edit', [BlogController::class, 'postEditBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
+
+// Utilise the BlogController's 'postRemoveBlog' method.
+Route::post('/blog/remove', [BlogController::class, 'postRemoveBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
 
 // Utilise the BlogController's 'getBlogView' method.
 Route::get('/blog/{blog:blog_slug}', [BlogController::class, 'getBlogView']);
-
-Route::get('/blog-edit', function() {
-    return view('blog_editorial');
-});

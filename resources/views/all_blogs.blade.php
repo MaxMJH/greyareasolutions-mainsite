@@ -28,7 +28,7 @@
         </div>
       @endfor
       <div class="add-blog">
-        <form action="">
+        <form action="/blog/create" method="GET">
           <input type="submit" value="Add Blog">
         </form>
       </div>

@@ -25,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /*---- JQuery ----*/
 $(document).ready(function () {
+  /*---- Request ----*/
   // Send a GET request to 'recentblogs' to get all blogs.
   $.get({
     url: '/blog/recentblogs',
@@ -56,6 +57,38 @@ $(document).ready(function () {
         $('section#recent-posts').append(html);
       }
     }
+  });
+
+  /*---- Event Listener ----*/
+  // Set an event listener for the publsih button.
+  $('input#publish').on('click', function (event) {
+    event.preventDefault();
+
+    // Send a GET request to the confirmation modal.
+    $.get({
+      url: '/blog/confirm',
+      type: 'GET',
+      success: function success(response) {
+        // If success, show the modal.
+        $('main').after(response.modal);
+
+        // Set an event listner for the confirm button.
+        $('body').on('click', '#modal-confirm', function (event) {
+          event.preventDefault();
+
+          // Submit the form on /blog/create.
+          $('div#blog-content > form').submit();
+        });
+
+        // Set an event listener for the cancel button.
+        $('body').on('click', '#modal-cancel', function (event) {
+          event.preventDefault();
+
+          // Remove the modal from the HTML.
+          $(this).closest('#confirmation-modal').remove();
+        });
+      }
+    });
   });
 });
 /******/ })()

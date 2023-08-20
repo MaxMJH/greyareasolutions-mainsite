@@ -94,7 +94,7 @@ main div#blog-content form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 100%;
+    height: 99%;
 }
 
 main div#blog-content form input#blog-image {
@@ -115,6 +115,7 @@ main div#blog-content form div#blog-info {
     display: flex;
     flex-direction: column;
     height: auto;
+    gap: 10px;
 }
 
 main div#blog-content form div#blog-info div#blog-title {
@@ -160,12 +161,16 @@ main div#blog-content form div#blog-info h3 {
     margin-top: 0;
 }
 
-main div#blog-content form div#blog-info textarea#blog-section {
+main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
     all: unset;
     font-size: 1.5625em;
     color: #3E3E3E;
-    height: 55vh;
+    height: 45vh;
     background: #D9D8D8;
+}
+
+main div#blog-content form div#blog-info textarea#blog-abstract {
+    height: 10vh;
 }
 
 main div#blog-content form div#cancel-publish {
@@ -175,10 +180,9 @@ main div#blog-content form div#cancel-publish {
     height: 60px;
 }
 
-main div#blog-content form div#cancel-publish input#cancel {
+main div#blog-content form div#cancel-publish a#cancel {
     all: unset;
     width: 100px;
-    text-align: center;
     background: rgb(202, 46, 46);
     font-size: 1.5625em;
     color: #FFFFFF;
@@ -186,9 +190,12 @@ main div#blog-content form div#cancel-publish input#cancel {
     height: 40px;
     position: absolute;
     left: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
-main div#blog-content form div#cancel-publish input#cancel:hover {
+main div#blog-content form div#cancel-publish a#cancel:hover {
     background: rgb(132, 30, 30);
 }
 
@@ -249,7 +256,7 @@ div#confirmation-modal div#modal-box p {
     margin-right: 1vw;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form {
+div#confirmation-modal div#modal-box div#modal-options {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -258,7 +265,7 @@ div#confirmation-modal div#modal-box form#confirmation-form {
     padding-top: 2.5%;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
     all: unset;
     width: 15%;
     text-align: center;
@@ -269,11 +276,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm 
     height: 40px;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm:hover {
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm:hover {
     background: rgb(53, 130, 61);
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
     all: unset;
     width: 15%;
     text-align: center;
@@ -284,7 +291,7 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
     height: 40px;
 }
 
-div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:hover {
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover {
     background: rgb(132, 30, 30);
 }
 
@@ -304,9 +311,57 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
     display: block;
 }
 
+main div.errornotif {
+    background: rgb(255, 64, 62);
+    position: absolute;
+    width: 30%;
+    height: 6%;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s;
+    align-self: center;
+}
+
+main div.errornotif p {
+    font-size: 1.7em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+main div.errornotif img#error {
+    position: absolute;
+    left: 0;
+    background: rgb(238, 62, 60);
+    height: 70%;
+    padding: 0.61vh;
+}
+
+main div.errornotif img#close {
+    position: absolute;
+    right: 0;
+    height: 45%;
+    padding: 2%;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1655px) {
     div#confirmation-modal div#modal-box p {
         font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 1542px) {
+    main div.errornotif img#error {
+        padding: 0.81vh;
+    }
+
+    main div.errornotif p {
+        font-size: 1.5em;
+        margin-left: 1.5vw;
     }
 }
 
@@ -344,11 +399,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1.3em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         font-size: 1.2em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         font-size: 1.2em;
     }
 
@@ -368,11 +423,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         width: 11.5%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         font-size: 1.1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         font-size: 1.1em;
     }
 }
@@ -384,11 +439,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 }
 
 @media screen and (max-width: 1258px) {
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         width: 17%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         width: 17%;
     }
 }
@@ -396,6 +451,12 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 @media screen and (max-width: 1242px) {
     main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
         width: 15%;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    main div.errornotif {
+        width: 40%;
     }
 }
 
@@ -414,12 +475,12 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1.1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         width: 20%;
         font-size: 1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         width: 20%;
         font-size: 1em;
     }
@@ -446,8 +507,18 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         line-height: 35px;
     }
 
-    main div#blog-content form div#blog-info textarea#blog-section {
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
         font-size: 1.15em;
+    }
+}
+
+@media screen and (max-width: 969px) {
+    main div.errornotif {
+        width: 45%;
+    }
+
+    main div.errornotif p {
+        font-size: 1.3em;
     }
 }
 
@@ -465,12 +536,16 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 0.85em;
     }
 
-    main div#blog-content form div#blog-info textarea#blog-section {
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
         font-size: 1.05em;
-        height: 65vh;
+        height: 55vh;
     }
 
-    main div#blog-content form div#cancel-publish input#cancel {
+    main div#blog-content form div#blog-info textarea#blog-abstract {
+        height: 10vh;
+    }
+
+    main div#blog-content form div#cancel-publish a#cancel {
         font-size: 1.5em;
     }
 
@@ -480,11 +555,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 }
 
 @media screen and (max-width: 844px) {
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         width: 25%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         width: 25%;
     }
 }
@@ -503,6 +578,23 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
     }
 }
 
+@media screen and (max-width: 808px) {
+    main div.errornotif {
+        width: 45%;
+    }
+
+    main div.errornotif img#error {
+        height: 55%;
+        padding: 1.33vh;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    main div.errornotif p {
+        font-size: 1.1em;
+    }
+}
+
 @media screen and (max-width: 692px) {
     div#confirmation-modal div#modal-box h2 {
         font-size: 1.2em;
@@ -512,11 +604,11 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 1em;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-confirm {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
         width: 30%;
     }
 
-    div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
         width: 30%;
     }
 }
@@ -530,6 +622,21 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 @media screen and (max-width: 645px) {
     header a#login, header form#logout input#logout {
         width: 10vw;
+    }
+
+    main div.errornotif {
+        width: 65%;
+        height: 5%
+    }
+
+    main div.errornotif img#error {
+        height: 55%;
+        padding: 1.1vh;
+    }
+
+    main div.errornotif p {
+        font-size: 1.4em;
+        margin-left: 3vw;
     }
 }
 
@@ -645,16 +752,22 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
         font-size: 0.75em;
     }
 
-    main div#blog-content form div#blog-info textarea#blog-section {
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
         font-size: 0.9em;
     }
 
-    main div#blog-content form div#cancel-publish input#cancel {
+    main div#blog-content form div#cancel-publish a#cancel {
         font-size: 1.2em;
     }
 
     main div#blog-content form div#cancel-publish input#publish {
         font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    main div.errornotif p {
+        font-size: 1em;
     }
 }
 
@@ -665,6 +778,13 @@ div#confirmation-modal div#modal-box form#confirmation-form input#modal-cancel:h
 
     header nav#navigation.open a#login, header form#logout input#logout {
         font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    main div.errornotif img#error {
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
     }
 }
 

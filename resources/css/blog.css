@@ -223,6 +223,9 @@ section#recent-posts div.recent-post {
 
 section#recent-posts div.recent-post img {
     width: 50%;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 section#recent-posts div.recent-post div.blog-info {

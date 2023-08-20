@@ -33,17 +33,17 @@ class CheckRole
      * At this current time, this middleware will check if the user has a role of 'Admin'
      * or 'Blogger'.
      *
-     * @param Request $request Obtain the incoming request.
-     * @param Closure $next    Obtain the desired closure that will be sent if the
-     *                         user has the correct role.
-     * @oaram string $role     Role specified that will have access to the route that
-     *                         the middleware is attached to.
+     * @param Request $request     Obtain the incoming request.
+     * @param Closure $next        Obtain the desired closure that will be sent if the
+     *                             user has the correct role.
+     * @oaram array<string> $roles Role(s) specified that will have access to the route that
+     *                             the middleware is attached to.
      *
-     * @return Response If the user has the correct role, the request will be passed to
-     *                  the actual route, if not, an abort of status code 401 will be
-     *                  returned.
+     * @return Response            If the user has the correct role, the request will be passed to
+     *                             the actual route, if not, an abort of status code 401 will be
+     *                             returned.
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string ...$roles): Response
     {
         // Get the currently authenticated user, if any.
         $user = Auth::user();
@@ -55,24 +55,26 @@ class CheckRole
         }
 
         // Check to see if the role is 'Admin' or 'Blogger'.
-        switch ($role) {
-            case RoleEnum::Admin->value:
-                // Check to see if the authenticated user's role is that of 'Admin'.
-                if ($user->role === RoleEnum::Admin) {
-                    // If so, allow the request to be passed to the actual route.
-                    return $next($request);
-                }
-                break;
-            case RoleEnum::Blogger->value:
-                // Check to see if the authenticated user's role is that of 'Blogger'.
-                if ($user->role === RoleEnum::Blogger) {
-                    // If so, allow the request to be passed to the actual route.
-                    return $next($request);
-                }
-                break;
-            default:
-                // If the authenticated user's role is not 'Admin' or 'Blogger', refuse access.
-                abort(401);
+        foreach($roles as $role) {
+            switch ($role) {
+                case RoleEnum::Admin->value:
+                    // Check to see if the authenticated user's role is that of 'Admin'.
+                    if ($user->role === RoleEnum::Admin) {
+                     // If so, allow the request to be passed to the actual route.
+                     return $next($request);
+                    }
+                    break;
+                case RoleEnum::Blogger->value:
+                    // Check to see if the authenticated user's role is that of 'Blogger'.
+                    if ($user->role === RoleEnum::Blogger) {
+                        // If so, allow the request to be passed to the actual route.
+                        return $next($request);
+                    }
+                    break;
+                default:
+                    // If the authenticated user's role is not 'Admin' or 'Blogger', refuse access.
+                    abort(401);
+            }
         }
     }
 }
