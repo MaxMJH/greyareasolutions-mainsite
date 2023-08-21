@@ -1,0 +1,835 @@
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'ABeeZee';
+    width: 100vw;
+    min-height: 100vh;
+    background: #E6E6E6;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto 1fr;
+    grid-gap: 0;
+    grid-template-areas: "Header Header" "Left Right";
+}
+
+header {
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    background: #E6E6E6;
+}
+
+header img#logo {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 9.3%;
+}
+
+header img#toggler {
+    display: none;
+}
+
+header nav#navigation {
+    margin: auto;
+    display: flex;
+    gap: 24px;
+}
+
+header nav#navigation a {
+    font-size: 1.875em;
+    text-decoration: none;
+    color: #3E3E3E;
+    transition: 0.2s;
+}
+
+header nav#navigation a:hover {
+    color: #FFFFFF;
+}
+
+header form#logout {
+    display: contents;
+}
+
+header a#login, header form#logout input#logout {
+    all: unset;
+    width: 5.21vw;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    background: #3C91E6;
+    color: #FFFFFF;
+    margin-top: 12px;
+    border-radius: 10px;
+    margin-right: 12px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+header a#login:hover, header form#logout input#logout:hover {
+    background: rgb(43, 104,166);
+}
+
+main {
+    grid-area: Left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8.5%;
+    margin-bottom: 5%;
+    height: auto;
+}
+
+main div#blog-content {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+main div#blog-content img {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main div#blog-content div#blog-info {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+main div#blog-content div#blog-info div#blog-title {
+    display: flex;
+    align-items: center;
+    height: 8.18%;
+    width: 100%;
+}
+
+main div#blog-content div#blog-info div#blog-title h2 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 2.8125em;
+    margin: 0;
+    width: 75%;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 5%;
+    width: 12.5%;
+    position: relative;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
+    width: 15%;
+    height: 15%;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form button {
+    all: unset;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form button img, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+    width: 12.5%;
+    align-items: center;
+    justify-content: end;
+    gap: 5px;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime img {
+    width: 10%;
+    margin: 0;
+}
+
+main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+main div#blog-content div#blog-info h3 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+main div#blog-content div#blog-info p {
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section#recent-posts {
+    display: flex;
+    flex-direction: column;
+    top: 8.1%;
+    overflow: hidden;
+    position: fixed;
+    width: 25%;
+    right: 0;
+    min-height: 100vh;
+    gap: 2vh;
+}
+
+section#recent-posts::before {
+    border-right: 3px solid #707070;
+    content: "";
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    height: 78%;
+    opacity: 25%;
+    margin-top: 7.5%;
+}
+
+section#recent-posts h3 {
+    font-size: 2.1875em;
+    text-align: center;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+section#recent-posts div.recent-post {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    position: relative;
+}
+
+section#recent-posts div.recent-post img {
+    width: 50%;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+section#recent-posts div.recent-post div.blog-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2.5%;
+}
+
+section#recent-posts div.recent-post div.blog-info h4 {
+    font-weight: normal;
+    width: fit-content;
+    margin: 0;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+    width: 5.5%;
+}
+
+section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+    margin: 0;
+    font-weight: normal;
+    width: fit-content;
+    font-size: 1em;
+    color: #3E3E3E;
+    margin-left: 1%;
+}
+
+section#recent-posts div.recent-post a.recent-post-ref {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#scroller {
+    display: none;
+    width: 3%;
+    position: fixed;
+    z-index: 1;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+div#confirmation-modal {
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div#confirmation-modal div#modal-box {
+    display: flex;
+    flex-direction: column;
+    background: #E6E6E6;
+    width: 35%;
+    height: 25%;
+    justify-content: space-between;
+}
+
+div#confirmation-modal div#modal-box h2 {
+    margin: auto;
+    font-size: 1.875em;
+    font-weight: normal;
+    background: rgb(202, 196, 196);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    color: #3E3E3E;
+    margin-bottom: 0;
+}
+
+div#confirmation-modal div#modal-box p {
+    text-align: center;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+div#confirmation-modal div#modal-box div#modal-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2.5%;
+    border-top: 3px solid #7070701a;
+    padding-top: 2.5%;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(47, 200, 64);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm:hover {
+    background: rgb(53, 130, 61);
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(202, 46, 46);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover {
+    background: rgb(132, 30, 30);
+}
+
+#scroller.scrolled {
+    display: block;
+}
+
+@media screen and (min-width: 1920px) {
+    section#recent-posts div.recent-post img {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1655px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 15%;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    header nav#navigation a {
+        font-size: 1.475em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.475em;
+        width: 8vw;
+    }
+
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 2.2em;
+    }
+
+    main div#blog-content div#blog-info h3 {
+        font-size: 0.85em;
+        margin-bottom: 0;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.5em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 2.1em;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 70%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info h4 {
+        font-size: 1.45em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 6%;
+        height: 5%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+        font-size: 0.9em;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.6em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.3em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.2em;
+    }
+
+    #scroller {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 1414px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 20%;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.35em;
+    }
+}
+
+@media screen and (max-width: 1324px) {
+    header img#logo {
+        width: 11.5%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 2.1em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.9em;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
+        width: 20%;
+        height: 20%;
+    }
+}
+
+@media screen and (max-width: 1258px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 17%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 17%;
+    }
+}
+
+@media screen and (max-width: 1146px) {
+    header img#logo {
+        width: 12.5%;
+    }
+
+    header a#login, header form#logout input#logout {
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 1166px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        position: unset;
+        background: unset;
+    }
+
+    main {
+        margin-top: 4.25%;
+    }
+
+    section#recent-posts {
+        position: unset;
+        width: 100vw;
+        min-height: auto;
+        margin-bottom: 10%;
+    }
+
+    section#recent-posts::before {
+        position: unset;
+        height: unset;
+        width: 80%;
+        border-top: 3px solid #707070;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+    }
+
+    section#recent-posts h3 {
+        margin-top: 0;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 15%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 2.5%;
+    }
+}
+
+@media screen and (max-width: 1082px) {
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 20%;
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 20%;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    header img#logo {
+        width: 12%;
+        height: 1%;
+    }
+
+    header nav#navigation a {
+        font-size: 1.2em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.2em;
+        line-height: 35px;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.15em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 872px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 1.5em;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 25%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.85em;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.05em;
+    }
+}
+
+@media screen and (max-width: 844px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 25%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 813px) {
+    header nav#navigation a {
+        font-size: 1em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+
+    #scroller {
+        width: 5%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
+        width: 25%;
+        height: 25%;
+    }
+}
+
+@media screen and (max-width: 692px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 30%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    header a#login, header form#logout input#logout {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-width: 626px) {
+    main div#blog-content img {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-bottom: 5%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 30%;
+    }
+
+    section#recent-posts div.recent-post img {
+        width: 25%;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime img {
+        width: 3.5%;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
+        width: 35%;
+        height: 35%;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    main .open {
+        background: #000000;
+    }
+
+    header img#logo {
+        width: 25%;
+    }
+
+    header img#toggler {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 7%;
+        display: block;
+        z-index: 3;
+    }
+
+    header nav#navigation {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        height: 100%;
+        background: #E6E6E6;
+        opacity: 0;
+        transform: translateX(100vw);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+        z-index: 2;
+    }
+
+    header div.open {
+        background: #000000;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    header nav#navigation.open {
+        transform: translateX(0);
+        margin-top: initial;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
+        opacity: 1;
+    }
+
+    header nav#navigation.open a {
+        margin-left: 6%;
+        margin-top: 25%;
+        font-size: 1.5em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        all: unset;
+        font-size: 1.5em;
+        color: #FFFFFF;
+        text-align: center;
+        bottom: 0;
+        background: #3C91E6;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: fixed;
+        cursor: pointer;
+    }
+
+    div#confirmation-modal div#modal-box {
+        width: 60%;
+        height: 25%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.5em;
+    }
+
+    #scroller {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 498px) {
+    main div#blog-content div#blog-info div#blog-title h2 {
+        font-size: 1.2em;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content div#blog-info h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 0.9em;
+    }
+
+    section#recent-posts h3 {
+        font-size: 1.2em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info h4 {
+        font-size: 1em;
+    }
+
+    section#recent-posts div.recent-post div.blog-info div.blog-datetime h5 {
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    header nav#navigation.open a {
+        font-size: 1em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    main div#blog-content div#blog-info div#blog-title {
+        position: relative;
+    }
+
+    main div#blog-content div#blog-info div#blog-title div.blog-datetime {
+        position: absolute;
+        top: 100%;
+        right: 12%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 0.9em;
+    }
+}

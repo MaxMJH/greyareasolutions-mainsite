@@ -1,0 +1,452 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'ABeeZee';
+}
+
+main {
+    background-image: url(/images/background.jpeg?f1894c70939766d78f388dd5c320dd05);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+div.landingpage {
+    width: 62%;
+    filter: drop-shadow(6px 0 0 rgb(0, 0, 0, 0.36));
+}
+
+div.content-wrapper {
+    height: 100vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%);
+    background: rgb(240, 238, 238, 0.96);
+    display: flex;
+    flex-direction: column;
+    gap: 35vh;
+}
+
+div.content-wrapper header {
+    display: flex;
+}
+
+div.content-wrapper header img#logo {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 15%;
+}
+
+div.content-wrapper header img#toggler {
+    display: none;
+}
+
+div.content-wrapper header nav#navigation {
+    margin: auto;
+    display: flex;
+    gap: 24px;
+}
+
+div.content-wrapper header nav#navigation a {
+    font-size: 1.875em;
+    text-decoration: none;
+    color: #3E3E3E;
+    transition: 0.2s;
+}
+
+div.content-wrapper header nav#navigation a:hover {
+    color: #FFFFFF;
+}
+
+div.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10%;
+    position: relative;
+}
+
+div.titles {
+    width: -moz-fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.titles h1,h2 {
+    margin: 0;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+div.titles h1 {
+    font-size: 3.75em;
+}
+
+div.titles h2 {
+    font-size: 1.5625em;
+}
+
+div.content-wrapper div.title img#git {
+    width: 14%;
+    margin-top: 6%;
+}
+
+div.content-wrapper div.title a {
+    width: 14%;
+    height: 49%;
+    position: absolute;
+    bottom: 0;
+}
+
+section#about {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#about h2 {
+    margin: 0;
+    margin-bottom: 1%;
+    font-weight: normal;
+    color: #3E3E3E;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 3.75em;
+}
+
+section#about p {
+    text-align: center;
+    width: 50%;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+}
+
+section#about p em {
+    font-weight: 700;
+    font-style: normal;
+    color: #000000
+}
+
+section#portfolio {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#portfolio h2 {
+    font-size: 3.75em;
+    color: #3E3E3E;
+}
+
+section#portfolio p {
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    width: 70%;
+    text-align: center;
+}
+
+section#portfolio div.projects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(25%, 1fr));
+    grid-row-gap: 50px;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-bottom: 12%;
+    justify-items: center;
+}
+
+section#portfolio div.projects div.card {
+    width: 85%;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.36);
+}
+
+section#portfolio div.projects div.card img {
+    width: 100%;
+}
+
+section#portfolio div.projects div.card p {
+    text-align: center;
+    font-size: 1.25em;
+    height: 100%;
+    width: auto;
+}
+
+#scroller {
+    display: none;
+    width: 3%;
+    position: fixed;
+    z-index: 1;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+#scroller.scrolled {
+    display: block;
+}
+
+@media screen and (max-width: 1536px) {
+    div.content-wrapper header nav#navigation a {
+        font-size: 1.475em;
+    }
+
+    div.titles h1 {
+        font-size: 2.8em;
+    }
+
+    div.titles h2 {
+        font-size: 1.3em;
+    }
+
+    section#about h2 {
+        font-size: 2.8em;
+    }
+
+    section#about p {
+        font-size: 1.3em;
+    }
+
+    section#portfolio h2 {
+        font-size: 2.8em;
+    }
+
+    section#portfolio p {
+        font-size: 1.3em;
+    }
+
+    #scroller {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 1354px) {
+    section#portfolio div.projects div.card p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    div.content-wrapper header nav#navigation a {
+        font-size: 1.2em;
+    }
+
+    div.titles h1 {
+        font-size: 1.8em;
+    }
+
+    div.titles h2 {
+        font-size: 0.85em;
+    }
+
+    section#about h2 {
+        font-size: 1.8em;
+    }
+
+    section#about p {
+        font-size: 1.1em;
+    }
+
+    section#portfolio h2 {
+        font-size: 1.8em;
+    }
+
+    section#portfolio p {
+        font-size: 1.1em;
+    }
+
+    section#portfolio div.projects div.card p {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 813px) {
+    div.content-wrapper header nav#navigation a {
+        font-size: 1em;
+    }
+
+    section#portfolio div.projects div.card p {
+        font-size: 0.8em;
+    }
+
+    #scroller {
+        width: 5%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    main {
+        background-image: initial;
+        background-size: initial;
+        background-position: initial;
+    }
+
+    div.landingpage {
+        width: 100vw;
+        filter: initial;
+    }
+
+    div.content-wrapper {
+        -webkit-clip-path: initial;
+                clip-path: initial;
+        background: #E6E6E6;
+    }
+
+    div.content-wrapper header nav.navigation a {
+        font-size: 1.3em;
+    }
+
+    div.title {
+        margin-right: initial;
+    }
+
+    section#about p {
+        width: 85%;
+    }
+
+    section#portfolio p {
+        width: 85%;
+    }
+
+    section#portfolio div.projects {
+        grid-row-gap: 30px;
+        grid-template-columns: initial;
+    }
+
+    section#portfolio div.projects div.card {
+        width: initial;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    section#portfolio div.projects div.card img {
+        width: 65%;
+    }
+
+    section#portfolio div.projects div.card p {
+        width: -moz-fit-content;
+        width: fit-content;
+        height: initial;
+        margin-left: 1%;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    main .open {
+        background: #000000;
+    }
+
+
+    div.content-wrapper header img#logo {
+        width: 25%;
+    }
+
+    div.content-wrapper header img#toggler {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 7%;
+        display: block;
+        z-index: 3;
+    }
+
+    div.content-wrapper header nav#navigation {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        background: #E6E6E6;
+        opacity: 0;
+        transform: translateX(100vw);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+        z-index: 2;
+    }
+
+    div.content-wrapper header div.open {
+        background: #000000;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    div.content-wrapper header nav#navigation.open {
+        transform: translateX(0);
+        margin-top: initial;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
+        opacity: 1;
+    }
+
+    div.content-wrapper header nav#navigation.open a {
+        margin-left: 6%;
+        margin-top: 25%;
+        font-size: 1.5em;
+    }
+
+    section#about p {
+        font-size: 0.95em;
+    }
+
+    section#portfolio p {
+        font-size: 0.95em;
+    }
+
+    section#portfolio div.projects div.card img {
+        width: 45%;
+    }
+
+    #scroller {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 531px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.7em;
+    }
+
+    sectio#portfolio div.projects div.card img {
+        height: initial;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.6em;
+    }
+
+    div.content-wrapper header nav#navigation.open a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 413px) {
+    section#portfolio div.projects div.card p {
+        font-size: 0.5em;
+    }
+}
+

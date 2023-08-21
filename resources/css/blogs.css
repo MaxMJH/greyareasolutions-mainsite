@@ -1,0 +1,535 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'ABeeZee';
+    width: 100vw;
+    height: 100vh;
+    background: #E6E6E6;
+}
+
+header {
+    display: flex;
+}
+
+header img#logo {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 9.3%;
+}
+
+header img#toggler {
+    display: none;
+}
+
+header nav#navigation {
+    margin: auto;
+    display: flex;
+    gap: 24px;
+}
+
+header nav#navigation a {
+    font-size: 1.875em;
+    text-decoration: none;
+    color: #3E3E3E;
+    transition: 0.2s;
+}
+
+header nav#navigation a:hover {
+    color: #FFFFFF;
+}
+
+header form#logout {
+    display: contents;
+}
+
+header a#login, header form#logout input#logout {
+    all: unset;
+    width: 5.21vw;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    background: #3C91E6;
+    color: #FFFFFF;
+    margin-top: 12px;
+    border-radius: 10px;
+    margin-right: 12px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+header a#login:hover, header form#logout input#logout:hover {
+    background: rgb(43, 104, 166);
+}
+
+main {
+    width: 100vw;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 35%);
+    grid-row-gap: 120px;
+    grid-auto-rows: 1fr;
+    justify-content: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+main div.blog {
+    width: 23.5vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main div.blog img {
+    border-radius: 26px 26px 0 0;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
+}
+
+main div.blog-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+main div.blog-content h2 {
+    margin: 0;
+    font-size: 2.1875em;
+    font-weight: normal;
+    color: #3E3E3E;
+}
+
+main div.blog-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main div.blog-info h3 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 1.25em;
+    margin: 0;
+}
+
+main div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    justify-content: end;
+    gap: 5px;
+}
+
+main div.blog-datetime img {
+    width: 6.25%;
+    height: 25%;
+}
+
+main div.blog-content p {
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    margin: 0;
+    margin-top: 5px;
+}
+
+main div.blog-content a {
+    font-size: 1.25em;
+    text-decoration: none;
+    color: #3E3E3E;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+main div.add-blog {
+    width: 23.5vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
+    border-radius: 26px;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
+    cursor: pointer;
+    justify-content: center;
+}
+
+main div.add-blog a {
+    all: unset;
+    width: 100%;
+    font-size: 2.1875em;
+    color: #3E3E3E;
+    text-align: center;
+    padding-top: 40%;
+    padding-bottom: 40%;
+}
+
+main div.add-blog:hover {
+    background: #E1DCDC;
+}
+
+#scroller {
+    display: none;
+    width: 3%;
+    position: fixed;
+    z-index: 1;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+#scroller.scrolled {
+    display: block;
+}
+
+@media screen and (max-width: 1536px) {
+    header nav#navigation a {
+        font-size: 1.475em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.475em;
+        width: 8vw;
+    }
+
+    #scroller {
+        width: 4%;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.875em;
+    }
+
+    main div.blog-content p {
+        font-size: 1.3em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 1.1em;
+    }
+
+    main div.blog-content a {
+        font-size: 1.1em;
+    }
+
+    main div.add-blog a {
+        font-size: 1.875em;
+    }
+}
+
+@media screen and (max-width: 1324px) {
+    header img#logo {
+        width: 11.5%;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
+    }
+
+    main div.add-blog a {
+        font-size: 1.675em;
+    }
+}
+
+@media screen and (max-width: 1146px) {
+    header img#logo {
+        width: 12.5%;
+    }
+
+    header a#login, header form#logout input#logout {
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 1111px) {
+    main div.blog-content h3 {
+        font-size: 0.95em;
+    }
+
+    main div.blog-content p {
+        font-size: 1.15em;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
+    }
+
+    main div.blog-content a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    header img#logo {
+        width: 12%;
+        height: 1%;
+    }
+
+    header nav#navigation a {
+        font-size: 1.2em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.2em;
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 965px) {
+    main div.blog-content h2 {
+        font-size: 1.275em;
+    }
+
+    main div.blog-info h3 {
+        font-size: 0.75em;
+    }
+
+    main div.blog-datetime img {
+        width: 10%;
+    }
+
+    main div.blog-content p {
+        font-size: 0.9em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.9em;
+    }
+
+    main {
+        grid-row-gap: 80px;
+    }
+
+    main div.add-blog a {
+        font-size: 1.275em;
+    }
+}
+
+@media screen and (max-width: 813px) {
+    header nav#navigation a {
+        font-size: 1em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+
+    #scroller {
+        width: 5%;
+    }
+
+    main div.blog-info h3 {
+        font-size: 0.7em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.725em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    main div.blog-content h3 {
+        font-size: 0.65em;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    main div.blog-content h3 {
+        font-size: 0.55em;
+    }
+
+    main {
+        grid-template-columns: unset;
+    }
+
+    main div.blog {
+        width: 50vw;
+    }
+
+    main div.blog-content h2 {
+        font-size: 1.675em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.95em;
+    }
+
+    main div.blog-datetime img {
+        width: 7%;
+    }
+
+    main div.blog-content p {
+        font-size: 1.2em;
+    }
+
+    main div.blog-content a {
+        font-size: 1.1em;
+    }
+
+    main div.add-blog {
+        width: 50vw;
+        height: 28vh;
+    }
+
+    main div.add-blog a {
+        font-size: 1.675em;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    header a#login, header form#logout input#logout {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    main .open {
+        background: #000000;
+    }
+
+    header img#logo {
+        width: 25%;
+    }
+
+    header img#toggler {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 7%;
+        display: block;
+        z-index: 3;
+    }
+
+    header nav#navigation {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        height: 100%;
+        background: #E6E6E6;
+        opacity: 0;
+        transform: translateX(100vw);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+        z-index: 2;
+    }
+
+    header div.open {
+        background: #000000;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    header nav#navigation.open {
+        transform: translateX(0);
+        margin-top: initial;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
+        opacity: 1;
+    }
+
+    header nav#navigation.open a {
+        margin-left: 6%;
+        margin-top: 25%;
+        font-size: 1.5em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        all: unset;
+        font-size: 1.5em;
+        color: #FFFFFF;
+        text-align: center;
+        bottom: 0;
+        background: #3C91E6;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: fixed;
+        cursor: pointer;
+    }
+
+    #scroller {
+        width: 8%;
+    }
+
+    main div.blog-content p {
+        font-size: 1em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    header nav#navigation.open a {
+        font-size: 1em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 458px) {
+    main div.blog-content h2 {
+        font-size: 1.475em;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.75em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.95em;
+    }
+
+    main div.add-blog a {
+        font-size: 1.475em;
+    }
+}
+
+@media screen and (max-width: 366px) {
+    main div.blog-content h2 {
+        font-size: 1.3em;
+    }
+
+    main div.blog-datetime img {
+        width: 10%;
+    }
+
+    main div.blog-content h3 {
+        font-size: 0.65em;
+    }
+
+    main div.blog-content p {
+        font-size: 0.85em;
+    }
+
+    main div.blog-content a {
+        font-size: 0.75em;
+    }
+
+    main {
+        grid-row-gap: 60px;
+    }
+
+    main div.add-blog a {
+        font-size: 1.3em;
+    }
+}

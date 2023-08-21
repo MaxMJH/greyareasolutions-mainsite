@@ -1,0 +1,799 @@
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'ABeeZee';
+    width: 100vw;
+    min-height: 100vh;
+    background: #E6E6E6;
+    display: flex;
+    position: absolute;
+    z-index: -2;
+}
+
+header {
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    background: #E6E6E6;
+}
+
+header img#logo {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 9.3%;
+}
+
+header img#toggler {
+    display: none;
+}
+
+header nav#navigation {
+    margin: auto;
+    display: flex;
+    gap: 24px;
+}
+
+header nav#navigation a {
+    font-size: 1.875em;
+    text-decoration: none;
+    color: #3E3E3E;
+    transition: 0.2s;
+}
+
+header nav#navigation a:hover {
+    color: #FFFFFF;
+}
+
+header form#logout {
+    display: contents;
+}
+
+header a#login, header form#logout input#logout {
+    all: unset;
+    width: 5.21vw;
+    font-size: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    background: #3C91E6;
+    color: #FFFFFF;
+    margin-top: 12px;
+    border-radius: 10px;
+    margin-right: 12px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    height: fit-content;
+    cursor: pointer;
+}
+
+header a#login:hover, header form#logout input#logout:hover {
+    background: rgb(43, 104, 166);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5.8vh;
+    width: 100vw;
+    height: 94.2vh;
+    z-index: -1;
+}
+
+main div#blog-content {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+main div#blog-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 99%;
+}
+
+main div#blog-content form input#blog-image {
+    all: unset;
+    background: #D9D8D8;
+    width: 30vw;
+    font-size: 1.5625em;
+    height: 33.4vh;
+    text-align: center;
+    color: #3E3E3E;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main div#blog-content form div#blog-info {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+}
+
+main div#blog-content form div#blog-info div#blog-title {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+main div#blog-content form div#blog-info div#blog-title input#blog-title {
+    all: unset;
+    color: #3E3E3E;
+    font-size: 2.8125em;
+    background: #D9D8D8;
+}
+
+main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
+    display: flex;
+    flex-direction: row;
+    width: 12.5%;
+    align-items: center;
+    justify-content: end;
+    gap: 5px;
+}
+
+main div#blog-content form div#blog-info div#blog-title div.blog-datetime img {
+    width: 10%;
+    margin: 0;
+}
+
+main div#blog-content form div#blog-info div#blog-title div.blog-datetime h3 {
+    font-weight: normal;
+    font-size: 1em;
+    margin: 0;
+}
+
+main div#blog-content form div#blog-info h3 {
+    font-weight: normal;
+    color: #3E3E3E;
+    font-size: 1em;
+    margin-top: 0;
+}
+
+main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
+    all: unset;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    height: 45vh;
+    background: #D9D8D8;
+}
+
+main div#blog-content form div#blog-info textarea#blog-abstract {
+    height: 10vh;
+}
+
+main div#blog-content form div#cancel-publish {
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    height: 60px;
+}
+
+main div#blog-content form div#cancel-publish a#cancel {
+    all: unset;
+    width: 100px;
+    background: rgb(202, 46, 46);
+    font-size: 1.5625em;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div#blog-content form div#cancel-publish a#cancel:hover {
+    background: rgb(132, 30, 30);
+}
+
+main div#blog-content form div#cancel-publish input#publish {
+    all: unset;
+    width: 100px;
+    text-align: center;
+    background: rgb(60, 145, 230);
+    font-size: 1.5625em;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    right: 0;
+}
+
+main div#blog-content form div#cancel-publish input#publish:hover {
+    background: rgb(43, 104, 166);
+}
+
+div#confirmation-modal {
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+div#confirmation-modal div#modal-box {
+    display: flex;
+    flex-direction: column;
+    background: #E6E6E6;
+    width: 35%;
+    height: 25%;
+    justify-content: space-between;
+}
+
+div#confirmation-modal div#modal-box h2 {
+    margin: auto;
+    font-size: 1.875em;
+    font-weight: normal;
+    background: rgb(202, 196, 196);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    color: #3E3E3E;
+    margin-bottom: 0;
+}
+
+div#confirmation-modal div#modal-box p {
+    text-align: center;
+    font-size: 1.5625em;
+    color: #3E3E3E;
+    margin: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+div#confirmation-modal div#modal-box div#modal-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2.5%;
+    border-top: 3px solid #7070701a;
+    padding-top: 2.5%;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(47, 200, 64);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-confirm:hover {
+    background: rgb(53, 130, 61);
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+    all: unset;
+    width: 15%;
+    text-align: center;
+    background: rgb(202, 46, 46);
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+}
+
+div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover {
+    background: rgb(132, 30, 30);
+}
+
+#scroller {
+    display: none;
+    width: 3%;
+    position: fixed;
+    z-index: 1;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+#scroller.scrolled {
+    display: block;
+}
+
+main div.errornotif {
+    background: rgb(255, 64, 62);
+    position: absolute;
+    width: 30%;
+    height: 6%;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s;
+    align-self: center;
+}
+
+main div.errornotif p {
+    font-size: 1.7em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+main div.errornotif img#error {
+    position: absolute;
+    left: 0;
+    background: rgb(238, 62, 60);
+    height: 70%;
+    padding: 0.61vh;
+}
+
+main div.errornotif img#close {
+    position: absolute;
+    right: 0;
+    height: 45%;
+    padding: 2%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1655px) {
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 1542px) {
+    main div.errornotif img#error {
+        padding: 0.81vh;
+    }
+
+    main div.errornotif p {
+        font-size: 1.5em;
+        margin-left: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    header nav#navigation a {
+        font-size: 1.475em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.475em;
+        width: 8vw;
+    }
+
+    main div#blog-content form input#blog-image {
+        font-size: 1.5em;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title input#blog-title {
+        font-size: 2.2em;
+    }
+
+    main div#blog-content div#blog-info h3 {
+        font-size: 0.85em;
+    }
+
+    main div#blog-content div#blog-info p {
+        font-size: 1.5em;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.6em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.3em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.2em;
+    }
+
+    #scroller {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 1414px) {
+    main div#blog-content div#blog-info p {
+        font-size: 1.35em;
+    }
+}
+
+@media screen and (max-width: 1324px) {
+    header img#logo {
+        width: 11.5%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    main div#blog-content form div#blog-info div#blog-title input#blog-title {
+        font-size: 2.1em;
+    }
+}
+
+@media screen and (max-width: 1258px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 17%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 17%;
+    }
+}
+
+@media screen and (max-width: 1242px) {
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    main div.errornotif {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1146px) {
+    header img#logo {
+        width: 12.5%;
+    }
+
+    header a#login, header form#logout input#logout {
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 1082px) {
+    div#confirmation-modal div#modal-box p {
+        font-size: 1.1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 20%;
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 20%;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 1034px) {
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 975px) {
+    header img#logo {
+        width: 12%;
+        height: 1%;
+    }
+
+    header nav#navigation a {
+        font-size: 1.2em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1.2em;
+        line-height: 35px;
+    }
+
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
+        font-size: 1.15em;
+    }
+}
+
+@media screen and (max-width: 969px) {
+    main div.errornotif {
+        width: 45%;
+    }
+
+    main div.errornotif p {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 872px) {
+    main div#blog-content form input#blog-image {
+        font-size: 1.05em;
+        height: 22vh;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title input#blog-title {
+        font-size: 1.5em;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.85em;
+    }
+
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
+        font-size: 1.05em;
+        height: 55vh;
+    }
+
+    main div#blog-content form div#blog-info textarea#blog-abstract {
+        height: 10vh;
+    }
+
+    main div#blog-content form div#cancel-publish a#cancel {
+        font-size: 1.5em;
+    }
+
+    main div#blog-content form div#cancel-publish input#publish {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 844px) {
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 25%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 813px) {
+    header nav#navigation a {
+        font-size: 1em;
+    }
+
+    header a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+
+    #scroller {
+        width: 5%;
+    }
+}
+
+@media screen and (max-width: 808px) {
+    main div.errornotif {
+        width: 45%;
+    }
+
+    main div.errornotif img#error {
+        height: 55%;
+        padding: 1.33vh;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    main div.errornotif p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 692px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 1em;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-confirm {
+        width: 30%;
+    }
+
+    div#confirmation-modal div#modal-box div#modal-options button#modal-cancel {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 664px) {
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    header a#login, header form#logout input#logout {
+        width: 10vw;
+    }
+
+    main div.errornotif {
+        width: 65%;
+        height: 5%
+    }
+
+    main div.errornotif img#error {
+        height: 55%;
+        padding: 1.1vh;
+    }
+
+    main div.errornotif p {
+        font-size: 1.4em;
+        margin-left: 3vw;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    main .open {
+        background: #000000;
+    }
+
+    header img#logo {
+        width: 25%;
+    }
+
+    header img#toggler {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 7%;
+        display: block;
+        z-index: 3;
+    }
+
+    header nav#navigation {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        height: 100%;
+        background: #E6E6E6;
+        opacity: 0;
+        transform: translateX(100vw);
+        transition: transform 0.5s ease, opacity 0.25s ease;
+        z-index: 1;
+    }
+
+    header div.open {
+        background: #000000;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    header nav#navigation.open {
+        transform: translateX(0);
+        margin-top: initial;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.36);
+        opacity: 1;
+    }
+
+    header nav#navigation.open a {
+        margin-left: 6%;
+        margin-top: 25%;
+        font-size: 1.5em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        all: unset;
+        font-size: 1.5em;
+        color: #FFFFFF;
+        text-align: center;
+        bottom: 0;
+        background: #3C91E6;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: fixed;
+        cursor: pointer;
+    }
+
+    div#confirmation-modal div#modal-box {
+        width: 60%;
+        height: 25%;
+    }
+
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.5em;
+    }
+
+    #scroller {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 531px) {
+    main div#blog-content form div#blog-info div#blog-title {
+        width: fit-content;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime {
+        position: absolute;
+        top: 100%;
+        width: 50%;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 498px) {
+    main div#blog-content form input#blog-image {
+        font-size: 0.9em;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title input#blog-title {
+        font-size: 1.2em;
+    }
+
+    main div#blog-content form div#blog-info div#blog-title div.blog-datetime h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content form div#blog-info h3 {
+        font-size: 0.75em;
+    }
+
+    main div#blog-content form div#blog-info textarea#blog-section, main div#blog-content form div#blog-info textarea#blog-abstract {
+        font-size: 0.9em;
+    }
+
+    main div#blog-content form div#cancel-publish a#cancel {
+        font-size: 1.2em;
+    }
+
+    main div#blog-content form div#cancel-publish input#publish {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    main div.errornotif p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 462px) {
+    header nav#navigation.open a {
+        font-size: 1em;
+    }
+
+    header nav#navigation.open a#login, header form#logout input#logout {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    main div.errornotif img#error {
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    div#confirmation-modal div#modal-box h2 {
+        font-size: 1.2em;
+    }
+
+    div#confirmation-modal div#modal-box p {
+        font-size: 0.9em;
+    }
+}

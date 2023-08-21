@@ -1,0 +1,564 @@
+body {
+    margin: 0;
+    font-family: 'ABeeZee';
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #E6E6E6;
+}
+
+main a#logo {
+    margin-top: 12px;
+    margin-left: 12px;
+    width: 9.3%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5%;
+    z-index: 1;
+}
+
+main a#logo img#logo {
+    all: inherit;
+    height: auto;
+}
+
+main div#createPanel {
+    width: 31.66%;
+    height: 41.1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #EEEEEE;
+    box-shadow: 0 11px 19px rgb(0, 0, 0, 0.16);
+    position: relative;
+}
+
+main div#createPanel h1 {
+    color: #3E3E3E;
+    font-size: 1.875em;
+    margin: 0;
+    margin-bottom: 11px;
+    font-weight: normal;
+}
+
+main div#createPanel form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 11px;
+    gap: 5%;
+}
+
+main div#createPanel form input#email {
+    all: unset;
+    width: 77%;
+    height: 61.3%;
+    font-size: 1.5em;
+    color: #3E3E3E;
+    background: #E1DDDD;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+}
+
+main div#createPanel form div#username {
+    height: 61.3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 77%;
+}
+
+main div#createPanel form div#username input#firstname {
+    all: unset;
+    width: 45%;
+    height: 100%;
+    font-size: 1.5em;
+    color: #3E3E3E;
+    background: #E1DDDD;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+}
+
+main div#createPanel form div#username input#lastname {
+    all: unset;
+    width: 45%;
+    height: 100%;
+    font-size: 1.5em;
+    color: #3E3E3E;
+    background: #E1DDDD;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+}
+
+main div#createPanel form input#password {
+    all: unset;
+    width: 77%;
+    height: 61.3%;
+    font-size: 1.5em;
+    color: #3E3E3E;
+    background: #E1DDDD;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+}
+
+main div#createPanel form input#confirmpassword {
+    all: unset;
+    width: 77%;
+    height: 61.3%;
+    font-size: 1.5em;
+    color: #3E3E3E;
+    background: #E1DDDD;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+}
+
+main div#createPanel form input#submit {
+    all: unset;
+    width: 77%;
+    height: 61.3%;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    background: #3E3E3E;
+    box-shadow: 0 3px 6px rgb(0, 0, 0, 0.16);
+    text-align: center;
+    cursor: pointer;
+}
+
+main div#createPanel form input#submit:hover {
+    background: #1A1A1A;
+}
+
+main div#createPanel div.errornotif {
+    background: rgb(255, 64, 62);
+    position: absolute;
+    width: 77%;
+    height: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s;
+    margin-bottom: 11px;
+    bottom: 0;
+}
+
+main div#createPanel div.errornotif p {
+    font-size: 1.25em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+main div#createPanel div.errornotif img#error {
+    position: absolute;
+    left: 0;
+    background: rgb(238, 62, 60);
+    height: 76%;
+    padding: 0.61vh;
+}
+
+main div#createPanel div.errornotif img#close {
+    position: absolute;
+    right: 0;
+    height: 45%;
+    padding: 2%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1808px) {
+    main div#createPanel div.errornotif img#error {
+        height: 60%;
+        padding: 1vh;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 1542px) {
+    main div#createPanel h1 {
+        font-size: 1.65em;
+    }
+
+    main div#createPanel form input#email {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 1.4em;
+    }
+
+    main div#createPanel div.errornotif img#error {
+        height: 53%;
+        padding: 1.2vh;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 1em;
+        margin-left: 1.5vw;
+    }
+}
+
+@media screen and (max-width: 1314px) {
+    main div#createPanel form input#email {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel div.errornotif img#error {
+        height: 52%;
+        padding: 1.25vh;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 0.92em;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    main div#createPanel form input#email {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel div.errornotif img#close {
+        height: 37%;
+    }
+}
+
+@media screen and (max-width: 1082px) {
+    main div#createPanel h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 969px) {
+    main div#createPanel h1 {
+        font-size: 1.3em;
+    }
+
+    main div#createPanel form input#email {
+        font-size: 1em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 1em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 1em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 1em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 1em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 916px) {
+    main div#createPanel h1 {
+        font-size: 1.3em;
+    }
+
+    main div#createPanel form input#email {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 0.95em;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 808px) {
+    main div#createPanel form input#email {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 0.85em;
+    }
+
+    main div#createPanel div.errornotif img#error {
+        height: 35%;
+        padding: 1.68vh;
+        padding-left: 0.75vw;
+        padding-right: 0.75vw;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    main div#createPanel h1 {
+        font-size: 1.1em;
+    }
+
+    main div#createPanel form input#email {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 0.8em;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    main div#createPanel form input#email {
+        font-size: 0.7em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 0.7em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 0.7em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 0.7em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 0.7em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    main a#logo {
+        width: 25%;
+    }
+
+    main div#createPanel {
+        width: 100vw;
+        height: 50vh;
+        background: initial;
+        box-shadow: initial;
+        justify-content: center;
+    }
+
+    main div#createPanel h1 {
+        font-size: 2em;
+    }
+
+    main div#createPanel form {
+        height: 100%;
+        gap: 19px;
+    }
+
+    main div#createPanel form input#email {
+        height: 23.7%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel form div#username {
+        height: 23.7%;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        height: 100%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        height: 100%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel form input#password {
+        height: 23.7%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        height: 23.7%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel form input#submit {
+        height: 23.7%;
+        font-size: 1.45em;
+    }
+
+    main div#createPanel div.errornotif {
+        bottom: 0;
+        width: 77%;
+        height: 12.5%
+    }
+
+    main div#createPanel div.errornotif img#error {
+        height: 64%;
+        padding: 1.1vh;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 1.4em;
+        margin-left: 3vw;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    main div#createPanel div.errornotif img#error {
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    main img#logo {
+        width: 30%;
+    }
+
+    main div#createPanel form input#email {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form div#username input#firstname {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form div#username input#lastname {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#password {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#confirmpassword {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel form input#submit {
+        font-size: 1.2em;
+    }
+
+    main div#createPanel div.errornotif p {
+        font-size: 1em;
+    }
+}
+
