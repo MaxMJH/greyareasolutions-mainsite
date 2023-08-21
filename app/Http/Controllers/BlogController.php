@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use App\Utilities\SanitiserUtility;
 use Illuminate\Support\Str;
+use App\Enums\RoleEnum;
 
 /**
  * This class acts as the Blog model's controller, therefore
@@ -54,7 +55,18 @@ class BlogController extends Controller
      */
     public function getBlogView(Blog $blog): View
     {
-        return view('blog', ['blog' => $blog]);
+        // Get the current logged in user, if any.
+        $user = Auth::user();
+
+        // Check to see if a user is logged in, and check if the logged in user is
+        // the blog owner, or if the user is an admin.
+        if ($user && ($blog->user->user_id === $user->user_id || $user->role === RoleEnum::Admin->value)) {
+            // If so, return the blog with editorial access.
+            return view('blog', ['blog' => $blog, 'has_editorial_access' => true]);
+        } else {
+            // If not, return the blog without editorial access.
+            return view('blog', ['blog' => $blog]);
+        }
     }
 
     /**
@@ -145,7 +157,7 @@ class BlogController extends Controller
      *
      * @return JsonResponse Returns a JsonResponse confirming if the blog should be created.
      */
-    public function getBlogConfirm(): JsonResponse
+    public function getCreateBlogConfirm(): JsonResponse
     {
         // Set 'viewName' and 'message' for modal.
         $viewName = 'confirmation_modal';
@@ -154,4 +166,56 @@ class BlogController extends Controller
         // Returns the modal confirmation view.
         return response()->json(['modal' => view('confirmation_modal', ['message' => $message])->render()]);
     }
+
+    /**
+     * Allows a blogger (if they own the blog) or an admin to remove a blog. This will
+     * remove it from the database permanently.
+     * Done via a POST request.
+     *
+     * @param Request $request Obtain the incoming request.
+     * @param Blog $blog The corresponding blog that contains the passed slug, if any.
+     *
+     * @return RedirectResponse Returns a RedirectResponse based on the inputted data.
+     */
+    public function postRemoveBlog(Request $request, Blog $blog): RedirectResponse
+    {
+        // Validate the user id.
+        $validator = Validator::make($request->all(), [
+            'blog_id' => 'numeric',
+        ]);
+
+        // Now check if it fails, if so, send back to blog.
+        if ($validator->fails()) {
+            return redirect()->to("/blog/${$blog->blog_slug}");
+        }
+
+        // Check to see if the received blog ID is not the same as the current blogs id.
+        if ($request->input('blog_id') !== strval($blog->blog_id)) {
+            // If so return the user back to the blog.
+            return redirect()->to('/blog/' . $blog->blog_slug);
+        }
+
+        // Remove the blog from the database.
+        Blog::where('blog_id', $blog->blog_id)->delete();
+
+        // Return the user to blogs page.
+        return redirect()->to('/blogs');
+    }
+
+    /**
+     * Used to confirm if the user wants to remove a blog.
+     * Done via a GET request.
+     *
+     * @return JsonResponse Returns a JsonResponse confirming if the blog should be removed.
+     */
+    public function getRemoveBlogConfirm(): JsonResponse
+    {
+        // Set 'viewName' and 'message' for modal.
+        $viewName = 'confirmation_modal';
+        $message = 'Are you sure you want to delete this blog?';
+
+        // Returns the modal confirmation view.
+        return response()->json(['modal' => view('confirmation_modal', ['message' => $message])->render()]);
+    }
+
 }

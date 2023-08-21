@@ -15,12 +15,24 @@
         <div id="blog-info">
           <div id="blog-title">
             <h2>{{ $blog->blog_title }}</h2>
-            <div id="blog-edit-delete">
-              <img src="{{ asset('images/edit.png') }}" alt="Edit">
-              <a id="edit" href=""></a>
-              <img src="{{ asset('images/rubbish.png') }}" alt="Delete">
-              <a id="remove" href=""></a>
-            </div>
+            @if (isset($has_editorial_access))
+              <div id="blog-edit-delete">
+                <form id="edit" action="{{ $blog->blog_slug }}/edit" method="POST">
+                  @csrf
+                  <button id="edit" type="submit">
+                    <img src="{{ asset('/images/edit.png') }}" alt="Edit">
+                    <input type="hidden" name="blog_id" value="{{ $blog->blog_id }}">
+                  </button>
+                </form>
+                <form id="remove" action="{{ $blog->blog_slug}}/remove" method="POST">
+                  @csrf
+                  <button id="remove" type="submit">
+                    <img src="{{ asset('/images/rubbish.png') }}" alt="Remove">
+                    <input type="hidden" name="blog_id" value="{{ $blog->blog_id }}">
+                  </button>
+                </form>
+              </div>
+            @endif
             <div class="blog-datetime">
               <img src="{{ asset('images/timeicon.png') }}" alt="Date">
               <h3>{{ $blog->created_at->format('M d, Y') }}</h3>

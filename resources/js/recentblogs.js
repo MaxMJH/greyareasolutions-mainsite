@@ -35,7 +35,7 @@ $(document).ready(function() {
             <h5>${new Date(blogs[i].created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</h5>
           </div>
         </div>
-        <a class="recent-post-ref" href="blog/${blogs[i].blog_slug}"></a>
+        <a class="recent-post-ref" href="/blog/${blogs[i].blog_slug}"></a>
       </div>`;
         // Add the blog to recent posts section.
         $('section#recent-posts').append(html);
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
     // Send a GET request to the confirmation modal.
     $.get({
-      url: '/blog/confirm',
+      url: '/blog/create/confirm',
       type: 'GET',
       success: function (response) {
         // If success, show the modal.
@@ -69,6 +69,40 @@ $(document).ready(function() {
           event.preventDefault();
 
           // Remove the modal from the HTML.
+          $(this).closest('#confirmation-modal').remove();
+        });
+      }
+    });
+  });
+
+  // Set an event listener for the delete button.
+  $('button#remove').on('click', function(event) {
+    event.preventDefault();
+
+    // Get the current blog url.
+    const url = window.location.href + '/remove/confirm';
+
+    // Send a GET request to the confirmation modal.
+    $.get({
+      url: url,
+      type: 'GET',
+      success: function (response) {
+        // If success, show the modal.
+        $('body').append(response.modal);
+
+        // Set an event listener for the confirm modal.
+        $('body').on('click', '#modal-confirm', function (event) {
+          event.preventDefault();
+
+          // Submit the form on /blog/{blog_slug}/remove.
+          $('form#remove').submit();
+        });
+
+        // Set an event listener for the cancel button.
+        $('body').on('click', '#modal-cancel', function(event) {
+          event.preventDefault();
+
+          // Remvove the modal from HTML.
           $(this).closest('#confirmation-modal').remove();
         });
       }
