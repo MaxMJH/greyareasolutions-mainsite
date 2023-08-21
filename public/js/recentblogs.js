@@ -63,32 +63,68 @@ $(document).ready(function () {
   // Set an event listener for the publsih button.
   $('input#publish').on('click', function (event) {
     event.preventDefault();
+    var lastUrl = window.location.href;
+    var action = lastUrl.split('/');
+    action = action[action.length - 1];
+    switch (action) {
+      case 'create':
+        // Send a GET request to the confirmation modal.
+        $.get({
+          url: '/blog/create/confirm',
+          type: 'GET',
+          success: function success(response) {
+            // If success, show the modal.
+            $('main').after(response.modal);
 
-    // Send a GET request to the confirmation modal.
-    $.get({
-      url: '/blog/create/confirm',
-      type: 'GET',
-      success: function success(response) {
-        // If success, show the modal.
-        $('main').after(response.modal);
+            // Set an event listner for the confirm button.
+            $('body').on('click', '#modal-confirm', function (event) {
+              event.preventDefault();
 
-        // Set an event listner for the confirm button.
-        $('body').on('click', '#modal-confirm', function (event) {
-          event.preventDefault();
+              // Submit the form on /blog/create.
+              $('div#blog-content > form').submit();
+            });
 
-          // Submit the form on /blog/create.
-          $('div#blog-content > form').submit();
+            // Set an event listener for the cancel button.
+            $('body').on('click', '#modal-cancel', function (event) {
+              event.preventDefault();
+
+              // Remove the modal from the HTML.
+              $(this).closest('#confirmation-modal').remove();
+            });
+          }
         });
+        break;
+      case 'edit':
+        // Get the current blog url.
+        var url = window.location.href + '/confirm';
 
-        // Set an event listener for the cancel button.
-        $('body').on('click', '#modal-cancel', function (event) {
-          event.preventDefault();
+        // Send a GET request to the confirmation modal.
+        $.get({
+          url: url,
+          type: 'GET',
+          success: function success(response) {
+            // If success, show the modal.
+            $('main').after(response.modal);
 
-          // Remove the modal from the HTML.
-          $(this).closest('#confirmation-modal').remove();
+            // Set an event listner for the confirm button.
+            $('body').on('click', '#modal-confirm', function (event) {
+              event.preventDefault();
+
+              // Submit the form on /blog/create.
+              $('div#blog-content > form').submit();
+            });
+
+            // Set an event listener for the cancel button.
+            $('body').on('click', '#modal-cancel', function (event) {
+              event.preventDefault();
+
+              // Remove the modal from the HTML.
+              $(this).closest('#confirmation-modal').remove();
+            });
+          }
         });
-      }
-    });
+        break;
+    }
   });
 
   // Set an event listener for the delete button.

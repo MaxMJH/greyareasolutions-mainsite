@@ -159,22 +159,17 @@ main div.add-blog {
     border-radius: 26px;
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
     cursor: pointer;
+    justify-content: center;
 }
 
-main div.add-blog form {
-    width: 100%;
-    height: 100%;
-}
-
-main div.add-blog form input {
+main div.add-blog a {
     all: unset;
     width: 100%;
-    height: 100%;
-    margin: auto;
-    text-align: center;
     font-size: 2.1875em;
-    font-weight: normal;
     color: #3E3E3E;
+    text-align: center;
+    padding-top: 40%;
+    padding-bottom: 40%;
 }
 
 main div.add-blog:hover {
@@ -227,7 +222,7 @@ main div.add-blog:hover {
         font-size: 1.1em;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.875em;
     }
 }
@@ -241,7 +236,7 @@ main div.add-blog:hover {
         font-size: 1.675em;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.675em;
     }
 }
@@ -315,7 +310,7 @@ main div.add-blog:hover {
         grid-row-gap: 80px;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.275em;
     }
 }
@@ -390,7 +385,7 @@ main div.add-blog:hover {
         height: 28vh;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.675em;
     }
 }
@@ -505,7 +500,7 @@ main div.add-blog:hover {
         font-size: 0.95em;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.475em;
     }
 }
@@ -535,7 +530,7 @@ main div.add-blog:hover {
         grid-row-gap: 60px;
     }
 
-    main div.add-blog form input {
+    main div.add-blog a {
         font-size: 1.3em;
     }
 }

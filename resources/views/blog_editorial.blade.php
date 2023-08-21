@@ -11,20 +11,32 @@
     @include('header')
     <main>
       <div id="blog-content">
-        <form action="/blog/create" method="POST">
+        <form @if(Route::currentRouteName() === 'blog.edit') action="/blog/{{ $blog->blog_slug }}/edit" @else action="/blog/create" @endif method="POST">
           @csrf
-          <input id="blog-image" type="url" name="blog-image" placeholder="Blog Image" @if (old()) value="{{ old('blog-image') }}"@endif>
+          <input id="blog-image" type="url" name="blog-image" placeholder="Blog Image" @if (old()) value="{{ old('blog-image') }}" @elseif (isset($blog)) value="{{ $blog->blog_image }}" @else @endif>
           <div id="blog-info">
             <div id="blog-title">
-              <input id="blog-title" type="text" name="blog-title" placeholder="Enter Title" @if (old()) value="{{ old('blog-title') }}"@endif>
+              <input id="blog-title" type="text" name="blog-title" placeholder="Enter Title" @if (old()) value="{{ old('blog-title') }}" @elseif (isset($blog)) value="{{ $blog->blog_title }}" @else @endif>
               <div class="blog-datetime">
                 <img src="{{ asset('images/timeicon.png') }}" alt="Date">
-                <h3>{{ $date }}</h3>
+                <h3>@if (isset($blog)) {{ $blog->created_at->format('M d, Y') }} @else {{ $date }} @endif</h3>
               </div>
             </div>
             <h3>By: {{ $user }}</h3>
-            <textarea id="blog-abstract" name="blog-abstract" placeholder="Enter the blog abstract">@if (old()){{ old('blog-abstract') }}@endif</textarea>
-            <textarea id="blog-section" name="blog-section" placeholder="Enter the content of the blog">@if (old()){{ old('blog-section') }}@endif</textarea>
+            @if(old())
+              <textarea id="blog-abstract" name="blog-abstract" placeholder="Enter the blog abstract">{{ old('blog-abstract') }}</textarea>
+            @elseif (isset($blog))
+              <textarea id="blog-abstract" name="blog-abstract" placeholder="Enter the blog abstract">{{ $blog->blog_abstract }}</textarea>
+            @else
+              <textarea id="blog-abstract" name="blog-abstract" placeholder="Enter the blog abstract"></textarea>
+            @endif
+            @if(old())
+              <textarea id="blog-section" name="blog-section" placeholder="Enter the blog content">{{ old('blog-section') }}</textarea>
+            @elseif (isset($blog))
+              <textarea id="blog-section" name="blog-section" placeholder="Enter the blog content">{{ $blog->blog_content }}</textarea>
+            @else
+              <textarea id="blog-section" name="blog-section" placeholder="Enter the blog content"></textarea>
+            @endif
           </div>
           <div id="cancel-publish">
             <a id="cancel" href="/blogs">Cancel</a>
@@ -43,9 +55,6 @@
         @endphp
       @endif
     </main>
-    @if (1 === 2)
-      @include('confirmation_modal')
-    @endif
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="{{ mix('/js/pagelayout.js') }}"></script>

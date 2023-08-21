@@ -28,9 +28,7 @@
         </div>
       @endfor
       <div class="add-blog">
-        <form action="/blog/create" method="GET">
-          <input type="submit" value="Add Blog">
-        </form>
+        <a href="/blog/create">Add Blog</a>
       </div>
     </main>
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">

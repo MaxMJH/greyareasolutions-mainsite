@@ -17,13 +17,9 @@
             <h2>{{ $blog->blog_title }}</h2>
             @if (isset($has_editorial_access))
               <div id="blog-edit-delete">
-                <form id="edit" action="{{ $blog->blog_slug }}/edit" method="POST">
-                  @csrf
-                  <button id="edit" type="submit">
-                    <img src="{{ asset('/images/edit.png') }}" alt="Edit">
-                    <input type="hidden" name="blog_id" value="{{ $blog->blog_id }}">
-                  </button>
-                </form>
+                <a href="{{ $blog->blog_slug }}/edit">
+                  <img src="{{ asset('images/edit.png') }}" alt="Edit">
+                </a>
                 <form id="remove" action="{{ $blog->blog_slug}}/remove" method="POST">
                   @csrf
                   <button id="remove" type="submit">
@@ -46,9 +42,6 @@
     <section id="recent-posts">
       <h3>Recent Posts</h3>
     </section>
-    @if (1 === 2)
-      @include('confirmation_modal')
-    @endif
     <img id="scroller" src="{{ asset('images/scroller.png') }}" alt="Scroller">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="{{ mix('/js/pagelayout.js') }}"></script>

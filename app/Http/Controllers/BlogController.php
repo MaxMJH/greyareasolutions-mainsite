@@ -168,12 +168,98 @@ class BlogController extends Controller
     }
 
     /**
+     * Used to allow the blogger / admin to edit a blog.
+     * Done via a GET request.
+     *
+     * @param Blog $blog The corresponding blog that contains the passed slug, if any.
+     *
+     * @return View      Returns a view containing the exisitng blog.
+     */
+    public function getEditBlog(Blog $blog): View
+    {
+        return view('blog_editorial', ['user' => Auth::user()->firstname . ' ' . Auth::user()->lastname, 'blog' => $blog]);
+    }
+
+    /**
+     * Allows a blogger (if they own it) or an admin to push the updated blog to the
+     * database.
+     * Done via a POST request.
+     *
+     * @param Request $request  Obtain the incoming request.
+     * @param Blog $blog        The corresponding blog that contains the passed slug, if any.
+     *
+     * @return RedirectResponse Returns a RedirectResponse based on the inputted data.
+     */
+    public function postEditBlog(Request $request, Blog $blog): RedirectResponse
+    {
+        // Validate and sanitise input.
+        // Check to see if the inputs are 'generally' valid.
+        $validator = Validator::make($request->all(), [
+            'blog-image' => 'bail|required|url|starts_with:https://i.imgur.com/|max:255',
+            'blog-title' => 'bail|required|min:3|max:255',
+            'blog-abstract' => 'bail|required|min:3|max:255',
+            'blog-section' => 'required|min:3|max:5000',
+        ]);
+
+        // Now check if it fails, if so, send back to the GET page.
+        if ($validator->fails()) {
+            return redirect()->to('/blog/' . $blog->blog_slug . '/edit')->with('error', 'Failed to validate')->withInput($request->all());
+        }
+
+        // Create an instance of SanitiserUtility and perform stripping and trimming.
+        $sanitiser = new SanitiserUtility($request->only(['blog-image', 'blog-title', 'blog-abstract', 'blog-section']));
+        $sanitiser->strip()
+                  ->trim();
+
+        // Get the now sanitised inputs back from the sanitiser.
+        $sanitisedInputs = $sanitiser->getSanitisedInputs();
+
+        // Check to see if the blog title already exists (discounting current blog).
+        if (Blog::where('blog_title', '=', $sanitisedInputs['blog-title'])->where('blog_id', '!=', $blog->blog_id)->first()) {
+            return redirect()->to('/blog/' . $blog->blog_slug . '/edit')->with('error', 'Blog already exists')->withInput($request->all());
+        }
+
+        // With everything sanitised, now create the slug based off the title.
+        $slug = Str::slug($sanitisedInputs['blog-title'], '_');
+
+        // Now update the blog entry.
+        Blog::where('blog_id', $blog->blog_id)->update([
+            'blog_title' => $sanitisedInputs['blog-title'],
+            'blog_abstract' => $sanitisedInputs['blog-abstract'],
+            'blog_content' => $sanitisedInputs['blog-section'],
+            'blog_image' => $sanitisedInputs['blog-image'],
+            'blog_slug' => $slug,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // If successful, go to created blog, else return an error message.
+        return Blog::where('blog_title', $sanitisedInputs['blog-title'])->first() ? redirect()->to("/blog/${slug}") : redirect()->to('/blog/' . $blog->blog_slug . '/edit')->with('error', 'Failed to create')->withInput($request->all());
+    }
+
+    /**
+     * Used to confirm if the user wants to edit the blog with their inputted data.
+     * Done via a GET request.
+     *
+     * @return JsonResponse Returns a JsonResponse confirming if the blog should be edited.
+     */
+    public function getEditBlogConfirm(): JsonResponse
+    {
+        // Set 'viewName' and 'message' for modal.
+        $viewName = 'confirmation_modal';
+        $message = 'Are you sure you want to edit this blog?';
+
+        // Returns the modal confirmation view.
+        return response()->json(['modal' => view('confirmation_modal', ['message' => $message])->render()]);
+    }
+
+
+    /**
      * Allows a blogger (if they own the blog) or an admin to remove a blog. This will
      * remove it from the database permanently.
      * Done via a POST request.
      *
-     * @param Request $request Obtain the incoming request.
-     * @param Blog $blog The corresponding blog that contains the passed slug, if any.
+     * @param Request $request  Obtain the incoming request.
+     * @param Blog $blog        The corresponding blog that contains the passed slug, if any.
      *
      * @return RedirectResponse Returns a RedirectResponse based on the inputted data.
      */

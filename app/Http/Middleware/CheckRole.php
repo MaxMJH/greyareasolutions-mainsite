@@ -60,8 +60,8 @@ class CheckRole
                 case RoleEnum::Admin->value:
                     // Check to see if the authenticated user's role is that of 'Admin'.
                     if ($user->role === RoleEnum::Admin) {
-                     // If so, allow the request to be passed to the actual route.
-                     return $next($request);
+                        // If so, allow the request to be passed to the actual route.
+                        return $next($request);
                     }
                     break;
                 case RoleEnum::Blogger->value:
@@ -76,5 +76,6 @@ class CheckRole
                     abort(401);
             }
         }
+        abort(401);
     }
 }

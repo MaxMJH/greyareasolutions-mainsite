@@ -71,16 +71,16 @@ Route::get('/blog/create', [BlogController::class, 'getCreateBlog'])->middleware
 Route::post('/blog/create', [BlogController::class, 'postCreateBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
 
 // Utilise the BlogController's 'getBlogConfirm' method.
-Route::get('/blog/create/confirm', [BlogController::class, 'getCreateBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value, 'checkReferrer:/blog/create');
+Route::get('/blog/create/confirm', [BlogController::class, 'getCreateBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value, 'checkReferrer:/create');
 
 // Utilise the BlogController's 'getEditBlog' method.
-Route::get('/blog/{blog:blog_slug}/edit', [BlogController::class, 'getEditBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
+Route::get('/blog/{blog:blog_slug}/edit', [BlogController::class, 'getEditBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value)->name('blog.edit');
 
 // Utilise the BlogController's 'postEditBlog' method.
 Route::post('/blog/{blog:blog_slug}/edit', [BlogController::class, 'postEditBlog'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value);
 
 // Utilise the BlogController's 'getEditBlogConfirm' methood.
-Route::post('/blog/{blog:blog_slug}/edit/confirm', [BlogController::class, 'getEditBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value, 'checkReferrer:/blog/edit');
+Route::get('/blog/{blog:blog_slug}/edit/confirm', [BlogController::class, 'getEditBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value, 'checkReferrer:/edit');
 
 // Utilise the BlogController's 'getRemoveBlogConfirm' method.
 Route::get('/blog/{blog:blog_slug}/remove/confirm', [BlogController::class, 'getRemoveBlogConfirm'])->middleware('checkRole:' . RoleEnum::Admin->value . ',' . RoleEnum::Blogger->value, 'checkReferrer:/blog');

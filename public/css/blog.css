@@ -130,7 +130,7 @@ main div#blog-content div#blog-info div#blog-title div#blog-edit-delete {
     position: relative;
 }
 
-main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form {
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
     width: 15%;
     height: 15%;
 }
@@ -142,9 +142,10 @@ main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form but
     cursor: pointer;
 }
 
-main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form button img {
+main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form button img, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 main div#blog-content div#blog-info div#blog-title div.blog-datetime {
@@ -479,7 +480,7 @@ div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover
         font-size: 1.9em;
     }
 
-    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form {
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
         width: 20%;
         height: 20%;
     }
@@ -633,7 +634,7 @@ div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover
 }
 
 @media screen and (max-width: 700px) {
-    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form {
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
         width: 25%;
         height: 25%;
     }
@@ -683,7 +684,7 @@ div#confirmation-modal div#modal-box div#modal-options button#modal-cancel:hover
         width: 3.5%;
     }
 
-    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form {
+    main div#blog-content div#blog-info div#blog-title div#blog-edit-delete form, main div#blog-content div#blog-info div#blog-title div#blog-edit-delete a {
         width: 35%;
         height: 35%;
     }
